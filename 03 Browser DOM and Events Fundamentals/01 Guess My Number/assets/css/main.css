@@ -1,0 +1,176 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Press+Start+2P&display=swap");
+body, a {
+  color: var(--color-light);
+}
+
+:root {
+  --color-primary: #17de17;
+  --color-seondary: #f83c08;
+  --color-light: #efefef;
+  --color-dark: #222;
+}
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-weight: 900;
+  line-height: 1.1;
+  font-size: 75%;
+  font-family: "Press Start 2P";
+}
+@media only screen and (max-width: 90em) {
+  html {
+    font-size: 62.5%;
+  }
+}
+@media only screen and (max-width: 61em) {
+  html {
+    font-size: 56.25%;
+  }
+}
+
+body {
+  box-sizing: border-box;
+}
+
+.title {
+  font-size: 3.6vw;
+}
+
+.t__center {
+  text-align: center;
+}
+
+.my__large {
+  margin: 6rem 0 8rem;
+}
+
+.btn {
+  text-decoration: none;
+  display: inline-block;
+  color: var(--color-dark);
+  background-color: var(--color-light);
+  padding: 1.5rem 3rem;
+  letter-spacing: 0.05rem;
+  border-radius: 0.5rem;
+  font-size: 1.6rem;
+}
+.btn__submit {
+  margin-top: 3.2rem;
+}
+
+.header {
+  padding: 4rem 2rem;
+  font-size: 1.6rem;
+}
+
+.guess__input {
+  width: 50%;
+  margin-inline: auto;
+}
+@media only screen and (max-width: 90em) {
+  .guess__input {
+    width: 60%;
+  }
+}
+@media only screen and (max-width: 61em) {
+  .guess__input {
+    width: 80%;
+  }
+}
+@media only screen and (max-width: 50em) {
+  .guess__input {
+    width: 90%;
+  }
+}
+@media only screen and (max-width: 36em) {
+  .guess__input {
+    width: 100%;
+    padding: 1rem;
+  }
+}
+
+.form {
+  text-align: center;
+}
+.form__number {
+  font-size: 3.2rem;
+  width: 15rem;
+  height: 8rem;
+  padding: 1rem;
+  font-family: "Press Start 2p";
+  text-align: center;
+  border-radius: 0.5rem;
+}
+.form ::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.result {
+  text-align: center;
+  margin-bottom: 6.4rem;
+  position: relative;
+}
+.result .result__point {
+  width: 15rem;
+  height: 9rem;
+  display: inline-block;
+  line-height: 9rem;
+  text-align: center;
+  font-size: 5.2rem;
+  color: var(--color-dark);
+  background-color: var(--color-light);
+  border-radius: 0.5rem;
+  position: relative;
+  z-index: 2;
+}
+.result__line {
+  width: 100%;
+  height: 0.5rem;
+  display: block;
+  background-color: crimson;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.point {
+  align-self: normal;
+  display: grid;
+  font-size: 1.2rem;
+}
+@media only screen and (max-width: 36em) {
+  .point {
+    order: 1;
+    justify-items: end;
+  }
+}
+.point__title {
+  margin-bottom: 6rem;
+  font-size: 1.6rem;
+}
+.point .score {
+  margin-bottom: 3rem;
+}
+.wrapper {
+  max-width: 160rem;
+  min-height: 100vh;
+  margin-inline: auto;
+  background-color: var(--color-dark);
+}
+
+.d__flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/*# sourceMappingURL=main.css.map */

@@ -66,7 +66,7 @@ body {
 }
 
 .header {
-  padding: 4rem 2rem;
+  padding: 2rem 4rem;
   font-size: 1.6rem;
 }
 
@@ -154,17 +154,18 @@ body {
   }
 }
 .point__title {
-  margin-bottom: 6rem;
+  margin-bottom: 4rem;
   font-size: 1.6rem;
 }
 .point .score {
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
 }
 .wrapper {
   max-width: 160rem;
   min-height: 100vh;
   margin-inline: auto;
   background-color: var(--color-dark);
+  padding: 2rem 0 10rem;
 }
 
 .d__flex {

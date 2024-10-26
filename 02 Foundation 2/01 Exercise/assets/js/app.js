@@ -272,3 +272,31 @@ for (let exercise = 0; exercise < 4; exercise++) {
     console.log(`Exercise ${exercise}: Lifting  weight  repetition ${rep} 🪳`);
   }
 }
+
+// While Loop
+
+const aList = [1, 2, 4, 5, 6, 7, 8, 8, 9, 4, 3, 3, 58, 10, 30, 40, 114, 55];
+
+let list = 0;
+let sum = 0;
+
+while (list < aList.length) {
+  sum += aList[list];
+
+  list++;
+}
+
+console.log(`Total value is = ${sum}`);
+
+let dice = Math.trunc(Math.random() * 6) + 1;
+
+let turn = 1;
+while (dice !== 6) {
+  console.log(`Turn ${turn} : ${dice}`);
+
+  turn++;
+
+  dice = Math.trunc(Math.random() * 6) + 1;
+
+  if (dice === 6) console.log("End Games");
+}

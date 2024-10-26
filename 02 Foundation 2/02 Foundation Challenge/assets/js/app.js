@@ -1,5 +1,7 @@
 "use strict";
 
+/*
+
 const calcAverage = (a, b, c) => (a + b + c) / 3;
 
 // const avgDolphins = calcAverage(44, 23, 71);
@@ -81,3 +83,39 @@ console.log(
         markMiller.name
       }'s BMI (${markMiller.calcBMI()})`
 );
+
+*/
+
+// Challenge #4
+
+const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+const tips = [];
+const totals = [];
+
+const calcTip = (bill) => {
+  return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+};
+
+for (let i = 0; i < bills.length; i++) {
+  tips.push(calcTip(bills[i]));
+  totals.push(bills[i] + tips[i]);
+}
+
+const calcAverage = (arr) => {
+  let i = 0;
+  let sum = 0;
+  while (i < arr.length) {
+    sum += arr[i];
+
+    i++;
+  }
+
+  return sum / arr.length;
+};
+
+console.log(bills, tips, totals);
+
+// const result = calcAverage(bills);
+// const result = calcAverage(tips);
+const result = calcAverage(totals);
+console.log(result);

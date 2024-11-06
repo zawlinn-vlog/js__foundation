@@ -1,0 +1,6 @@
+//
+@use "../abstract/function" as fun;
+
+%txt_light {
+  color: fun.getColor(light);
+}

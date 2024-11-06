@@ -1,0 +1,120 @@
+//
+
+@use "../abstract/function" as fun;
+@use "../abstract/mixin" as mx;
+
+.header {
+  padding: 2rem 4rem;
+  font-size: 1.6rem;
+
+  @include mx.media(36em) {
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  &__title {
+    @include mx.media(36em) {
+      order: -1;
+    }
+  }
+}
+
+.guess__input {
+  width: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  @include mx.media(36em) {
+    padding: 1rem;
+
+    flex-direction: column !important;
+    gap: 6rem;
+  }
+}
+
+.form {
+  text-align: center;
+
+  &__number {
+    font-size: 3.2rem;
+    width: 15rem;
+    height: 8rem;
+    padding: 1rem;
+    font-family: "Press Start 2p";
+    text-align: center;
+    border-radius: 0.5rem;
+  }
+
+  ::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+
+  @include mx.media(36em) {
+    grid-area: 2 / 1 / 3 / -1;
+  }
+}
+
+.result {
+  text-align: center;
+  margin-bottom: 6.4rem;
+
+  position: relative;
+
+  .result__point {
+    width: 15rem;
+    height: 10rem;
+    display: inline-block;
+    line-height: 10rem;
+    text-align: center;
+    font-size: 5.2rem;
+    color: fun.getColor(dark);
+    background-color: fun.getColor(light);
+    border-radius: 0.5rem;
+
+    position: relative;
+    z-index: 2;
+  }
+
+  &__line {
+    width: 100%;
+    height: 0.5rem;
+    display: block;
+    background-color: crimson;
+
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+  }
+}
+
+.point {
+  align-self: normal;
+
+  font-size: 1.3rem;
+
+  display: grid;
+
+  & > * {
+    display: inline-block;
+  }
+
+  @include mx.media(36em) {
+    grid-area: 1 / 1 / 2 / -1;
+    text-align: center;
+  }
+
+  &__title {
+    margin-bottom: 4rem;
+    font-size: 1.7rem;
+    line-height: 1.7;
+    @include mx.media(36em) {
+      margin-bottom: 3rem;
+    }
+  }
+  .score {
+    margin-bottom: 2rem;
+  }
+}

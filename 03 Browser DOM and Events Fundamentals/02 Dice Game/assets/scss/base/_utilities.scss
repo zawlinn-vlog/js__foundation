@@ -1,0 +1,24 @@
+//
+@use "../abstract/variables" as var;
+@use "../abstract/mixin" as mx;
+
+.player__active {
+  background-color: rgba(var.$light, 0.45);
+  @include mx.media(47em) {
+    display: flex !important;
+  }
+}
+
+.winner__player {
+  background-color: var.$dark;
+
+  .card__title {
+    color: var.$light;
+  }
+}
+
+.hidden {
+  // display: none;
+  opacity: 0;
+  visibility: hidden;
+}

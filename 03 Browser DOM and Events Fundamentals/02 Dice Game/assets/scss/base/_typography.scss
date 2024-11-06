@@ -1,0 +1,31 @@
+//
+
+@use "../abstract/function" as fun;
+
+.card {
+  &__title {
+    font-size: 3.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    line-height: 1.2;
+    color: fun.getColor(dark);
+  }
+
+  &__total {
+    font-size: 8rem;
+    margin-bottom: auto;
+
+    color: #c7365f;
+  }
+
+  &__subtitle {
+    font-size: 1.7rem;
+    text-transform: uppercase;
+
+    letter-spacing: 0.1rem;
+  }
+
+  &__score {
+    font-size: 3.2rem;
+  }
+}

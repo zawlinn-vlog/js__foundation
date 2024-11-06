@@ -1,0 +1,11 @@
+//
+
+@use "../abstract/function" as fun;
+
+.wrapper {
+  min-height: 100vh;
+  background-image: fun.getColor(pri__gradient);
+
+  display: grid;
+  place-content: center center;
+}

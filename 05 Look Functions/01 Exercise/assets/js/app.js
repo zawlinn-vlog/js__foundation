@@ -127,7 +127,7 @@ const lufthansa = {
 };
 
 const eurowings = {
-  name: 'Eurowings',
+  airline: 'Eurowings',
   iataCode: 'EW',
   bookings: [],
 };
@@ -153,4 +153,10 @@ book.apply(eurowings, flightData);
 book.call(lufthansa, ...flightData);
 
 console.log(lufthansa);
+console.log(eurowings);
+
+const aa = book.bind(eurowings);
+
+aa(453, 'Jackson Smith');
+
 console.log(eurowings);

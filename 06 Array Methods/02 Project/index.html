@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Banking | LOGIN</title>
+
+    <!-- font awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- custom css -->
+    <link rel="stylesheet" href="./assets/css/main.css" />
+
+    <!-- custom js -->
+    <script defer src="./assets/js/app.js"></script>
+  </head>
+  <body>
+    <!-- LOGIN PAGE -->
+    <section class="login position-fixed top-0 start-0 d-none">
+      <nav class="navbar">
+        <div class="container-fluid container-lg p-2 flex-nowrap">
+          <!-- LOGO TEXT -->
+          <p class="navbar-brand fw-semibold p-0 m-0">Log in get started</p>
+          <!-- LOGO IMG -->
+          <a
+            href="#"
+            class="navbar-brand d-none d-lg-flex justify-content-end m-0"
+          >
+            <img src="./assets/img/logo.png" class="w-50" alt="Bankit LOGO" />
+          </a>
+          <!-- LOGIN FORM -->
+          <form action="" class="d-flex gap-2 justify-content-end">
+            <div class="w-25">
+              <input
+                type="text"
+                name=""
+                id=""
+                class="form-control rounded-pill text-center"
+                placeholder="username"
+                required
+              />
+              <p class="invalid-feedback">Please provide a valid username</p>
+            </div>
+            <div class="w-25">
+              <input
+                type="password"
+                name=""
+                id=""
+                class="form-control rounded-pill text-center"
+                placeholder="PIN"
+                required
+              />
+              <p class="invalid-feedback">Please provide a valid password</p>
+            </div>
+            <button type="submit" href="#" class="btn btn-primary btn-submit">
+              <i class="fas fa-long-arrow-alt-right"></i>
+            </button>
+          </form>
+        </div>
+      </nav>
+    </section>
+
+    <!-- BANKIT PAGE -->
+    <section class="bankit pt-2">
+      <!-- NAVIGATION SECTION -->
+
+      <nav class="navbar">
+        <div class="container-fluid">
+          <!-- TIME AND USER INFO -->
+          <p class="navbar-brand fw-bold p-0 m-0">
+            Good <span class="duration">Afternoon</span>,
+            <span class="login__user"> Jonas</span>!
+          </p>
+
+          <!-- LOGO -->
+          <a
+            href="#"
+            class="navbar-brand m-0 d-none d-lg-flex justify-content-end"
+          >
+            <img src="./assets/img/logo.png" alt="" class="w-50" />
+          </a>
+
+          <!-- LOGIN FORM  -->
+          <form action="" class="d-flex gap-3 d-flex justify-content-end">
+            <div class="w-25">
+              <input
+                type="text"
+                name=""
+                id=""
+                class="form-control rounded-pill"
+              />
+            </div>
+            <div class="w-25">
+              <input
+                type="text"
+                name=""
+                id=""
+                class="form-control rounded-pill bg-light"
+              />
+            </div>
+            <button class="btn btn-outline-primary">
+              <i class="fas fa-long-arrow-alt-right"></i>
+            </button>
+          </form>
+        </div>
+      </nav>
+
+      <!-- CURRENT USER INFO -->
+
+      <div class="container mt-5">
+        <div class="row">
+          <div class="col">
+            <p class="current__title m-0 fs-3 fw-semibold">Current balance</p>
+            <p class="current__time" style="font-size: 0.85rem">
+              At of <span class="login__date">31/07/2024</span>,<span
+                class="login__time"
+                >18:37</span
+              >
+            </p>
+          </div>
+          <div class="col d-flex">
+            <p class="current__ammount ms-auto display-5">25 8925 €</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- main DATA -->
+
+      <div class="container">
+        <div class="row">
+          <div class="col-7">
+            <div class="amount__lists">
+              <ul class="list-group">
+                <!-- LIST -->
+                <li class="list-group-item px-5 py-3">
+                  <div class="row">
+                    <div
+                      class="col d-flex align-items-center gap-2"
+                      style="font-size: 0.8rem"
+                    >
+                      <span
+                        class="badge text-bg-success rounded-pill text-uppercase"
+                        >8 deposit</span
+                      >
+                      <span class="date">12/03/2024</span>
+                    </div>
+                    <div class="col d-flex">
+                      <p class="action__amount ms-auto p-0 m-0">1300,00 €</p>
+                    </div>
+                  </div>
+                </li>
+                <!-- LIST -->
+                <li class="list-group-item px-5 py-3">
+                  <div class="row">
+                    <div
+                      class="col d-flex align-items-center gap-2"
+                      style="font-size: 0.8rem"
+                    >
+                      <span
+                        class="badge text-bg-danger rounded-pill text-uppercase"
+                        >8 deposit</span
+                      >
+                      <span class="date">12/03/2024</span>
+                    </div>
+                    <div class="col d-flex">
+                      <p class="action__amount ms-auto p-0 m-0">1300,00 €</p>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-5 d-grid gap-4">
+            <article class="transfer__money bg-warning rounded px-5 py-4">
+              <p class="fw-bold">Transfer money</p>
+              <form action="" class="d-flex gap-2 mt-4">
+                <div class="d-grid">
+                  <input type="text" name="" id="" class="form-control" />
+                  <span
+                    class="form-label text-center mt-1 fw-semibold"
+                    style="font-size: 0.85rem"
+                    >Transfer to</span
+                  >
+                </div>
+
+                <div class="d-grid">
+                  <input type="number" name="" id="" class="form-control" />
+                  <span
+                    class="form-label text-center mt-1 fw-semibold"
+                    style="font-size: 0.85rem"
+                    >Amount</span
+                  >
+                </div>
+
+                <button
+                  type="submit"
+                  class="btn btn-light align-self-start px-3"
+                >
+                  <i class="fas fa-long-arrow-alt-right"></i>
+                </button>
+              </form>
+            </article>
+
+            <article class="request__loan text-bg-success px-5 py-4 rounded">
+              <p class="fw-bold">Request loan</p>
+
+              <form action="" class="d-flex gap-3">
+                <div class="d-grid">
+                  <input type="number" name="" id="" class="form-control" />
+                  <span
+                    class="form-label text-center mt-1 fw-semibold"
+                    style="font-size: 0.85rem"
+                    >Amount</span
+                  >
+                </div>
+
+                <button
+                  type="submit"
+                  class="btn btn-light align-self-start px-3"
+                >
+                  <i class="fas fa-long-arrow-alt-right"></i>
+                </button>
+              </form>
+            </article>
+
+            <article class="close__account text-bg-danger py-4 px-5 rounded">
+              <p class="fw-bold">Close account</p>
+              <form action="" class="d-flex gap-2 mt-4">
+                <div class="d-grid">
+                  <input type="text" name="" id="" class="form-control" />
+                  <span
+                    class="form-label text-center mt-1 fw-semibold"
+                    style="font-size: 0.85rem"
+                    >Confirm user</span
+                  >
+                </div>
+
+                <div class="d-grid">
+                  <input type="password" name="" id="" class="form-control" />
+                  <span
+                    class="form-label text-center mt-1 fw-semibold"
+                    style="font-size: 0.85rem"
+                    >Confirm PIN</span
+                  >
+                </div>
+
+                <button
+                  type="submit"
+                  class="btn btn-light align-self-start px-3"
+                >
+                  <i class="fas fa-long-arrow-alt-right"></i>
+                </button>
+              </form>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+  </body>
+</html>

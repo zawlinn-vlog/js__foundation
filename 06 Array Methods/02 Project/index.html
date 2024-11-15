@@ -67,11 +67,11 @@
     </section>
 
     <!-- BANKIT PAGE -->
-    <section class="bankit pt-2">
+    <section class="bankit pt-2 pb-5">
       <!-- NAVIGATION SECTION -->
 
       <nav class="navbar">
-        <div class="container-fluid">
+        <div class="container-fluid px-3">
           <!-- TIME AND USER INFO -->
           <p class="navbar-brand fw-bold p-0 m-0">
             Good <span class="duration">Afternoon</span>,
@@ -87,7 +87,7 @@
           </a>
 
           <!-- LOGIN FORM  -->
-          <form action="" class="d-flex gap-3 d-flex justify-content-end">
+          <form action="" class="d-flex gap-2 d-flex justify-content-end">
             <div class="w-25">
               <input
                 type="text"
@@ -113,8 +113,8 @@
 
       <!-- CURRENT USER INFO -->
 
-      <div class="container mt-5">
-        <div class="row">
+      <div class="container mt-5 fw-semibold">
+        <div class="row px-2">
           <div class="col">
             <p class="current__title m-0 fs-3 fw-semibold">Current balance</p>
             <p class="current__time" style="font-size: 0.85rem">
@@ -125,7 +125,7 @@
             </p>
           </div>
           <div class="col d-flex">
-            <p class="current__ammount ms-auto display-5">25 8925 €</p>
+            <p class="current__ammount ms-auto display-5">25,8925 €</p>
           </div>
         </div>
       </div>
@@ -134,7 +134,10 @@
 
       <div class="container">
         <div class="row">
-          <div class="col-7">
+          <div
+            class="col-7 bg-light p-0 overflow-auto amount-data"
+            style="height: 85vh"
+          >
             <div class="amount__lists">
               <ul class="list-group">
                 <!-- LIST -->
@@ -258,6 +261,36 @@
                 </button>
               </form>
             </article>
+          </div>
+        </div>
+      </div>
+
+      <!-- FOOTER DATA -->
+      <div class="container">
+        <div class="row mt-4">
+          <div class="col-7">
+            <div class="row align-items-center">
+              <div class="col">
+                <span class="footer__txt">In</span>
+                <span class="text__income"></span>
+              </div>
+              <div class="col">
+                <span class="footer__txt">Out</span>
+                <span class="text__outcome"></span>
+              </div>
+              <div class="col">
+                <span class="footer__txt">Interest</span>
+                <span class="text__interest"></span>
+              </div>
+              <div class="col">
+                <a href="#" class="btn btn-outline-primary"> &darr; Sort </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-5 d-flex justify-content-end">
+            <p class="session">
+              You will be logout in : <span class="logout__time">5:00</span>
+            </p>
           </div>
         </div>
       </div>

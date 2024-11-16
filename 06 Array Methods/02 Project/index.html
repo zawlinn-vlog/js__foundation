@@ -21,51 +21,6 @@
     <script defer src="./assets/js/app.js"></script>
   </head>
   <body>
-    <!-- LOGIN PAGE -->
-    <section class="login position-fixed top-0 start-0 d-none">
-      <nav class="navbar">
-        <div class="container-fluid container-lg p-2 flex-nowrap">
-          <!-- LOGO TEXT -->
-          <p class="navbar-brand fw-semibold p-0 m-0">Log in get started</p>
-          <!-- LOGO IMG -->
-          <a
-            href="#"
-            class="navbar-brand d-none d-lg-flex justify-content-end m-0"
-          >
-            <img src="./assets/img/logo.png" class="w-50" alt="Bankit LOGO" />
-          </a>
-          <!-- LOGIN FORM -->
-          <form action="" class="d-flex gap-2 justify-content-end">
-            <div class="w-25">
-              <input
-                type="text"
-                name=""
-                id=""
-                class="form-control rounded-pill text-center"
-                placeholder="username"
-                required
-              />
-              <p class="invalid-feedback">Please provide a valid username</p>
-            </div>
-            <div class="w-25">
-              <input
-                type="password"
-                name=""
-                id=""
-                class="form-control rounded-pill text-center"
-                placeholder="PIN"
-                required
-              />
-              <p class="invalid-feedback">Please provide a valid password</p>
-            </div>
-            <button type="submit" href="#" class="btn btn-primary btn-submit">
-              <i class="fas fa-long-arrow-alt-right"></i>
-            </button>
-          </form>
-        </div>
-      </nav>
-    </section>
-
     <!-- BANKIT PAGE -->
     <section class="bankit pt-2 pb-5">
       <!-- NAVIGATION SECTION -->
@@ -74,8 +29,9 @@
         <div class="container-fluid px-3">
           <!-- TIME AND USER INFO -->
           <p class="navbar-brand fw-bold p-0 m-0">
-            Good <span class="duration">Afternoon</span>,
-            <span class="login__user"> Jonas</span>!
+            Login to your Bank Account
+            <!-- Good <span class="duration">Afternoon</span>,
+            <span class="login__user"> Jonas</span>! -->
           </p>
 
           <!-- LOGO -->
@@ -92,7 +48,7 @@
               <input
                 type="text"
                 name=""
-                id=""
+                id="username"
                 class="form-control rounded-pill"
               />
             </div>
@@ -100,21 +56,21 @@
               <input
                 type="text"
                 name=""
-                id=""
+                id="userPin"
                 class="form-control rounded-pill bg-light"
               />
             </div>
-            <button class="btn btn-outline-primary">
+            <button class="btn btn-outline-primary" id="submitBtn">
               <i class="fas fa-long-arrow-alt-right"></i>
             </button>
           </form>
         </div>
       </nav>
 
-      <!-- CURRENT USER INFO -->
+      <main class="container d-none">
+        <!-- CURRENT USER INFO -->
 
-      <div class="container mt-5 fw-semibold">
-        <div class="row px-2">
+        <div class="row px-2 mt-5 fw-bold">
           <div class="col">
             <p class="current__title m-0 fs-3 fw-semibold">Current balance</p>
             <p class="current__time" style="font-size: 0.85rem">
@@ -125,15 +81,13 @@
             </p>
           </div>
           <div class="col d-flex">
-            <p class="current__ammount ms-auto display-5">25,8925 €</p>
+            <p class="current__amount ms-auto display-5">€</p>
           </div>
         </div>
-      </div>
 
-      <!-- main DATA -->
+        <!-- main DATA -->
 
-      <div class="container">
-        <div class="row">
+        <div class="row mt-3">
           <div
             class="col-7 bg-light p-0 overflow-auto amount-data"
             style="height: 85vh"
@@ -141,41 +95,6 @@
             <div class="amount__lists">
               <ul class="list-group">
                 <!-- LIST -->
-                <li class="list-group-item px-5 py-3">
-                  <div class="row">
-                    <div
-                      class="col d-flex align-items-center gap-2"
-                      style="font-size: 0.8rem"
-                    >
-                      <span
-                        class="badge text-bg-success rounded-pill text-uppercase"
-                        >8 deposit</span
-                      >
-                      <span class="date">12/03/2024</span>
-                    </div>
-                    <div class="col d-flex">
-                      <p class="action__amount ms-auto p-0 m-0">1300,00 €</p>
-                    </div>
-                  </div>
-                </li>
-                <!-- LIST -->
-                <li class="list-group-item px-5 py-3">
-                  <div class="row">
-                    <div
-                      class="col d-flex align-items-center gap-2"
-                      style="font-size: 0.8rem"
-                    >
-                      <span
-                        class="badge text-bg-danger rounded-pill text-uppercase"
-                        >8 deposit</span
-                      >
-                      <span class="date">12/03/2024</span>
-                    </div>
-                    <div class="col d-flex">
-                      <p class="action__amount ms-auto p-0 m-0">1300,00 €</p>
-                    </div>
-                  </div>
-                </li>
               </ul>
             </div>
           </div>
@@ -185,18 +104,14 @@
               <form action="" class="d-flex gap-2 mt-4">
                 <div class="d-grid">
                   <input type="text" name="" id="" class="form-control" />
-                  <span
-                    class="form-label text-center mt-1 fw-semibold"
-                    style="font-size: 0.85rem"
+                  <span class="form-label text-center mt-1 fw-semibold"
                     >Transfer to</span
                   >
                 </div>
 
                 <div class="d-grid">
                   <input type="number" name="" id="" class="form-control" />
-                  <span
-                    class="form-label text-center mt-1 fw-semibold"
-                    style="font-size: 0.85rem"
+                  <span class="form-label text-center mt-1 fw-semibold"
                     >Amount</span
                   >
                 </div>
@@ -216,9 +131,7 @@
               <form action="" class="d-flex gap-3">
                 <div class="d-grid">
                   <input type="number" name="" id="" class="form-control" />
-                  <span
-                    class="form-label text-center mt-1 fw-semibold"
-                    style="font-size: 0.85rem"
+                  <span class="form-label text-center mt-1 fw-semibold"
                     >Amount</span
                   >
                 </div>
@@ -237,9 +150,7 @@
               <form action="" class="d-flex gap-2 mt-4">
                 <div class="d-grid">
                   <input type="text" name="" id="" class="form-control" />
-                  <span
-                    class="form-label text-center mt-1 fw-semibold"
-                    style="font-size: 0.85rem"
+                  <span class="form-label text-center mt-1 fw-semibold"
                     >Confirm user</span
                   >
                 </div>
@@ -263,11 +174,9 @@
             </article>
           </div>
         </div>
-      </div>
 
-      <!-- FOOTER DATA -->
-      <div class="container">
-        <div class="row mt-4">
+        <!-- FOOTER DATA -->
+        <div class="row mt-5">
           <div class="col-7">
             <div class="row align-items-center">
               <div class="col">
@@ -293,7 +202,7 @@
             </p>
           </div>
         </div>
-      </div>
+      </main>
     </section>
 
     <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>

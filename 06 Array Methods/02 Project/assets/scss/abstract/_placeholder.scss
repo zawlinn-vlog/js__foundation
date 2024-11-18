@@ -1,0 +1,8 @@
+//
+
+@use "./mixin" as mx;
+
+%d__flex {
+  display: flex;
+  @include mx.justItem(space-between);
+}

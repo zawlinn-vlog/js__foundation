@@ -1,0 +1,63 @@
+//
+
+@use "../abstract/function" as fun;
+@use "../abstract/placeholder";
+
+.navbar {
+  &__logo {
+    height: 5rem;
+    object-fit: cover;
+    // filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.8));
+  }
+
+  &__form {
+    @extend %d__flex;
+
+    & > * {
+      position: relative;
+
+      input:not(button) {
+        width: 10rem;
+        height: 3.2rem;
+        text-align: center;
+        //   padding: 1rem 2rem;
+        border-radius: 2rem;
+        border: 0.2rem solid transparent;
+        background-color: #fff;
+        margin-right: 0.7rem;
+        outline: none;
+
+        transition: all 0.3s;
+        &:focus {
+          border: 0.2rem solid fun.getColor(primary);
+        }
+      }
+    }
+
+    ::-webkit-input-placeholder {
+      //   font-size: 1.2rem;
+      //   text-transform: uppercase;
+      letter-spacing: 0.03rem;
+    }
+
+    &-label {
+      position: absolute;
+      bottom: -50%;
+      left: 45%;
+      transform: translate(-50%, 0);
+
+      opacity: 1;
+
+      transition: all 0.3s;
+    }
+
+    &-input:placeholder-shown + &-label {
+      opacity: 0;
+      transform: translate(-50%, -2rem);
+    }
+
+    &-pin {
+      padding-inline-end: 1rem;
+    }
+  }
+}

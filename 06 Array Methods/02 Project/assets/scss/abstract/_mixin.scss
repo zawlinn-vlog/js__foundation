@@ -1,0 +1,6 @@
+//
+
+@mixin justItem($jc: center, $ai: center) {
+  justify-content: $jc;
+  align-items: $ai;
+}

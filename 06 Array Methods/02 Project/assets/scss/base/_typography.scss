@@ -1,0 +1,11 @@
+//
+
+@use "../abstract/function" as fun;
+
+.navbar {
+  &__brand {
+    font-size: 2rem;
+    font-weight: 600;
+    color: fun.getColor(dark);
+  }
+}

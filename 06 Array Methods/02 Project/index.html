@@ -20,29 +20,31 @@
     <!--  -->
     <main class="wrapper">
       <!-- NAVIGATION SECTION -->
-      <nav class="navbar">
+      <nav class="navbar d__flex">
         <h3 class="navbar__brand">Login to get started</h3>
         <img src="./assets/img/logo.png" alt="" class="navbar__logo" />
-        <form action="" class="navbar__form">
+        <form action="" class="form d__flex">
           <div class="form__group">
             <input
               type="text"
               name=""
               id=""
-              class="navbar__form-input"
+              class="form__control form__border-success"
               placeholder="username"
+              required
             />
-            <label for="" class="navbar__form-label">Username</label>
+            <label for="" class="form__label">Username</label>
           </div>
           <div class="form__group">
             <input
               type="password"
               name=""
-              id=""
-              class="navbar__form-input"
+              id="pin"
+              class="form__control form__border-success"
               placeholder="PIN"
+              required
             />
-            <label for="" class="navbar__form-label">PIN</label>
+            <label for="" class="form__label">PIN</label>
           </div>
           <button type="submit" class="btn btn__submit btn__disabled" disabled>
             <i class="fas fa-arrow-right"></i>
@@ -53,7 +55,7 @@
       <!-- MAIN CONTENT -->
       <section class="main d__none">
         <!-- CURRENT USER INFO -->
-        <div class="current__info">
+        <div class="current__info d__flex">
           <!-- LEFT SIDE -->
           <div class="current__info-left">
             <h3 class="title">current balance</h3>
@@ -69,22 +71,161 @@
         </div>
 
         <!-- USER DATA -->
-        <div class="user__data"></div>
+        <div class="user__data rounded overflow-auto">
+          <!-- ITEMs -->
+          <div class="user__items d__flex">
+            <div class="user__action">
+              <span class="user__badge user__deposite">01 Deposite</span>
+              <span class="user__action-date">31/07/2024</span>
+            </div>
+            <p class="user__amounts">300€</p>
+          </div>
+          <!-- ITEMs -->
+          <div class="user__items d__flex">
+            <div class="user__action">
+              <span class="user__badge user__withdraw">01 Withdraw</span>
+              <span class="user__action-date">31/07/2024</span>
+            </div>
+            <p class="user__amounts">300€</p>
+          </div>
+          <div class="user__items d__flex">
+            <div class="user__action">
+              <span class="user__badge user__deposite">01 Withdraw</span>
+              <span class="user__action-date">31/07/2024</span>
+            </div>
+            <p class="user__amounts">300€</p>
+          </div>
+        </div>
 
         <!-- USER SUMMARY -->
-        <div class="user__summery">USER SUMMARY</div>
+        <div class="user__summary">
+          <div class="income">
+            <span class="summary__txt">in</span>
+            <span class="summary__amount text__success">0000€</span>
+          </div>
+
+          <div class="outcome">
+            <span class="summary__txt">out</span>
+            <span class="summary__amount text__danger">000€</span>
+          </div>
+
+          <div class="interest">
+            <span class="summary__txt">interest</span>
+            <span class="summary__amount text__success">000€</span>
+          </div>
+
+          <button type="button" class="btn btn__down">&darr;Sort</button>
+        </div>
 
         <!-- LOGOUT SESSTION -->
-        <div class="logout__session">You will be logout: 5:00</div>
+        <div class="logout__session">
+          <p class="logout__session-txt">
+            You will be logout:
+            <span class="logout__session-duration">5:00</span>
+          </p>
+        </div>
 
         <!-- TRANSFER -->
-        <div class="transfer__section rounded p-4">Transfer Section</div>
+        <div class="transfer__section rounded p-4-5">
+          <p class="title__sub">Transfer to &mdash;</p>
+          <form action="" class="form transfer__form form__right">
+            <div class="form">
+              <input
+                type="text"
+                name=""
+                id=""
+                class="form__control rounded-1 form__border-accent"
+                placeholder="Username"
+                required
+              />
+              <label for="" class="form__label">Username</label>
+            </div>
+
+            <div class="form__group">
+              <input
+                type="number"
+                name=""
+                id=""
+                min="0"
+                class="form__control rounded-1 form__border-accent"
+                placeholder="Amount"
+                required
+              />
+              <label for="" class="form__label">Amount</label>
+            </div>
+            <button
+              type="submit"
+              class="btn btn__submit btn__disabled"
+              disabled
+            >
+              <i class="fas fa-arrow-right"></i>
+            </button>
+          </form>
+        </div>
 
         <!-- LOAN  -->
-        <div class="loan__section p-4 rounded">Loan Section</div>
+        <div class="loan__section p-4-5 rounded">
+          <p class="title__sub">Loan &mdash;</p>
+          <form class="form form__loan form__right">
+            <div class="form__group">
+              <input
+                type="number"
+                name=""
+                id=""
+                min="0"
+                class="form__control rounded-1 form__border-accent"
+                placeholder="Amount"
+                required
+              />
+              <label for="" class="form__label">Amount</label>
+            </div>
+            <button
+              type="submit"
+              class="btn btn__submit btn__disabled"
+              disabled
+            >
+              <i class="fas fa-arrow-right"></i>
+            </button>
+          </form>
+        </div>
 
         <!-- CLOSE -->
-        <div class="close__account p-4 rounded">Close Account</div>
+        <div class="close__account p-4-5 rounded">
+          <p class="title__sub">Close Account &mdash;</p>
+          <form action="" class="form from__close form__right">
+            <div class="form">
+              <input
+                type="text"
+                name=""
+                id=""
+                class="form__control rounded-1 form__border-accent"
+                placeholder="Username"
+                required
+              />
+              <label for="" class="form__label text__white">Username</label>
+            </div>
+
+            <div class="form__group">
+              <input
+                type="password"
+                name=""
+                id=""
+                min="0"
+                class="form__control rounded-1 form__border-accent"
+                placeholder="PIN"
+                required
+              />
+              <label for="" class="form__label text__white">PIN</label>
+            </div>
+            <button
+              type="submit"
+              class="btn btn__submit btn__disabled"
+              disabled
+            >
+              <i class="fas fa-arrow-right"></i>
+            </button>
+          </form>
+        </div>
       </section>
     </main>
   </body>

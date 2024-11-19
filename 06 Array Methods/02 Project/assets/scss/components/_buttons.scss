@@ -1,0 +1,15 @@
+//
+
+@use "../abstract/function" as fun;
+
+.btn {
+  border: none;
+  font-size: 1.8rem;
+  padding-inline-start: 0.5rem;
+
+  cursor: pointer;
+
+  &__disabled {
+    cursor: not-allowed;
+  }
+}

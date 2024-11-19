@@ -7,4 +7,18 @@
   min-height: 100vh;
   background-color: fun.getColor(light);
   margin-inline: auto;
+  padding: 2rem 0 8rem;
+}
+
+.main {
+  max-width: 70rem;
+  margin-inline: auto;
+  margin-top: 5rem;
+  transition: all 0.3s;
+
+  display: grid;
+  grid-template-columns: 4fr 3fr;
+  grid-template-rows: repeat(4, minmax(5rem, auto)) auto;
+
+  gap: 1.6rem;
 }

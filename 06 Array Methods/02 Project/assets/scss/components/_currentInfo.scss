@@ -1,0 +1,9 @@
+//
+
+@use "../abstract/placeholder";
+
+.current {
+  &__info {
+    @extend %d__flex;
+  }
+}

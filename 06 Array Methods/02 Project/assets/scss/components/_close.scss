@@ -1,0 +1,12 @@
+//
+
+@use "../abstract/function" as fun;
+
+.close__account {
+  background-image: linear-gradient(
+    to right bottom,
+    fun.getColor(secondary__light),
+    fun.getColor(secondary)
+  );
+  color: fun.getColor(light);
+}

@@ -44,11 +44,48 @@
             />
             <label for="" class="navbar__form-label">PIN</label>
           </div>
-          <button type="submit" class="btn btn__submit">
+          <button type="submit" class="btn btn__submit btn__disabled" disabled>
             <i class="fas fa-arrow-right"></i>
           </button>
         </form>
       </nav>
+
+      <!-- MAIN CONTENT -->
+      <section class="main d__none">
+        <!-- CURRENT USER INFO -->
+        <div class="current__info">
+          <!-- LEFT SIDE -->
+          <div class="current__info-left">
+            <h3 class="title">current balance</h3>
+            <p class="login">
+              At of <span class="login__date">31/07/2024</span>,
+              <span class="login__time">18:07</span>
+            </p>
+          </div>
+          <!-- RIGHT SIDE -->
+          <div class="current__info-right">
+            <p class="current__price">0,000€</p>
+          </div>
+        </div>
+
+        <!-- USER DATA -->
+        <div class="user__data"></div>
+
+        <!-- USER SUMMARY -->
+        <div class="user__summery">USER SUMMARY</div>
+
+        <!-- LOGOUT SESSTION -->
+        <div class="logout__session">You will be logout: 5:00</div>
+
+        <!-- TRANSFER -->
+        <div class="transfer__section rounded p-4">Transfer Section</div>
+
+        <!-- LOAN  -->
+        <div class="loan__section p-4 rounded">Loan Section</div>
+
+        <!-- CLOSE -->
+        <div class="close__account p-4 rounded">Close Account</div>
+      </section>
     </main>
   </body>
 </html>

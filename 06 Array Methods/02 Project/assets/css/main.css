@@ -7,7 +7,7 @@
   --accent-color: #ffb003;
   --accent__light-color: #ffcb03;
   --light-color: #efefef;
-  --dark-color: #333;
+  --dark-color: rgba(51, 51, 51, 0.9333333333);
 }
 
 *,
@@ -25,8 +25,10 @@ html {
   line-height: 1.5;
 }
 
-body {
+body,
+input {
   box-sizing: border-box;
+  color: var(--dark-color);
 }
 
 .navbar__brand {
@@ -35,7 +37,30 @@ body {
   color: var(--dark-color);
 }
 
-.navbar, .navbar__form {
+.title {
+  font-size: 1.8rem;
+  text-transform: capitalize;
+  font-weight: 600;
+}
+
+.current__price {
+  font-size: 4.2rem;
+}
+
+.login {
+  font-size: 1.1rem;
+  color: rgba(34, 34, 34, 0.7);
+}
+
+.rounded {
+  border-radius: 0.3rem;
+}
+
+.p-4 {
+  padding: 3rem;
+}
+
+.navbar, .current__info, .navbar__form {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -63,9 +88,12 @@ body {
   border: 0.2rem solid var(--primary-color);
 }
 .navbar__form ::-webkit-input-placeholder {
+  text-transform: capitalize;
   letter-spacing: 0.03rem;
 }
 .navbar__form-label {
+  color: rgba(51, 51, 51, 0.8);
+  letter-spacing: 0.01rem;
   position: absolute;
   bottom: -50%;
   left: 45%;
@@ -75,14 +103,53 @@ body {
 }
 .navbar__form-input:placeholder-shown + .navbar__form-label {
   opacity: 0;
-  transform: translate(-50%, -2rem);
+  transform: translate(-50%, -0.7rem);
 }
 .navbar__form-pin {
   padding-inline-end: 1rem;
 }
 
+.btn {
+  border: none;
+  font-size: 1.8rem;
+  padding-inline-start: 0.5rem;
+  cursor: pointer;
+}
+.btn__disabled {
+  cursor: not-allowed;
+}
+
+.transfer__section {
+  background-image: linear-gradient(to right bottom, var(--accent__light-color), var(--accent-color));
+}
+
+.loan__section {
+  background-image: linear-gradient(to right bottom, var(--primary__light-color), var(--primary-color));
+}
+
+.close__account {
+  background-image: linear-gradient(to right bottom, var(--secondary__light-color), var(--secondary-color));
+  color: var(--light-color);
+}
+
 .navbar {
-  padding: 1rem 2rem;
+  padding: 0 3rem;
+}
+
+.current__info {
+  grid-area: 1/1/2/-1;
+}
+
+.user__data {
+  grid-area: 2/1/5/2;
+}
+
+.user__summery {
+  grid-area: 5/1/-1/2;
+}
+
+.logout__session {
+  grid-area: 5/2/-1/-1;
 }
 
 .wrapper {
@@ -90,6 +157,18 @@ body {
   min-height: 100vh;
   background-color: var(--light-color);
   margin-inline: auto;
+  padding: 2rem 0 8rem;
+}
+
+.main {
+  max-width: 70rem;
+  margin-inline: auto;
+  margin-top: 5rem;
+  transition: all 0.3s;
+  display: grid;
+  grid-template-columns: 4fr 3fr;
+  grid-template-rows: repeat(4, minmax(5rem, auto)) auto;
+  gap: 1.6rem;
 }
 
 /*# sourceMappingURL=main.css.map */

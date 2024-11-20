@@ -139,7 +139,7 @@ input {
 }
 
 .text__success {
-  background-image: linear-gradient(to right bottom, var(--primary__light-color), var(--primary-color)) !important;
+  background-image: linear-gradient(to right bottom, var(--primary__light-color), var(--primary-color));
   color: #fff;
   background-clip: text;
   -webkit-background-clip: text;
@@ -147,7 +147,7 @@ input {
 }
 
 .text__danger {
-  background-image: linear-gradient(to right bottom, var(--secondary__light-color), var(--secondary-color)) !important;
+  background-image: linear-gradient(to right bottom, var(--secondary__light-color), var(--secondary-color));
   color: #fff;
   background-clip: text;
   -webkit-background-clip: text;
@@ -231,11 +231,11 @@ input {
   letter-spacing: 0.02rem;
 }
 .user__deposite {
-  background-image: linear-gradient(to right bottom, var(--primary__light-color), var(--primary-color)) !important;
+  background-image: linear-gradient(to right bottom, var(--primary__light-color), var(--primary-color));
   color: #fff;
 }
 .user__withdraw {
-  background-image: linear-gradient(to right bottom, var(--secondary__light-color), var(--secondary-color)) !important;
+  background-image: linear-gradient(to right bottom, var(--secondary__light-color), var(--secondary-color));
   color: #fff;
 }
 .user__amounts {

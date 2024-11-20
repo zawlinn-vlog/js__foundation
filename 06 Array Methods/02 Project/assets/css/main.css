@@ -231,11 +231,11 @@ input {
   letter-spacing: 0.02rem;
 }
 .user__deposite {
-  background-image: linear-gradient(to right bottom, var(--primary__light-color), var(--primary-color));
+  background-image: linear-gradient(to right bottom, var(--primary__light-color), var(--primary-color)) !important;
   color: #fff;
 }
 .user__withdraw {
-  background-image: linear-gradient(to right bottom, var(--secondary__light-color), var(--secondary-color));
+  background-image: linear-gradient(to right bottom, var(--secondary__light-color), var(--secondary-color)) !important;
   color: #fff;
 }
 .user__amounts {

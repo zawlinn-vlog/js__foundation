@@ -22,22 +22,27 @@
   }
 }
 
-@mixin badge($color1, $color2) {
-  background-image: linear-gradient(
-    to right bottom,
-    fun.getColor($color1),
-    fun.getColor($color2)
-  );
-  color: #fff;
-}
-
-@mixin textGradient($color1, $color2) {
+@mixin colorGra($color1, $color2) {
   background-image: linear-gradient(
     to right bottom,
     fun.getColor($color1),
     fun.getColor($color2)
   ) !important;
   color: #fff;
+}
+
+@mixin badge($color1, $color2) {
+  // background-image: linear-gradient(
+  //   to right bottom,
+  //   fun.getColor($color1),
+  //   fun.getColor($color2)
+  // );
+  // color: #fff;
+  @include colorGra($color1, $color2);
+}
+
+@mixin textGradient($color1, $color2) {
+  @include colorGra($color1, $color2);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

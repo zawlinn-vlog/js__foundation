@@ -51,11 +51,11 @@
 }
 
 .form__border-danger {
-  @include mx.borderColor(secondary, primary);
+  @include mx.borderColor(secondary, accent);
 }
 
 .form__border-warning {
-  @include mx.borderColor(secondary, accent);
+  @include mx.borderColor(secondary, primary);
 }
 
 .summary__amount {

@@ -119,7 +119,7 @@ input {
   background-color: #fff !important;
 }
 .form__border-danger:valid {
-  border: 0.2rem solid var(--primary-color);
+  border: 0.2rem solid var(--accent-color);
 }
 
 .form__border-warning {
@@ -131,7 +131,7 @@ input {
   background-color: #fff !important;
 }
 .form__border-warning:valid {
-  border: 0.2rem solid var(--accent-color);
+  border: 0.2rem solid var(--primary-color);
 }
 
 .summary__amount {

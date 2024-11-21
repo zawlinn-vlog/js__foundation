@@ -15,6 +15,9 @@
 
     <!-- CUSTOM CSS -->
     <link rel="stylesheet" href="./assets/css/main.css" />
+
+    <!-- CUSTOM JS -->
+    <script defer src="./assets/js/app.js"></script>
   </head>
   <body>
     <!--  -->
@@ -28,25 +31,33 @@
             <input
               type="text"
               name=""
-              id=""
+              id="loginUserName"
               class="form__control form__border-success"
               placeholder="username"
               required
             />
-            <label for="" class="form__label">Username</label>
+            <label for="" class="form__label" id="loginUserLabel"
+              >Username</label
+            >
           </div>
           <div class="form__group">
             <input
               type="password"
               name=""
-              id="pin"
+              id="loginPin"
               class="form__control form__border-success"
               placeholder="PIN"
+              disabled
               required
             />
-            <label for="" class="form__label">PIN</label>
+            <label for="" class="form__label" id="loginPinLabel">PIN</label>
           </div>
-          <button type="submit" class="btn btn__submit btn__disabled" disabled>
+          <button
+            type="submit"
+            class="btn btn__submit btn__disabled"
+            id="login__submit"
+            disabled
+          >
             <i class="fas fa-arrow-right"></i>
           </button>
         </form>
@@ -84,13 +95,6 @@
           <div class="user__items d__flex">
             <div class="user__action">
               <span class="user__badge user__withdraw">01 Withdraw</span>
-              <span class="user__action-date">31/07/2024</span>
-            </div>
-            <p class="user__amounts">300€</p>
-          </div>
-          <div class="user__items d__flex">
-            <div class="user__action">
-              <span class="user__badge user__deposite">01 Withdraw</span>
               <span class="user__action-date">31/07/2024</span>
             </div>
             <p class="user__amounts">300€</p>
@@ -133,7 +137,7 @@
               <input
                 type="text"
                 name=""
-                id=""
+                id="transferUserName"
                 class="form__control rounded-1 form__border-warning"
                 placeholder="Username"
                 required
@@ -145,7 +149,7 @@
               <input
                 type="number"
                 name=""
-                id=""
+                id="transferAmount"
                 min="0"
                 class="form__control rounded-1 form__border-warning"
                 placeholder="Amount"
@@ -171,7 +175,7 @@
               <input
                 type="number"
                 name=""
-                id=""
+                id="loanAmount"
                 min="0"
                 class="form__control rounded-1 form__border-danger"
                 placeholder="Amount"
@@ -182,6 +186,7 @@
             <button
               type="submit"
               class="btn btn__submit btn__disabled"
+              id="l__submit"
               disabled
             >
               <i class="fas fa-arrow-right"></i>
@@ -197,7 +202,7 @@
               <input
                 type="text"
                 name=""
-                id=""
+                id="closeUserName"
                 class="form__control rounded-1 form__border-success"
                 placeholder="Username"
                 required
@@ -209,7 +214,7 @@
               <input
                 type="password"
                 name=""
-                id=""
+                id="closePin"
                 min="0"
                 class="form__control rounded-1 form__border-success"
                 placeholder="PIN"

@@ -98,6 +98,11 @@ const loginPinLabel = document.querySelector('#loginPinLabel');
 const submit__l = document.querySelector('#login__submit');
 const userDataContainer = document.querySelector('.user__data');
 
+const mainWrapper = document.querySelector('.main');
+const incomeTotal = document.querySelector('#total__income');
+const outcomeTotal = document.querySelector('#total__outcome');
+const interestTotal = document.querySelector('#total__interest');
+
 // DATA
 
 const account1 = {
@@ -159,7 +164,7 @@ const createUserDataLists = acc => {
   });
 };
 
-createUserDataLists(account1);
+// createUserDataLists(account1);
 
 /*  CREATE USER NAME FOR ALL ACCOUNTs */
 
@@ -176,3 +181,136 @@ createUserDataLists(account1);
     // console.log(userName);
   });
 })();
+
+// CHECK FUN;
+
+function checkSpell(reg, str, el) {
+  if (!reg.test(str)) {
+    el.classList.add('border__secondary');
+    return -1;
+  }
+
+  // check class
+  el.classList.contains('border__secondary') &&
+    el.classList.remove('border__secondary');
+  el.classList.add('border__primary');
+}
+
+loginUsername.addEventListener('keyup', function () {
+  // const reg = /\W/;
+  const reg = /^[A-Za-z]+$/;
+  const data = loginUsername.value;
+
+  //
+
+  checkSpell(reg, data, loginUsername);
+});
+
+loginPIN.addEventListener('keyup', function () {
+  const reg = /^[0-9]{4}$/;
+  const data = loginPIN.value;
+
+  // CHECKING SPELL
+
+  checkSpell(reg, data, loginPIN);
+
+  // DISABLE ENABLE BTNs
+
+  disableBtn(loginUsername.value && loginPIN.value, submit__l);
+});
+
+// disable Button
+
+function disableBtn(con, el) {
+  if (con) {
+    el.removeAttribute('disabled');
+    el.style.cursor = 'pointer';
+  } else {
+    el.setAttribute('disabled', '');
+    el.style.cursor = 'not-allowed';
+  }
+}
+
+let currentUser;
+
+submit__l.addEventListener('click', function (e) {
+  e.preventDefault();
+
+  //
+
+  const userName = loginUsername.value.toLowerCase();
+  const userPass = Number(loginPIN.value);
+
+  //
+
+  clearContent([loginUsername, loginPIN]);
+
+  //
+
+  currentUser = checkUser(userName, userPass);
+
+  console.log(currentUser);
+
+  updateUI(currentUser);
+
+  // CHECK DATABASE
+});
+
+// UPDATE UI
+
+function updateUI(acc) {
+  createUserDataLists(acc);
+  incomeTotal.textContent = `${total(acc, true)}`;
+  outcomeTotal.textContent = `${total(acc, false)}`;
+}
+
+// DISPLAY TOTAL
+
+function total(acc, m) {
+  if (m)
+    return acc.movements
+      .filter(mov => mov > 0)
+      .reduce((acc, cur) => acc + cur, 0);
+  else
+    return acc.movements
+      .filter(mov => mov < 0)
+      .reduce((acc, cur) => acc + cur, 0);
+}
+
+// function displayData(acc){
+
+// }
+
+function checkUser(name, pin = '') {
+  let user = accounts.find(acc => acc.userName === name);
+
+  // CHECK USER AND PASS
+
+  if (!user) {
+    alert('Username was wrong!');
+    displayWrapper(false);
+  } else if (user && user.pin !== pin) {
+    alert('Password was wrong!');
+
+    displayWrapper(false);
+  } else {
+    displayWrapper();
+    return user;
+  }
+}
+
+//
+
+function displayWrapper(con = true) {
+  if (con) mainWrapper.classList.remove('d__none');
+  else mainWrapper.classList.add('d__none');
+}
+
+//
+
+function clearContent(arr) {
+  console.log(arr);
+  arr.forEach(el => (el.value = ''));
+
+  arr[arr.length - 1].blur();
+}

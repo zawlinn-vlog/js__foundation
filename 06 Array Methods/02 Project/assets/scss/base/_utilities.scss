@@ -1,8 +1,8 @@
 //
 
-@use "../abstract/placeholder";
-@use "../abstract/function" as fun;
-@use "../abstract/mixin" as mx;
+@use '../abstract/placeholder';
+@use '../abstract/function' as fun;
+@use '../abstract/mixin' as mx;
 
 .d__none {
   opacity: 0;
@@ -46,6 +46,8 @@
   color: #fff !important;
 }
 
+/*
+
 .form__border-success {
   @include mx.borderColor(accent, primary);
 }
@@ -57,6 +59,8 @@
 .form__border-warning {
   @include mx.borderColor(secondary, primary);
 }
+
+*/
 
 .summary__amount {
   font-size: 2.4rem;

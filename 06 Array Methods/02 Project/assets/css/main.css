@@ -10,6 +10,38 @@
   --dark-color: rgba(51, 51, 51, 0.9333333333);
 }
 
+.border__primary {
+  border: 0.2rem solid #39b385 !important;
+}
+
+.border__primary__light {
+  border: 0.2rem solid #9be15d !important;
+}
+
+.border__secondary {
+  border: 0.2rem solid #e52a5a !important;
+}
+
+.border__secondary__light {
+  border: 0.2rem solid #ff585f !important;
+}
+
+.border__accent {
+  border: 0.2rem solid #ffb003 !important;
+}
+
+.border__accent__light {
+  border: 0.2rem solid #ffcb03 !important;
+}
+
+.border__light {
+  border: 0.2rem solid #efefef !important;
+}
+
+.border__dark {
+  border: 0.2rem solid rgba(51, 51, 51, 0.9333333333) !important;
+}
+
 *,
 *::before,
 *::after {
@@ -98,42 +130,21 @@ input {
   color: #fff !important;
 }
 
+/*
+
 .form__border-success {
-  border: 0.2rem solid transparent;
-  transition: all 0.3s;
-}
-.form__border-success:focus {
-  border: 0.2rem solid var(--accent-color);
-  background-color: #fff !important;
-}
-.form__border-success:valid {
-  border: 0.2rem solid var(--primary-color);
+  @include mx.borderColor(accent, primary);
 }
 
 .form__border-danger {
-  border: 0.2rem solid transparent;
-  transition: all 0.3s;
-}
-.form__border-danger:focus {
-  border: 0.2rem solid var(--secondary-color);
-  background-color: #fff !important;
-}
-.form__border-danger:valid {
-  border: 0.2rem solid var(--accent-color);
+  @include mx.borderColor(secondary, accent);
 }
 
 .form__border-warning {
-  border: 0.2rem solid transparent;
-  transition: all 0.3s;
-}
-.form__border-warning:focus {
-  border: 0.2rem solid var(--secondary-color);
-  background-color: #fff !important;
-}
-.form__border-warning:valid {
-  border: 0.2rem solid var(--primary-color);
+  @include mx.borderColor(secondary, primary);
 }
 
+*/
 .summary__amount {
   font-size: 2.4rem;
 }

@@ -32,10 +32,11 @@
               type="text"
               name=""
               id="loginUserName"
-              class="form__control form__border-success"
+              class="form__control"
               placeholder="username"
               autocomplete="off"
               required
+              autofocus
             />
             <label for="" class="form__label" id="loginUserLabel"
               >Username</label
@@ -46,10 +47,9 @@
               type="password"
               name=""
               id="loginPin"
-              class="form__control form__border-success"
+              class="form__control"
               placeholder="PIN"
               autocomplete="off"
-              disabled
               required
             />
             <label for="" class="form__label" id="loginPinLabel">PIN</label>
@@ -66,7 +66,7 @@
       </nav>
 
       <!-- MAIN CONTENT -->
-      <section class="main">
+      <section class="main d__none">
         <!-- CURRENT USER INFO -->
         <div class="current__info d__flex">
           <!-- LEFT SIDE -->
@@ -86,38 +86,44 @@
         <!-- USER DATA -->
         <div class="user__data rounded overflow-auto">
           <!-- ITEMs -->
-          <div class="user__items d__flex">
+          <!-- <div class="user__items d__flex">
             <div class="user__action">
               <span class="user__badge user__deposite">01 Deposite</span>
               <span class="user__action-date">31/07/2024</span>
             </div>
             <p class="user__amounts">300€</p>
-          </div>
+          </div> -->
           <!-- ITEMs -->
-          <div class="user__items d__flex">
+          <!-- <div class="user__items d__flex">
             <div class="user__action">
               <span class="user__badge user__withdraw">01 Withdraw</span>
               <span class="user__action-date">31/07/2024</span>
             </div>
             <p class="user__amounts">300€</p>
-          </div>
+          </div> -->
         </div>
 
         <!-- USER SUMMARY -->
         <div class="user__summary">
           <div class="income">
             <span class="summary__txt">in</span>
-            <span class="summary__amount text__success">0000€</span>
+            <span class="summary__amount text__success" id="total__income"
+              >0000€</span
+            >
           </div>
 
           <div class="outcome">
             <span class="summary__txt">out</span>
-            <span class="summary__amount text__danger">000€</span>
+            <span class="summary__amount text__danger" id="total__outcome"
+              >000€</span
+            >
           </div>
 
           <div class="interest">
             <span class="summary__txt">interest</span>
-            <span class="summary__amount text__success">000€</span>
+            <span class="summary__amount text__success" id="total__interest"
+              >000€</span
+            >
           </div>
 
           <button type="button" class="btn btn__down">&darr;Sort</button>
@@ -140,7 +146,7 @@
                 type="text"
                 name=""
                 id="transferUserName"
-                class="form__control rounded-1 form__border-warning"
+                class="form__control rounded-1"
                 placeholder="Username"
                 required
               />
@@ -153,7 +159,7 @@
                 name=""
                 id="transferAmount"
                 min="0"
-                class="form__control rounded-1 form__border-warning"
+                class="form__control rounded-1"
                 placeholder="Amount"
                 required
               />
@@ -179,7 +185,7 @@
                 name=""
                 id="loanAmount"
                 min="0"
-                class="form__control rounded-1 form__border-danger"
+                class="form__control rounded-1"
                 placeholder="Amount"
                 required
               />
@@ -205,7 +211,7 @@
                 type="text"
                 name=""
                 id="closeUserName"
-                class="form__control rounded-1 form__border-success"
+                class="form__control rounded-1"
                 placeholder="Username"
                 required
               />

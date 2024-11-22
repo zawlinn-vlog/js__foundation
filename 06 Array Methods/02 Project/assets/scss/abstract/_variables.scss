@@ -19,18 +19,24 @@ $light: #efefef;
 $dark: #333e;
 
 $colors: (
-  "primary": $primary,
-  "primary__light": $primary__light,
-  "secondary": $secondary,
-  "secondary__light": $secondary__light,
-  "accent": $accent,
-  "accent__light": $accent__light,
-  "light": $light,
-  "dark": $dark,
+  'primary': $primary,
+  'primary__light': $primary__light,
+  'secondary': $secondary,
+  'secondary__light': $secondary__light,
+  'accent': $accent,
+  'accent__light': $accent__light,
+  'light': $light,
+  'dark': $dark,
 );
 
 :root {
   @each $name, $color in $colors {
     --#{$name}-color: #{$color};
+  }
+}
+
+@each $name, $color in $colors {
+  .border__#{$name} {
+    border: 0.2rem solid #{$color} !important;
   }
 }

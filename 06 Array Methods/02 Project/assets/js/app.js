@@ -1,5 +1,94 @@
 'use strict';
 
+// console.log(accounts);
+
+// const reg = /fuck/;
+// const str = 'Get the fuckOut of here.';
+
+// const result = reg.exec(str); // return index
+// const result = reg.test(str); // return true
+
+// const result = str.match(reg); // return index
+// const result = str.search(reg); // return index only
+
+// console.log(result);
+
+/* 
+
+
+secret => literal chars
+MetaChracter Symbol
+
+^ Start With
+$ End With
+^..$ Only
+^h.llos$ Any Character
+h*llo Zero or More Char
+gre?a?y e or a optional
+^gre?a?y\?
+
+*/
+
+/*
+
+Bracket - [] => Character Set
+
+/^gr[ae]y$/i //  a or e any one or no one both
+/^[GF]ray$/i // G or F uppercase
+/^[^GF]ray$/i // anything not G or F uppercase
+/^[A-Z]ray$/i // any uppercase letter
+/^[a-z]ray$/i // any lowercase letter
+/^[A-Za-z0-9]ray$/i // any uppercase letter
+
+
+// Braclet - {} => Qualifier
+
+/Hel{2}o/i // must occour two l
+/Hel{2,4}o/i // must occour two to four l
+/Hel{2,}o/i // must occour least 2 times
+
+
+
+// Parentheses - {} => Grouping
+
+/[0-9]x{3}/ // mean number after x three times
+/{[0-9]x}{3}/ // mean 0-9 after x and 0-9 after x and 0-9 after x
+
+re = /^([0-9]x){3}$/;
+
+Shorthand Character Classes
+
+/\w/ // word character, alpha numeric character
+/\w+/ // one or more word character
+/\W/ // none word character
+/\d/ // any digit character
+/\d+/ // nay digit character
+/\D/ // none digit character
+/\s/ // nay white space character
+/\S/ // any none-white-space character
+/Hello\b/i // word-boundary
+
+
+// Assertion
+/x(?=y)/ // match x if only it is fllow by y
+/x(?!y)/ // match x if only it is not follow by y
+
+*/
+
+// function check(re, str) {
+//   if (re.test(str)) {
+//     console.log(`${str} match ${re.source}`);
+//   } else {
+//     console.log(`${str} not match ${re.source}`);
+//   }
+// }
+
+// A-Z a-z _ => word character
+// let str = 'xb';
+// let reg = /x(?!y)/;
+
+// check(reg, str);
+
 // GET DOM ELEMENTs
 
 const loginUsername = document.querySelector('#loginUserName');
@@ -87,5 +176,3 @@ createUserDataLists(account1);
     // console.log(userName);
   });
 })();
-
-// console.log(accounts);

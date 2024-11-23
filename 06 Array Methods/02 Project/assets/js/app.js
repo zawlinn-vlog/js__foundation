@@ -52,7 +52,7 @@ Bracket - [] => Character Set
 // Parentheses - {} => Grouping
 
 /[0-9]x{3}/ // mean number after x three times
-/{[0-9]x}{3}/ // mean 0-9 after x and 0-9 after x and 0-9 after x
+/([0-9]x){3}/ // mean 0-9 after x and 0-9 after x and 0-9 after x
 
 re = /^([0-9]x){3}$/;
 
@@ -62,9 +62,9 @@ Shorthand Character Classes
 /\w+/ // one or more word character
 /\W/ // none word character
 /\d/ // any digit character
-/\d+/ // nay digit character
+/\d+/ // one or more digit character
 /\D/ // none digit character
-/\s/ // nay white space character
+/\s/ // any white space character
 /\S/ // any none-white-space character
 /Hello\b/i // word-boundary
 
@@ -91,17 +91,23 @@ Shorthand Character Classes
 
 // GET DOM ELEMENTs
 
-const loginUsername = document.querySelector('#loginUserName');
-const loginUserLabel = document.querySelector('#loginUserLabel');
-const loginPIN = document.querySelector('#loginPin');
-const loginPinLabel = document.querySelector('#loginPinLabel');
-const submit__l = document.querySelector('#login__submit');
-const userDataContainer = document.querySelector('.user__data');
+const loginUsername = document.querySelector('#loginUserName'),
+  loginUserLabel = document.querySelector('#loginUserLabel'),
+  loginPIN = document.querySelector('#loginPin'),
+  loginPinLabel = document.querySelector('#loginPinLabel'),
+  submit__l = document.querySelector('#login__submit'),
+  userDataContainer = document.querySelector('.user__data');
 
-const mainWrapper = document.querySelector('.main');
-const incomeTotal = document.querySelector('#total__income');
-const outcomeTotal = document.querySelector('#total__outcome');
-const interestTotal = document.querySelector('#total__interest');
+const mainWrapper = document.querySelector('.main'),
+  currentPrice = document.querySelector('.current__price'),
+  incomeTotal = document.querySelector('#total__income'),
+  outcomeTotal = document.querySelector('#total__outcome'),
+  interestTotal = document.querySelector('#total__interest'),
+  sortMov = document.querySelector('#sort');
+
+const transferUsername = document.querySelector('#transferUserName'),
+  transferAmount = document.querySelector('#transferAmount'),
+  transferBtn = document.querySelector('#transferBtn');
 
 // DATA
 
@@ -143,10 +149,22 @@ const curriencies = new Map([
 
 const accounts = [account1, account2, account3, account4];
 
+let currentUser,
+  sort = false;
+
 const createUserDataLists = acc => {
   // console.log(acc);
   userDataContainer.innerHTML = '';
-  acc.movements.forEach((mov, i) => {
+
+  const mov = sort
+    ? acc.movements.sort((a, b) => a - b).slice('')
+    : [...acc.movements];
+
+  // mov.push(10000);
+
+  // console.log(acc.movements, mov);
+
+  mov.forEach((mov, i) => {
     let html = `
 
     <div class="user__items d__flex">
@@ -185,6 +203,7 @@ const createUserDataLists = acc => {
 // CHECK FUN;
 
 function checkSpell(reg, str, el) {
+  console.log(el);
   if (!reg.test(str)) {
     el.classList.add('border__secondary');
     return -1;
@@ -199,20 +218,24 @@ function checkSpell(reg, str, el) {
 loginUsername.addEventListener('keyup', function () {
   // const reg = /\W/;
   const reg = /^[A-Za-z]+$/;
-  const data = loginUsername.value;
+  const data = this.value;
 
   //
 
-  checkSpell(reg, data, loginUsername);
+  checkSpell(reg, data, this);
+
+  // DISABLE ENABLE BTNs
+
+  disableBtn(loginUsername.value && loginPIN.value, submit__l);
 });
 
 loginPIN.addEventListener('keyup', function () {
   const reg = /^[0-9]{4}$/;
-  const data = loginPIN.value;
+  const data = this.value;
 
   // CHECKING SPELL
 
-  checkSpell(reg, data, loginPIN);
+  checkSpell(reg, data, this);
 
   // DISABLE ENABLE BTNs
 
@@ -231,8 +254,6 @@ function disableBtn(con, el) {
   }
 }
 
-let currentUser;
-
 submit__l.addEventListener('click', function (e) {
   e.preventDefault();
 
@@ -249,6 +270,10 @@ submit__l.addEventListener('click', function (e) {
 
   currentUser = checkUser(userName, userPass);
 
+  // IF NO CURRENTUSER program end
+
+  if (!currentUser) return false;
+
   console.log(currentUser);
 
   updateUI(currentUser);
@@ -260,8 +285,14 @@ submit__l.addEventListener('click', function (e) {
 
 function updateUI(acc) {
   createUserDataLists(acc);
-  incomeTotal.textContent = `${total(acc, true)}`;
-  outcomeTotal.textContent = `${total(acc, false)}`;
+  currentPrice.textContent = `${acc.movements.reduce(
+    (acc, cur) => acc + cur,
+    0
+  )} €`;
+  incomeTotal.textContent = `${total(acc, true)}€`;
+  outcomeTotal.textContent = `${Math.abs(total(acc, false))}€`;
+
+  interestTotal.textContent = `${interest(acc)}€`;
 }
 
 // DISPLAY TOTAL
@@ -275,6 +306,17 @@ function total(acc, m) {
     return acc.movements
       .filter(mov => mov < 0)
       .reduce((acc, cur) => acc + cur, 0);
+}
+
+//
+
+function interest(acc) {
+  return acc.movements
+    .filter(mov => mov > 0)
+    .map(m => (m * acc.interestRate) / 100)
+    .filter(m => m > 1)
+    .reduce((acc, cur) => acc + cur, 0)
+    .toFixed(2);
 }
 
 // function displayData(acc){
@@ -306,11 +348,34 @@ function displayWrapper(con = true) {
   else mainWrapper.classList.add('d__none');
 }
 
+sortMov.addEventListener('click', () => {
+  sort = true;
+  createUserDataLists(currentUser);
+});
+
 //
 
 function clearContent(arr) {
-  console.log(arr);
+  // console.log(arr);
   arr.forEach(el => (el.value = ''));
 
   arr[arr.length - 1].blur();
 }
+
+// const revNum = account1.movements.sort((a, b) => b - a);
+
+// console.log(revNum);
+
+transferUsername.addEventListener('keyup', function () {
+  // console.log(this);
+  const reg = /^[A-Za-z]+$/;
+  const data = this.value;
+
+  //
+
+  checkSpell(reg, data, this);
+
+  disableBtn(this.value, transferBtn);
+});
+
+// PRESS TRANSFER BTNs

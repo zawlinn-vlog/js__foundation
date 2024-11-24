@@ -203,7 +203,7 @@ const createUserDataLists = acc => {
 // CHECK FUN;
 
 function checkSpell(reg, str, el) {
-  console.log(el);
+  // console.log(el);
   if (!reg.test(str)) {
     el.classList.add('border__secondary');
     return -1;
@@ -283,12 +283,18 @@ submit__l.addEventListener('click', function (e) {
 
 // UPDATE UI
 
+const navbrand = document.querySelector('.navbar__brand');
+
 function updateUI(acc) {
   createUserDataLists(acc);
-  currentPrice.textContent = `${acc.movements.reduce(
+
+  navbrand.textContent = `Welcome back, ${acc.owner.split(' ')[0]}`;
+  currentUser.currentTotalAmount = acc.movements.reduce(
     (acc, cur) => acc + cur,
     0
-  )} €`;
+  );
+
+  currentPrice.textContent = `${currentUser.currentTotalAmount}€`;
   incomeTotal.textContent = `${total(acc, true)}€`;
   outcomeTotal.textContent = `${Math.abs(total(acc, false))}€`;
 
@@ -323,8 +329,11 @@ function interest(acc) {
 
 // }
 
+const findUser = name => accounts.find(acc => acc.userName === name);
+
 function checkUser(name, pin = '') {
-  let user = accounts.find(acc => acc.userName === name);
+  let user = findUser(name);
+  // let user = accounts.find(acc => acc.userName === name);
 
   // CHECK USER AND PASS
 
@@ -379,3 +388,67 @@ transferUsername.addEventListener('keyup', function () {
 });
 
 // PRESS TRANSFER BTNs
+
+transferBtn.addEventListener('click', function (e) {
+  e.preventDefault();
+
+  let name = transferUsername.value;
+  let amount = Number(transferAmount.value);
+
+  console.log(name, amount);
+
+  let user = findUser(name);
+
+  console.log(user);
+
+  if (
+    name !== '' &&
+    amount !== '' &&
+    amount <= currentUser.currentTotalAmount - 100 &&
+    user &&
+    user.userName !== currentUser.userName
+  ) {
+    // PUSH AMOUNT TO CURRENT USER
+
+    currentUser.movements.push(-amount);
+
+    // PUSH AMOUNT TO TRANSFER USER
+
+    user.movements.push(amount);
+
+    // UPDATE UI
+
+    updateUI(currentUser);
+
+    clearContent([transferUsername, transferAmount]);
+  }
+});
+
+const loanAmount = document.querySelector('#loanAmount'),
+  loanBtn = document.querySelector('#l__submit');
+
+loanAmount.addEventListener('keyup', function () {
+  disableBtn(this.value, loanBtn);
+});
+
+loanBtn.addEventListener('click', function (e) {
+  e.preventDefault();
+
+  const lAmount = Number(loanAmount.value);
+
+  console.log(
+    lAmount * 0.1,
+    currentUser.movements.some(mov => mov > lAmount * 0.1)
+  );
+
+  if (
+    lAmount !== '' &&
+    currentUser.movements.some(mov => mov >= lAmount * 0.1)
+  ) {
+    currentUser.movements.push(lAmount);
+
+    updateUI(currentUser);
+
+    clearContent([loanAmount]);
+  }
+});

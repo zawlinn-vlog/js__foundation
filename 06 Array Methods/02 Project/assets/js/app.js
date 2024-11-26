@@ -358,7 +358,7 @@ function displayWrapper(con = true) {
 }
 
 sortMov.addEventListener('click', () => {
-  sort = true;
+  sort = !sort;
   createUserDataLists(currentUser);
 });
 
@@ -451,4 +451,49 @@ loanBtn.addEventListener('click', function (e) {
 
     clearContent([loanAmount]);
   }
+});
+
+//
+
+const closeUserName = document.querySelector('#closeUserName'),
+  closePin = document.querySelector('#closePin'),
+  closeBtn = document.querySelector('#close__btn');
+
+closeUserName.addEventListener('keyup', function () {
+  // checkSpell()t
+  let data = this.value;
+
+  const reg = /^[A-Za-z]+$/;
+  checkSpell(reg, data, this);
+
+  disableBtn(this.value && closePin.value, closeBtn);
+});
+
+closePin.addEventListener('keyup', function () {
+  let data = Number(this.value);
+
+  const reg = /^[0-9]{4}$/;
+
+  checkSpell(reg, data, this);
+
+  disableBtn(this.value && closeUserName.value, closeBtn);
+});
+
+closeBtn.addEventListener('click', function (e) {
+  e.preventDefault();
+
+  if (
+    closeUserName.value === currentUser.userName &&
+    Number(closePin.value) === currentUser.pin
+  ) {
+    const index = accounts.findIndex(
+      acc => acc.userName === closeUserName.value
+    );
+    console.log(index);
+    accounts.splice(index, 1);
+
+    mainWrapper.classList.add('d__none');
+  }
+
+  clearContent([closeUserName, closePin]);
 });

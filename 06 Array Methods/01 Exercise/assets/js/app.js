@@ -231,3 +231,99 @@ console.log(Number.isInteger(+'23'));
 console.log(Number.isInteger(23 / 0));
 
 console.log(isNaN('20F'));
+
+// Math
+
+console.log(Math.sqrt(25));
+console.log(25 ** (1 / 2));
+console.log(8 ** (1 / 3));
+
+console.log(Math.max(5, 18, 23, 11, 2));
+console.log(Math.max(5, 18, '23', 11, 2));
+
+console.log(Math.min(5, 18, '23', 11, 2));
+console.log(Math.min(5, 18, '23', 11, 2));
+
+console.log(Math.PI * Number.parseFloat('10px') ** 2);
+
+// console.log(Math.trunc(Math.random() * 6) + 1);
+
+const randomInt = (min, max) =>
+  Math.trunc(Math.random() * (max - min) + 1) + min;
+
+// console.log(randomInt(10, 20));
+
+// Round Integers
+
+console.log(Math.trunc(23.3));
+
+console.log(Math.round(23.3));
+console.log(Math.round(23.9));
+
+console.log(Math.ceil(23.3));
+console.log(Math.ceil(23.9));
+
+console.log(Math.floor(23.9));
+console.log(Math.floor(23.9));
+
+// Rounding Decimals
+
+console.log((2.7).toFixed()); // return string not a number
+console.log((2.7).toFixed(0));
+console.log((2.7).toFixed(2));
+console.log(+(2.7).toFixed(3));
+
+console.log(5 % 2);
+console.log(5 / 2);
+
+console.log(8 % 2);
+console.log(8 / 2);
+
+console.log(6 % 2);
+console.log(6 / 2);
+
+console.log(7 % 2);
+console.log(7 / 2);
+
+const isEven = n => n % 2 === 0;
+
+console.log(isEven(8));
+console.log(isEven(23));
+console.log(isEven(514));
+
+console.log(2 ** 53 - 1);
+console.log(Number.MAX_SAFE_INTEGER);
+
+console.log(2 ** 53 + 1);
+console.log(2 ** 53 + 2);
+console.log(2 ** 53 + 3);
+console.log(2 ** 53 + 4);
+
+console.log(42252354235423452354235235423453n);
+console.log(BigInt(42252354235423452354235235423453));
+console.log(typeof 42252354235423452354235235423453n);
+
+// Operations
+
+console.log(10000n + 10000n);
+console.log(42532424242n * 10000n);
+// console.log(Math.sqrt(16n));
+
+const huge = 20238092332423n;
+const num = 23;
+
+console.log(huge * BigInt(num));
+
+// Exceptions
+
+console.log(20n > 15);
+console.log(20n === 20);
+console.log(typeof 20n);
+console.log(20n == 20);
+
+console.log(huge + ' is REALLY big!!!');
+
+// Divisions
+
+console.log(11n / 3n);
+console.log(11 / 3);

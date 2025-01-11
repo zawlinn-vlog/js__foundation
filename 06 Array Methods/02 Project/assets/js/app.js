@@ -538,3 +538,27 @@ closeBtn.addEventListener('click', function (e) {
 
   clearContent([closeUserName, closePin]);
 });
+
+// WORKING with DATEs
+
+const future = new Date(2037, 10, 19, 15, 20);
+
+console.log(future);
+console.log(future.getFullYear());
+console.log(future.getMonth());
+console.log(future.getDate());
+console.log(future.getDay());
+console.log(future.getHours());
+console.log(future.getMinutes());
+console.log(future.getSeconds());
+console.log(future.toISOString());
+console.log(future.getTime()); // Milli Second
+
+console.log(new Date(2142231600000));
+console.log(Date.now());
+
+console.log(new Date(account1.movementsDates[0]));
+
+future.setFullYear(2040);
+
+console.log(future);

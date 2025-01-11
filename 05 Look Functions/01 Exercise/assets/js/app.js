@@ -160,3 +160,30 @@ const aa = book.bind(eurowings);
 aa(453, 'Jackson Smith');
 
 console.log(eurowings);
+
+//
+
+(function () {
+  console.log('hello');
+})();
+
+function first() {
+  let count = 0;
+
+  return function second() {
+    count++;
+
+    console.log(count);
+  };
+}
+
+const x = first();
+
+x();
+x();
+x();
+x();
+// first()();
+// first()();
+// first()();
+// first()();

@@ -88,3 +88,146 @@ movements.forEach(function (val) {
 console.log(0 && null); // false return
 console.log(1 || null); // true return
 console.log(0 ?? undefined); // null and undefined
+
+// TO mutate original array
+
+/*
+
+=> Add to Original
+
+.push (end)
+.unshift (start)
+
+Remove from Original
+
+.pop (end)
+.shift (start)
+.splice (any)
+
+
+Others
+
+.reverse
+.sort
+.fill
+
+
+=> A New Array
+
+computed from original
+
+.map (loop)
+
+fitered using condition
+
+.filter
+
+portion of original
+
+.slice
+
+adding original to other
+
+.concat
+
+flattening the original
+
+.flat
+.flatMap
+
+
+=> An array index
+
+based on value
+
+.indexOf
+
+based on test condition
+
+.findIndex
+
+
+=> an Array element
+
+Base on test condition
+
+.find
+
+
+=> Know if array includes
+
+Based on value:
+
+.inclueds
+
+Based on test condition:
+
+.some
+.every
+
+
+=> A new String
+
+.join
+
+=> To transform to value
+
+Based on accumulator
+
+.reduce
+
+=> To just loop array
+
+Based on callback
+
+.forEach - does not create a new array. just loop over it
+
+
+
+*/
+
+// Numbers
+
+console.log(23 === 23.0);
+
+// Base 10 - 0 to 9 /  1/10 = 0.1  3/10 = 0.3333333
+
+// Base 2 - 0 1
+console.log(0.1 + 0.2);
+console.log(0.1 + 0.2 == 0.3);
+
+console.log((0.1 * 10 + 0.2 * 10) / 10);
+
+// Conversion
+
+console.log(Number('23'));
+console.log(+'23');
+
+// Parsing
+
+console.log(Number.parseFloat('20px', 10));
+console.log(Number.parseFloat('e23', 10));
+
+console.log(Number.parseInt('    2.5rem    '));
+console.log(Number.parseFloat('    2.5rem    '));
+
+console.log(Number.isNaN(20));
+console.log(Number.isNaN('20'));
+console.log('20F', Number.isNaN('20F'));
+console.log(Number.isNaN(+'20X'));
+console.log(Number.isNaN(23 / 0));
+
+// Number or Not
+console.log(Number.isFinite(20));
+console.log(Number.isFinite('20'));
+console.log(Number.isFinite(+'23'));
+console.log('20/0', isFinite(23 / 0));
+
+// Integer
+
+console.log(Number.isInteger(20));
+console.log(Number.isInteger('20'));
+console.log(Number.isInteger(+'23'));
+console.log(Number.isInteger(23 / 0));
+
+console.log(isNaN('20F'));

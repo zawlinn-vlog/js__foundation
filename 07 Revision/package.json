@@ -1,0 +1,23 @@
+{
+  "name": "07-revision",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile:js": "babel assets/js/app.js -d assets/lib",
+    "dev": "live-server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@babel/cli": "^7.26.4",
+    "@babel/core": "^7.26.9",
+    "@babel/preset-env": "^7.26.9",
+    "bootstrap": "^5.3.3",
+    "live-server": "^1.2.2",
+    "npm-run-all": "^4.1.5"
+  }
+}

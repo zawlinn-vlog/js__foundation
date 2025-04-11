@@ -11,6 +11,104 @@ const scoreNumber = document.querySelector(".score__number");
 const highscoreNumber = document.querySelector(".highscore__number");
 const wrapper = document.querySelector(".wrapper");
 
+let score, hscore, bestscore, ranNum;
+score = 0;
+hscore = 20;
+ranNum = makeRandom();
+
+// SET DEFAULT
+
+function setDefault() {
+  pointTitle.textContent = `🤔 Start guessing ....`;
+  scoreNumber.textContent = score;
+  highscoreNumber.textContent = 20;
+  wrapper.style.backgroundColor = `#222`;
+  inputNum.value = "";
+  txtResult.textContent = "?";
+  btnSubmit.removeAttribute("disabled");
+  ranNum = makeRandom();
+
+  console.log(ranNum);
+}
+
+setDefault();
+
+// MAKE RANDOM
+
+function makeRandom() {
+  return Math.trunc(Math.random() * 20) + 1;
+}
+
+console.log(ranNum);
+
+// BTN SUBMIT
+
+btnSubmit.addEventListener("click", function (e) {
+  e.preventDefault();
+  init();
+});
+
+btnReset.addEventListener("click", setDefault);
+
+function init() {
+  // IF INPUT EMPTY
+  if (!inputNum.value || inputNum.value > 20) {
+    // pointTitle.textContent = `👎🏽 You Should input a Number 1 to 20!`;
+    window.alert("👎🏽 You Should input a Number between 1 to 20 !");
+    inputNum.value = "";
+
+    return -1;
+  }
+
+  // IF NOT THE SAME
+  if (inputNum.value != ranNum) {
+    pointTitle.textContent =
+      inputNum.value > ranNum
+        ? `📈 Number is too High!`
+        : `📉 Number is too Low!`;
+
+    hscore--;
+
+    highscoreNumber.textContent = hscore;
+
+    if (hscore < 1) {
+      btnSubmit.setAttribute("disabled", true);
+
+      // setTimeout(function () {
+      //   alert("GAME OVER");
+      // }, 500);
+
+      pointTitle.textContent = `💥 GAME OVER !💥`;
+    }
+
+    return -1;
+  }
+
+  pointTitle.textContent = `✅ Correct Number `;
+  wrapper.style.backgroundColor = `#047804`;
+  txtResult.textContent = ranNum;
+
+  if (!bestscore) {
+    bestscore = hscore;
+  } else {
+    setTimeout(() => {
+      alert(`Your previous best score is ${bestscore}`);
+    }, 500);
+  }
+  scoreNumber.textContent = ++score;
+  highscoreNumber.textContent = hscore;
+  btnSubmit.setAttribute("disabled", true);
+}
+
+/*
+console.log(ranNum);
+
+while (ranNum != 20) {
+  console.log(ranNum);
+  ranNum = Math.trunc(Math.random() * 20) + 1;
+}
+*/
+
 /*
 let score, hScore;
 

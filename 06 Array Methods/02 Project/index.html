@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bankit APP | LOGOIN</title>
+
+    <!-- FONT AWESOME -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"
+      integrity="sha512-Tn2m0TIpgVyTzzvmxLNuqbSJH3JP8jm+Cy3hvHrW7ndTDcJ1w5mBiksqDBb8GpE2ksktFvDB/ykZ0mDpsZj20w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <!-- CUSTOM CSS -->
+    <link rel="stylesheet" href="./assets/css/main.css" />
+
+    <!-- CUSTOM JS -->
+    <script defer src="./assets/js/app.js"></script>
+  </head>
+  <body>
+    <!--  -->
+    <main class="wrapper">
+      <!-- NAVIGATION SECTION -->
+      <nav class="navbar d__flex">
+        <h3 class="navbar__brand">Login to get started</h3>
+        <img src="./assets/img/logo.png" alt="" class="navbar__logo" />
+        <form action="" class="form d__flex">
+          <div class="form__group">
+            <input
+              type="text"
+              name=""
+              id="loginUserName"
+              class="form__control"
+              placeholder="username"
+              autocomplete="off"
+              required
+              autofocus
+            />
+            <label for="" class="form__label" id="loginUserLabel"
+              >Username</label
+            >
+          </div>
+          <div class="form__group">
+            <input
+              type="password"
+              name=""
+              id="loginPin"
+              class="form__control"
+              placeholder="PIN"
+              autocomplete="off"
+              required
+            />
+            <label for="" class="form__label" id="loginPinLabel">PIN</label>
+          </div>
+          <button
+            type="submit"
+            class="btn btn__submit btn__disabled"
+            id="login__submit"
+            disabled
+          >
+            <i class="fas fa-arrow-right"></i>
+          </button>
+        </form>
+      </nav>
+
+      <!-- MAIN CONTENT -->
+      <section class="main d__none">
+        <!-- CURRENT USER INFO -->
+        <div class="current__info d__flex">
+          <!-- LEFT SIDE -->
+          <div class="current__info-left">
+            <h3 class="title">current balance</h3>
+            <p class="login">
+              At of <span class="login__date">31/07/2024</span>,
+              <span class="login__time">18:07</span>
+            </p>
+          </div>
+          <!-- RIGHT SIDE -->
+          <div class="current__info-right">
+            <p class="current__price">0,000€</p>
+          </div>
+        </div>
+
+        <!-- USER DATA -->
+        <div class="user__data rounded overflow-auto">
+          <!-- ITEMs -->
+          <!-- <div class="user__items d__flex">
+            <div class="user__action">
+              <span class="user__badge user__deposite">01 Deposite</span>
+              <span class="user__action-date">31/07/2024</span>
+            </div>
+            <p class="user__amounts">300€</p>
+          </div> -->
+          <!-- ITEMs -->
+          <!-- <div class="user__items d__flex">
+            <div class="user__action">
+              <span class="user__badge user__withdraw">01 Withdraw</span>
+              <span class="user__action-date">31/07/2024</span>
+            </div>
+            <p class="user__amounts">300€</p>
+          </div> -->
+        </div>
+
+        <!-- USER SUMMARY -->
+        <div class="user__summary">
+          <div class="income">
+            <span class="summary__txt">in</span>
+            <span class="summary__amount text__success" id="total__income"
+              >0000€</span
+            >
+          </div>
+
+          <div class="outcome">
+            <span class="summary__txt">out</span>
+            <span class="summary__amount text__danger" id="total__outcome"
+              >000€</span
+            >
+          </div>
+
+          <div class="interest">
+            <span class="summary__txt">interest</span>
+            <span class="summary__amount text__success" id="total__interest"
+              >000€</span
+            >
+          </div>
+
+          <button type="button" class="btn btn__down" id="sort">
+            &darr;Sort
+          </button>
+        </div>
+
+        <!-- LOGOUT SESSTION -->
+        <div class="logout__session">
+          <p class="logout__session-txt">
+            You will be logout:
+            <span class="logout__session-duration">5:00</span>
+          </p>
+        </div>
+
+        <!-- TRANSFER -->
+        <div class="transfer__section rounded p-4-5">
+          <p class="title__sub">Transfer to &mdash;</p>
+          <form action="" class="form transfer__form form__right">
+            <div class="form">
+              <input
+                type="text"
+                name=""
+                id="transferUserName"
+                class="form__control rounded-1"
+                placeholder="Username"
+                required
+              />
+              <label for="" class="form__label">Username</label>
+            </div>
+
+            <div class="form__group">
+              <input
+                type="number"
+                name=""
+                id="transferAmount"
+                min="0"
+                class="form__control rounded-1"
+                placeholder="Amount"
+                required
+              />
+              <label for="" class="form__label">Amount</label>
+            </div>
+            <button
+              type="submit"
+              class="btn btn__submit btn__disabled"
+              id="transferBtn"
+              disabled
+            >
+              <i class="fas fa-arrow-right"></i>
+            </button>
+          </form>
+        </div>
+
+        <!-- LOAN  -->
+        <div class="loan__section p-4-5 rounded">
+          <p class="title__sub">Loan &mdash;</p>
+          <form class="form form__loan form__right">
+            <div class="form__group">
+              <input
+                type="number"
+                name=""
+                id="loanAmount"
+                min="0"
+                class="form__control rounded-1"
+                placeholder="Amount"
+                required
+              />
+              <label for="" class="form__label">Amount</label>
+            </div>
+            <button
+              type="submit"
+              class="btn btn__submit btn__disabled"
+              id="l__submit"
+              disabled
+            >
+              <i class="fas fa-arrow-right"></i>
+            </button>
+          </form>
+        </div>
+
+        <!-- CLOSE -->
+        <div class="close__account p-4-5 rounded">
+          <p class="title__sub">Close Account &mdash;</p>
+          <form action="" class="form from__close form__right">
+            <div class="form">
+              <input
+                type="text"
+                name=""
+                id="closeUserName"
+                class="form__control rounded-1"
+                placeholder="Username"
+                required
+              />
+              <label for="" class="form__label text__white">Username</label>
+            </div>
+
+            <div class="form__group">
+              <input
+                type="password"
+                name=""
+                id="closePin"
+                min="0"
+                class="form__control rounded-1 form__border-success"
+                placeholder="PIN"
+                required
+                autocomplete="off"
+              />
+              <label for="" class="form__label text__white">PIN</label>
+            </div>
+            <button
+              type="submit"
+              class="btn btn__submit btn__disabled"
+              disabled
+              id="close__btn"
+            >
+              <i class="fas fa-arrow-right"></i>
+            </button>
+          </form>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,57 @@
+//
+
+@use "../abstract/mixin" as mx;
+
+.btn {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+
+  padding: 1rem 3rem;
+  border-radius: 3rem;
+  border: none;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  cursor: pointer;
+
+  transition: all 0.2s;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+
+  &:hover {
+    transform: translate(-50%, -0.6rem);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  }
+
+  &:active {
+    transform: translate(-50%, -0.3rem);
+    box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.15);
+  }
+
+  &__restart {
+    top: 5%;
+
+    @include mx.media(47em) {
+      top: 44%;
+    }
+  }
+
+  &__play {
+    bottom: 30%;
+
+    @include mx.media(47em) {
+      bottom: 38%;
+    }
+  }
+
+  &__hold {
+    bottom: 18%;
+
+    @include mx.media(47em) {
+      bottom: 5%;
+    }
+  }
+}

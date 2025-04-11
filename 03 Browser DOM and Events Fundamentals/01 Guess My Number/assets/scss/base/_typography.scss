@@ -1,0 +1,12 @@
+//
+
+@use "../abstract/mixin" as mx;
+
+.title {
+  font-size: 3.6vw;
+
+  @include mx.media(36em) {
+    font-size: 3.2rem;
+    line-height: 1.5;
+  }
+}

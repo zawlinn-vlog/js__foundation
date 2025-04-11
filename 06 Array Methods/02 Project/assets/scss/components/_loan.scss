@@ -1,0 +1,11 @@
+//
+
+@use "../abstract/function" as fun;
+
+.loan__section {
+  background-image: linear-gradient(
+    to right bottom,
+    fun.getColor(primary__light),
+    fun.getColor(primary)
+  );
+}

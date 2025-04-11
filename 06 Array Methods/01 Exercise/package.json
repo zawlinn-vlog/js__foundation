@@ -1,0 +1,33 @@
+{
+  "name": "06-array-methods",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "sass ./assets/scss/main.scss ./assets/css/main.css -w --no-source-map",
+    "dev": "live-server",
+    "build:js": "babel ./assets/js/app.js -d ./assets/lib",
+    "prefix": "postcss ./assets/css/main.css -o ./assets/css/main.prefix.css --use autoprefixer",
+    "start": "npm-run-all --parallel dev compile"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "browserslist": "cover 99.5%",
+  "dependencies": {
+    "@babel/cli": "^7.25.9",
+    "@babel/core": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
+    "autoprefixer": "^10.4.20",
+    "bootstrap": "^5.3.3",
+    "concat": "^1.0.3",
+    "postcss": "^8.4.47",
+    "postcss-cli": "^11.0.0",
+    "sass": "^1.80.6"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "npm-run-all": "^4.1.5"
+  }
+}

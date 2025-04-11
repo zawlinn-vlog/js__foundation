@@ -1,0 +1,195 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Press+Start+2P&display=swap");
+:root {
+  --color-primary: #bf2e34;
+  --color-secondary: #753684;
+  --color-dark: #333;
+  --color-light: #efefef;
+  --color-pri__gradient: linear-gradient(to right bottom, #bf2e34, #753684 100%);
+}
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-family: "Nunito", sans-serif;
+  font-size: 75%;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--color-dark);
+}
+@media only screen and (max-width: 90em) {
+  html {
+    font-size: 62.5%;
+  }
+}
+@media only screen and (max-width: 47em) {
+  html {
+    font-size: 56.25%;
+  }
+}
+
+body {
+  box-sizing: border-box;
+}
+
+.dice__img {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 8rem;
+  object-fit: cover;
+  border-radius: 0.8rem;
+  box-shadow: 0 0.8rem 1rem rgba(0, 0, 0, 0.2);
+  transition: all 0.3s;
+}
+@media only screen and (max-width: 47em) {
+  .dice__img {
+    top: 0;
+  }
+}
+
+.player__active {
+  background-color: rgba(239, 239, 239, 0.45);
+}
+@media only screen and (max-width: 47em) {
+  .player__active {
+    display: flex !important;
+  }
+}
+
+.winner__player {
+  background-color: #333;
+}
+.winner__player .card__title {
+  color: #efefef;
+}
+
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.card__title {
+  font-size: 3.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  line-height: 1.2;
+  color: var(--color-dark);
+}
+.card__total {
+  font-size: 8rem;
+  margin-bottom: auto;
+  color: #c7365f;
+}
+.card__subtitle {
+  font-size: 1.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+}
+.card__score {
+  font-size: 3.2rem;
+}
+
+.card {
+  margin: 0 auto;
+  height: 55rem;
+  background-color: rgba(239, 239, 239, 0.35);
+  border-radius: 0.5rem;
+  display: flex;
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.25);
+  position: relative;
+}
+.card__side {
+  padding: 9rem;
+  transition: all 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+@media only screen and (max-width: 47em) {
+  .card__side {
+    width: 100%;
+    display: none;
+  }
+}
+.card__0 {
+  border-radius: 0.5rem 0 0 0.5rem;
+}
+@media only screen and (max-width: 47em) {
+  .card__0 {
+    border-radius: 0.8rem;
+  }
+}
+.card__box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.8rem 5rem;
+  background-color: #c7365f;
+  color: var(--color-light);
+  border-radius: 0.6rem;
+}
+
+.btn {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 1rem 3rem;
+  border-radius: 3rem;
+  border: none;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn:disabled {
+  cursor: not-allowed;
+}
+.btn:hover {
+  transform: translate(-50%, -0.6rem);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+.btn:active {
+  transform: translate(-50%, -0.3rem);
+  box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.15);
+}
+.btn__restart {
+  top: 5%;
+}
+@media only screen and (max-width: 47em) {
+  .btn__restart {
+    top: 44%;
+  }
+}
+.btn__play {
+  bottom: 30%;
+}
+@media only screen and (max-width: 47em) {
+  .btn__play {
+    bottom: 38%;
+  }
+}
+.btn__hold {
+  bottom: 18%;
+}
+@media only screen and (max-width: 47em) {
+  .btn__hold {
+    bottom: 5%;
+  }
+}
+
+.wrapper {
+  min-height: 100vh;
+  background-image: var(--color-pri__gradient);
+  display: grid;
+  place-content: center center;
+}
+
+/*# sourceMappingURL=main.css.map */

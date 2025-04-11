@@ -1,0 +1,64 @@
+//
+
+@use "../abstract/function" as fun;
+@use "../abstract/placeholder";
+
+.navbar {
+  &__logo {
+    height: 5rem;
+    object-fit: cover;
+    // filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.8));
+  }
+}
+
+.form {
+  & > * {
+    position: relative;
+  }
+
+  &__control {
+    width: 10rem;
+    height: 3.2rem;
+    text-align: center;
+    //   padding: 1rem 2rem;
+    border-radius: 2rem;
+    margin-right: 0.7rem;
+    border: none;
+    background-color: #fffd;
+    outline: none;
+
+    &:invalid {
+      background-color: #fff9;
+    }
+  }
+
+  ::-webkit-input-placeholder {
+    //   font-size: 1.2rem;
+    text-transform: capitalize;
+    letter-spacing: 0.03rem;
+  }
+
+  &__label {
+    // color: fun.getColor(dark);
+    color: #333c;
+    letter-spacing: 0.01rem;
+
+    position: absolute;
+    bottom: -50%;
+    left: 45%;
+    transform: translate(-50%, 0);
+
+    opacity: 1;
+
+    transition: all 0.3s;
+  }
+
+  &__control:placeholder-shown + &__label {
+    opacity: 0;
+    transform: translate(-50%, -0.7rem);
+  }
+
+  #pin {
+    padding-inline-end: 1rem;
+  }
+}

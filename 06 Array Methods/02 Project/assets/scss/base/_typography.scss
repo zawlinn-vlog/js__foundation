@@ -1,0 +1,32 @@
+//
+
+@use "../abstract/function" as fun;
+
+.navbar {
+  &__brand {
+    font-size: 2rem;
+    font-weight: 600;
+    color: fun.getColor(dark);
+  }
+}
+
+.title {
+  font-size: 1.8rem;
+  text-transform: capitalize;
+  font-weight: 600;
+
+  &__sub {
+    font-size: 1.4rem;
+    text-transform: capitalize;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.current__price {
+  font-size: 4.2rem;
+}
+
+.login {
+  font-size: 1.1rem;
+  color: rgba(#222, 0.7);
+}

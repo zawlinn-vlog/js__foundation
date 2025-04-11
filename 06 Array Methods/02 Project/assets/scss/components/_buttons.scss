@@ -1,0 +1,24 @@
+//
+
+@use "../abstract/function" as fun;
+
+.btn {
+  border: none;
+  font-size: 1.8rem;
+  padding-inline-start: 0.5rem;
+  background-color: transparent;
+
+  cursor: pointer;
+
+  &__disabled {
+    cursor: not-allowed;
+  }
+
+  &__down {
+    // font-size: 1.2rem;
+    margin-inline-start: auto;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    font-weight: 400;
+  }
+}

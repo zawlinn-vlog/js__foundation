@@ -1,0 +1,12 @@
+//
+
+@use "../abstract/function" as fun;
+
+.wrapper {
+  max-width: 160rem;
+  min-height: 100vh;
+  margin-inline: auto;
+  background-color: fun.getColor(dark);
+
+  padding: 2rem 0 10rem;
+}

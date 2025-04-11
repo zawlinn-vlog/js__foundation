@@ -1,0 +1,75 @@
+//
+
+@use '../abstract/placeholder';
+@use '../abstract/function' as fun;
+@use '../abstract/mixin' as mx;
+
+.d__none {
+  opacity: 0;
+  visibility: hidden;
+}
+
+//
+
+.rounded {
+  border-radius: 0.3rem !important;
+}
+
+.rounded-1 {
+  border-radius: 0.5rem !important;
+  width: 14rem !important;
+}
+
+.overflow-auto {
+  overflow-y: auto;
+}
+
+//
+
+.p-4 {
+  padding: 3rem;
+}
+
+.p-4-5 {
+  padding: 3rem 3rem 5rem;
+}
+
+.d__flex {
+  @extend %d__flex;
+}
+
+.form__right {
+  display: flex;
+}
+
+.text__white {
+  color: #fff !important;
+}
+
+/*
+
+.form__border-success {
+  @include mx.borderColor(accent, primary);
+}
+
+.form__border-danger {
+  @include mx.borderColor(secondary, accent);
+}
+
+.form__border-warning {
+  @include mx.borderColor(secondary, primary);
+}
+
+*/
+
+.summary__amount {
+  font-size: 2.4rem;
+}
+
+.text__success {
+  @include mx.textGradient(primary__light, primary);
+}
+
+.text__danger {
+  @include mx.textGradient(secondary__light, secondary);
+}

@@ -1,0 +1,26 @@
+// FONTs
+
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Press+Start+2P&display=swap");
+
+//
+
+$primary: #bf2e34;
+$secondary: #753684;
+$dark: #333;
+$light: #efefef;
+
+$primary__gradient: linear-gradient(to right bottom, $primary, $secondary 100%);
+
+$colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+  "dark": $dark,
+  "light": $light,
+  "pri__gradient": $primary__gradient,
+);
+
+:root {
+  @each $key, $val in $colors {
+    --color-#{$key}: #{$val};
+  }
+}

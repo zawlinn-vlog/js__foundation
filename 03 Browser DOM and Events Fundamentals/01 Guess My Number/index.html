@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript | Guess My Number &mdash;</title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./assets/css/main.css" />
+
+    <!-- CUSTOM JS -->
+    <script defer src="./assets/js/app.js"></script>
+  </head>
+  <body>
+    <!-- MAIN WRAPPER -->
+    <main class="wrapper">
+      <!-- GUESS MY NUMBER -->
+
+      <div class="header d__flex">
+        <a href="#" class="btn btn__reset">Again!</a>
+        <p class="header__title">&lt;Between 1 and 20&gt;</p>
+      </div>
+      <h1 class="title t__center my__large">Guess My Number!</h1>
+
+      <!-- RESULT -->
+      <div class="result">
+        <p class="result__point t__center">?</p>
+        <span class="result__line">&nbsp;</span>
+      </div>
+      <!-- GUESS INPUT -->
+      <div class="guess__input">
+        <!-- FORM INPUT -->
+        <form action="#" class="form">
+          <div class="form__control">
+            <input
+              type="number"
+              name=""
+              id=""
+              class="form__number"
+              min="1"
+              max="20"
+            />
+          </div>
+          <a href="#" class="btn btn__submit">Check!</a>
+        </form>
+
+        <!-- POINT -->
+        <div class="point">
+          <h4 class="point__title">🤔 Start guessing ....</h4>
+          <p class="score">
+            <span class="score__txt">🏆 Score : </span>
+            <span class="score__number">0</span>
+          </p>
+
+          <p class="highscore">
+            <span class="highscore__txt">💹 Highscore : </span>
+            <span class="highscore__number">0</span>
+          </p>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

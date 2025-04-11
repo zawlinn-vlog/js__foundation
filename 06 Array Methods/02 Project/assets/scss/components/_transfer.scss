@@ -1,0 +1,10 @@
+//
+@use "../abstract/function" as fun;
+
+.transfer__section {
+  background-image: linear-gradient(
+    to right bottom,
+    fun.getColor(accent__light),
+    fun.getColor(accent)
+  );
+}

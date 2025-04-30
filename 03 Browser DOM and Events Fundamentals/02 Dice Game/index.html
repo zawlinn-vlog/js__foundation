@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./assets/css/main.css" />
 
     <!-- CUSTOM JS -->
-    <script defer src="./assets/js/app.js"></script>
+    <script defer src="./assets/js/app.js" type="module"></script>
   </head>
   <body>
     <!-- WRAPPER -->
@@ -18,12 +18,12 @@
         <!-- DICE INTEGRETIEs -->
         <button type="button" class="btn btn__restart">🔂 New Game</button>
 
-        <img src="" alt="" class="dice__img hidden" />
+        <img src="" alt="" class="dice__img" />
 
         <button type="button" class="btn btn__play">🎲 Roll Dice</button>
         <button type="button" class="btn btn__hold">⏸ Hold</button>
         <!-- CARD SIDE LFT -->
-        <section class="card__side card__0 player__active winner__player">
+        <section class="card__side card__0 player__active">
           <p class="card__title" id="name__0">Player 1</p>
 
           <p class="card__total" id="score__0">&nbsp;</p>

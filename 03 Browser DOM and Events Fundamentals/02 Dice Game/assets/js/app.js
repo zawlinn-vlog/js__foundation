@@ -8,6 +8,8 @@ const gameObj = new Init();
 console.log(gameObj);
 
 rollBtn.addEventListener("click", function () {
+  //
   gameObj.gameStart();
+
   //   console.log("click");
 });

@@ -17,8 +17,11 @@ const restartBtn = document.querySelector(".btn__restart");
 const holdBtn = document.querySelector(".btn__hold");
 
 export default class Init {
-  #ranDice;
+  #ranDice = 0;
   _active = 0;
+  _totalPoint = 0;
+  playing = true;
+  _scores = [0, 0];
 
   constructor() {
     this.setDefault();
@@ -36,7 +39,8 @@ export default class Init {
   _switchPlayer() {
     sideE0.classList.toggle("player__active");
     sideE1.classList.toggle("player__active");
-    this._active == 1 ? 0 : 1;
+
+    this._active = this._active == 1 ? 0 : 1;
 
     // console.log(this._active);
   }
@@ -49,11 +53,28 @@ export default class Init {
 
     if (this.#ranDice == 1) {
       this._switchPlayer();
+      console.log(this._active);
+      this._scores[this._active] = this._totalPoint;
+      console.log(this);
+      this._totalPoint = 0;
+      return -1;
     }
 
     //
 
     diceImg.setAttribute("src", `./assets/img/dice-${this.#ranDice}.png`);
-    diceImg.classList.remove("hidden");
+    this.#ranDice == 1
+      ? diceImg.classList.add("hidden")
+      : diceImg.classList.remove("hidden");
+
+    //
+
+    this._totalPoint += this.#ranDice;
+
+    console.log(this._totalPoint);
+
+    //
+    document.querySelector(`#current__${this._active}`).textContent =
+      this._totalPoint;
   }
 }

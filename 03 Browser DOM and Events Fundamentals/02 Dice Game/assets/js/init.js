@@ -12,16 +12,17 @@ const diceImg = document.querySelector(".dice__img");
 
 export const rollBtn = document.querySelector(".btn__play");
 
-const restartBtn = document.querySelector(".btn__restart");
+export const restartBtn = document.querySelector(".btn__restart");
 
-const holdBtn = document.querySelector(".btn__hold");
+export const holdBtn = document.querySelector(".btn__hold");
 
 export default class Init {
-  #ranDice = 0;
-  _active = 0;
-  _totalPoint = 0;
-  playing = true;
-  _scores = [0, 0];
+  #ranDice;
+  _active;
+  _totalPoint;
+  _scores;
+  _count;
+  _playerFinished;
 
   constructor() {
     this.setDefault();
@@ -34,15 +35,56 @@ export default class Init {
   setDefault() {
     diceImg.classList.add("hidden");
     sideE0.classList.remove("winner__player");
+    sideE0.classList.add("player__active");
+    sideE1.classList.remove("winner__player");
+    sideE1.classList.remove("player__active");
+    this.#ranDice = 0;
+    this._active = 0;
+    this._totalPoint = 0;
+    this._scores = [0, 0];
+    this._count = 0;
+    this._playerFinished = false;
+
+    rollBtn.removeAttribute("disabled");
+    holdBtn.removeAttribute("disabled");
+  }
+
+  _allDisable() {
+    rollBtn.setAttribute("disabled", true);
+    holdBtn.setAttribute("disabled", true);
+  }
+
+  checkWinner() {
+    if (this._scores[0] > this._scores[1]) {
+      console.log("Player 1 Win");
+      sideE0.classList.add("winner__player");
+      sideE0.classList.add("player__active");
+      sideE1.classList.remove("player__active");
+
+      this._allDisable();
+    } else {
+      console.log("Player 2 Win");
+      sideE0.classList.remove("player__active");
+      sideE1.classList.add("player__active");
+      sideE1.classList.add("winner__player");
+      this._allDisable();
+    }
   }
 
   _switchPlayer() {
+    this._count++;
+
+    if (this._count >= 2) {
+      this.checkWinner();
+      return -1;
+    }
+
     sideE0.classList.toggle("player__active");
     sideE1.classList.toggle("player__active");
 
     this._active = this._active == 1 ? 0 : 1;
 
-    // console.log(this._active);
+    console.log("count", this._count);
   }
 
   gameStart() {
@@ -52,11 +94,9 @@ export default class Init {
     //
 
     if (this.#ranDice == 1) {
-      this._switchPlayer();
-      console.log(this._active);
       this._scores[this._active] = this._totalPoint;
-      console.log(this);
       this._totalPoint = 0;
+      this._switchPlayer();
       return -1;
     }
 
@@ -71,10 +111,10 @@ export default class Init {
 
     this._totalPoint += this.#ranDice;
 
-    console.log(this._totalPoint);
-
     //
     document.querySelector(`#current__${this._active}`).textContent =
       this._totalPoint;
+
+    //
   }
 }

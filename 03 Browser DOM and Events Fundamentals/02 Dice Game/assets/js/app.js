@@ -1,7 +1,7 @@
 "use strict";
 
 import Init from "./init.js";
-import { rollBtn } from "./init.js";
+import { rollBtn, holdBtn, restartBtn } from "./init.js";
 
 const gameObj = new Init();
 
@@ -13,3 +13,44 @@ rollBtn.addEventListener("click", function () {
 
   //   console.log("click");
 });
+
+holdBtn.addEventListener("click", function () {
+  gameObj.checkWinner();
+});
+
+restartBtn.addEventListener("click", function () {
+  gameObj.setDefault();
+});
+
+// let count = 0;
+
+// function info() {
+//   count++;
+//   return {
+//     next: function () {
+//       return count <= 5 ? { value: count, done: false } : { done: true };
+//     },
+//   };
+// }
+
+// console.log(info().next());
+// console.log(info().next());
+// console.log(info().next());
+// console.log(info().next());
+// console.log(info().next());
+// console.log(info().next());
+
+// function count() {
+//   let count = 0;
+
+//   return function () {
+//     count++;
+//     return count;
+//   };
+// }
+
+// const startCount = count();
+
+// console.log(startCount());
+// console.log(startCount());
+// console.log(startCount());

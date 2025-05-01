@@ -38,7 +38,7 @@ export default class Init {
     sideE0.classList.add("player__active");
     sideE1.classList.remove("winner__player");
     sideE1.classList.remove("player__active");
-    this.#ranDice = 0;
+    this.#ranDice;
     this._active = 0;
     this._totalPoint = 0;
     this._scores = [0, 0];
@@ -46,7 +46,13 @@ export default class Init {
     this._playerFinished = false;
 
     rollBtn.removeAttribute("disabled");
-    holdBtn.removeAttribute("disabled");
+    holdBtn.setAttribute("disabled", true);
+    restartBtn.setAttribute("disabled", true);
+
+    scoreE0.textContent = this._scores[0];
+    scoreE1.textContent = this._scores[1];
+    currentE0.textContent = this._scores[0];
+    currentE1.textContent = this._scores[1];
   }
 
   _allDisable() {
@@ -54,49 +60,58 @@ export default class Init {
     holdBtn.setAttribute("disabled", true);
   }
 
-  checkWinner() {
+  _checkWinner() {
     if (this._scores[0] > this._scores[1]) {
-      console.log("Player 1 Win");
       sideE0.classList.add("winner__player");
       sideE0.classList.add("player__active");
       sideE1.classList.remove("player__active");
 
       this._allDisable();
     } else {
-      console.log("Player 2 Win");
       sideE0.classList.remove("player__active");
       sideE1.classList.add("player__active");
       sideE1.classList.add("winner__player");
       this._allDisable();
     }
+
+    scoreE0.textContent = 0;
+    scoreE1.textContent = 0;
+    diceImg.classList.add("hidden");
+
+    restartBtn.removeAttribute("disabled");
   }
 
-  _switchPlayer() {
+  switchPlayer() {
     this._count++;
 
     if (this._count >= 2) {
-      this.checkWinner();
+      this._checkWinner();
       return -1;
     }
+
+    diceImg.classList.add("hidden");
 
     sideE0.classList.toggle("player__active");
     sideE1.classList.toggle("player__active");
 
     this._active = this._active == 1 ? 0 : 1;
-
-    console.log("count", this._count);
   }
 
   gameStart() {
+    holdBtn.removeAttribute("disabled");
+    // restartBtn.removeAttribute("disabled");
+
     this.#ranDice = this.#makeRanDice();
     console.log(this.#ranDice);
+
+    document.querySelector(`#score__${this._active}`).textContent =
+      this.#ranDice;
 
     //
 
     if (this.#ranDice == 1) {
-      this._scores[this._active] = this._totalPoint;
-      this._totalPoint = 0;
-      this._switchPlayer();
+      console.log(this._scores[this._active]);
+      this.switchPlayer();
       return -1;
     }
 
@@ -109,11 +124,11 @@ export default class Init {
 
     //
 
-    this._totalPoint += this.#ranDice;
+    this._scores[this._active] += this.#ranDice;
 
     //
     document.querySelector(`#current__${this._active}`).textContent =
-      this._totalPoint;
+      this._scores[this._active];
 
     //
   }

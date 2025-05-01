@@ -15,7 +15,7 @@ rollBtn.addEventListener("click", function () {
 });
 
 holdBtn.addEventListener("click", function () {
-  gameObj.checkWinner();
+  gameObj.switchPlayer();
 });
 
 restartBtn.addEventListener("click", function () {

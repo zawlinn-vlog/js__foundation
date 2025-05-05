@@ -79,6 +79,8 @@ x = "jonas"; // string
   1. Call Stack
   2. Heap
 
+  JS Engine တွင် Callstack နှင့် Heap ဆိုပီး ရှိတယ်။ Callstack သည် EC (execution context) ရေးသားထားသော code တွေကို execute လုပ်သောနေဖြစ်ပါသည်။ Heap သည် Object တွေကို သိမ်းဆည်‌ပေးသော နေရာ ဖြစ်ပါသည်။
+
 - `Compilation`: Entire code is converted into machine code at once, and written to a binary file that can be executed by a computer.
 
 source code -> Protable file/portable file -> Program running
@@ -101,7 +103,26 @@ AST - Abstract Syntax Tree
 
 ### What is an execution context?
 
-1. Creation of global execution context (Global EC) (for top-level code)
+1. Creation of global execution context (Global EC) (for top-level code) that is not inside any function, outside of code will be executed. function is executed when they are called
+
+```js
+const name = "Zaw linn";
+const first = () => {
+  let a = 1;
+  const b = second();
+  a = a - b;
+  return a;
+};
+
+function second() {
+  var c = 1;
+  return c;
+}
+```
+
+ဒီ Code မှာ `name`, `first` and `second` သည် top level code တွေ ဖြစ်ကြပါတယ်။
+Enviroment
+
 2. Exectly `one` global execution context (EC): Default context, created for code that is not inside any function (top-level)
 3. One execution context per function: For each functioncall, a new execution context is created.
 

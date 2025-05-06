@@ -106,25 +106,70 @@ AST - Abstract Syntax Tree
 1. Creation of global execution context (Global EC) (for top-level code) that is not inside any function, outside of code will be executed. function is executed when they are called
 
 ```js
+/*
+Global => 
+name = 'Zaw linn';
+first = <function>
+second = <function>
+x = <unkown>
+
+after first() is finished
+
+x = 3;
+
+first() => 
+a = 1
+b = <unkown>
+
+after second() is finished
+
+b = 2;
+
+return a and remove first(); 
+
+
+second() =>
+c = 2
+argument = [7, 9]
+
+return c and remove second() function
+
+*/
 const name = "Zaw linn";
 const first = () => {
   let a = 1;
-  const b = second();
-  a = a - b;
+  const b = second(7, 9);
+  a = a + b;
   return a;
 };
 
-function second() {
-  var c = 1;
+function second(x, y) {
+  var c = 2;
   return c;
 }
+const x = first();
 ```
 
 ဒီ Code မှာ `name`, `first` and `second` သည် top level code တွေ ဖြစ်ကြပါတယ်။
-Enviroment
+Enviroment ဆိုတာ JavaScript code တွေ Execute လုပ်မို့ လိုအပ်တဲ့ code တွေ သိုလောင်ထားတဲ့ နေရာဖြစ်ပါတယ်။
 
-2. Exectly `one` global execution context (EC): Default context, created for code that is not inside any function (top-level)
-3. One execution context per function: For each functioncall, a new execution context is created.
+Global Exection Context သည် default context တစ်ခုဖြစ်ပြီး သူက အရင်ဆုံး အလုပ်လုပ်ပါတယ်။
+
+ပြီးတဲ့အခါမှာ function တစ်ခုချင်းအတွက် Execution Context တစ်ခုချင်းကို Create လုပ်ပေးပါတယ်။ အကယ်၍ callback ရှိခဲ့သော် ၎င်းကို execute လုပ်ရန် JS Engine က ဆက် Run နေပါသေးတယ်။
+
+Execution Context တိုင်းမှာ
+
+1. Variables Environment
+   ✔️ Let, const and var declaration
+   ✔️ Functions
+   ✔️ Arguments Object
+2. Scope Chain
+3. `this` keyword - Creation Phase ပေါ် မူတည်ပြီး Generated လုပ်သွားပါတယ်။
+
+> Note: Function အတွင်းက Variable Environment တွေကတော့ function ပီတာနက် ပျောက်ကွယ်သွားလို့ အပြင်ကနေ အသုံးပြုလို့ရမှာ မဟုတ်ပါဘူး ခင်ဗျာ။ Arrow Function EC မှာတော့ argument object နဲ့ `this` keyword ကို အသုံးပြုလို့ရမာ မဟုတ်ပါဘူး ခင်ဗျာ။ Function EC တွေဟာ Return Value ပေးပီး ပျက်သွားတာ ဖြစ်ပေမဲ့ Global EC ကတော့ browser tab or browser window ပိတ်ချမှာသာ ပျက်သွားမာ ဖြစ်ပါတယ်။
+
+3. Exectly `one` global execution context (EC): Default context, created for code that is not inside any function (top-level)
+4. One execution context per function: For each functioncall, a new execution context is created.
 
 - Exection Context - Environment in which a piece of javaScript is executed. Stores all the necessary information for some code to be executed.(such as local variables or arguments passed into a function.)
 - JS code always runs inside an execution context.JS Project, no matter how large it is, there is only ever one global execution context and it's where top-level code will execute.

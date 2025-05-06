@@ -2,11 +2,11 @@
 
 > JavaScript is a `High-Level`, `Prototype-based` `Object-oriented`, `Multi-paradigm`, `Interpreted` Or `Just-in-Time Compiled`, `Dynamic`, `Single-Threaded`, `Garbage-collected` Programming Language with `First-class Functions` and a `Non-blocking Event Loop Concurrency Model`.
 
-- High-level - low level language have to manually manage resources (CPU, RAM and etc.). eg. asing the computer's memory to create a new variable. high-levl does not have to do it.
+- High-level - low level language တွေဟာ resources တွေကို ကိုယ်တိုင် manage (CUP, RAM and etc.) ပြုလုပ်ရပါတယ် ဥပမာ - variable တစ်ခုကို create လုပ်မို့ computer memory ကို အရင် access လုပ်ပေးရပါတယ်။ High-level တွေမှာတော့ ဒီလိုလုပ်မို့ မလိုအပ်ပါဘူး
 
-- Garbage-collected - it is memory management. inside the js engine, which automatically removes old, unused objects from the computer's memory.
+- Garbage-collected - ဒါကတော့ memory management ဖြစ်ပါတယ်။ js engine အတွင်း အသုံးမပြုတဲ့ variable တွေကို computer memory ကနေ auto remove ပြုလုပ်ပေးပါတယ်။
 
-- Interpreted or Just-in-Time Compiled - computer cpu use compiling or interpreted convert human readable to machine code (0 and 1).
+- Interpreted or Just-in-Time Compiled - code တွေကို execute (convert human readable to machine code 0 and 1) လုပ်တဲ့အခါမှာ compiling နဲ့ Interpret ဆိုပြီး နည်းလမ်း နှစ်ခုရှိပါတယ်။ JS ကတော့ နှစ်မျိုးစလုံး ပေါင်းစပ်ပြီး Just-in-Time compile အနေနဲ့အလုပ်ပါတယ်။
 
 - Multi-paradigm - Paradigm is an approch and mindset of structing code, which will direct your coding style and technique.
 
@@ -170,28 +170,11 @@ Execution Context တိုင်းမှာ
 2. Scope Chain
 3. `this` keyword - Creation Phase ပေါ် မူတည်ပြီး Generated လုပ်သွားပါတယ်။
 
+> this three steps are generated in a so-called creation phase.
+
 > Note: Function အတွင်းက Variable Environment တွေကတော့ function ပီတာနက် ပျောက်ကွယ်သွားလို့ အပြင်ကနေ အသုံးပြုလို့ရမှာ မဟုတ်ပါဘူး ခင်ဗျာ။ Arrow Function EC မှာတော့ argument object နဲ့ `this` keyword ကို အသုံးပြုလို့ရမာ မဟုတ်ပါဘူး ခင်ဗျာ။ Function EC တွေဟာ Return Value ပေးပီး ပျက်သွားတာ ဖြစ်ပေမဲ့ Global EC ကတော့ browser tab or browser window ပိတ်ချမှာသာ ပျက်သွားမာ ဖြစ်ပါတယ်။
 
-3. Exectly `one` global execution context (EC): Default context, created for code that is not inside any function (top-level)
-4. One execution context per function: For each functioncall, a new execution context is created.
-
-- Exection Context - Environment in which a piece of javaScript is executed. Stores all the necessary information for some code to be executed.(such as local variables or arguments passed into a function.)
-- JS code always runs inside an execution context.JS Project, no matter how large it is, there is only ever one global execution context and it's where top-level code will execute.
-
-### What's inside execution context?
-
-1. Variable Environment &mdash;
-
-   - `let`, `const` and `var` declarations
-   - Functions
-   - Arguments object
-
-2. Scope chain
-3. `this` keyword
-
-this three steps are generated in a so-called creation phase.
-
-> In arrow function execution context (EC) do not have `Arguments Object` and `this` keywords but can access from their closest regular function parent.
+### SCOPE CONCEPTS
 
 ### Hoisting in JavaScript
 

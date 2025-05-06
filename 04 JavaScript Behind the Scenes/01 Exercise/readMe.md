@@ -160,9 +160,13 @@ Global Exection Context သည် default context တစ်ခုဖြစ်ပ
 Execution Context တိုင်းမှာ
 
 1. Variables Environment
+
    ✔️ Let, const and var declaration
+
    ✔️ Functions
+
    ✔️ Arguments Object
+
 2. Scope Chain
 3. `this` keyword - Creation Phase ပေါ် မူတည်ပြီး Generated လုပ်သွားပါတယ်။
 

@@ -197,15 +197,18 @@ Execution Context တိုင်းမှာ
 |                                                                |                                                              | Functions are `also block scoped`(only in strict mode)    |
 
 > [!TIP]
+> EXAMPLE Text SAMPLE
 
 > [!WARNING]
+> EXAMPLE Text SAMPLE
 
 > [!CAUTION]
+> EXAMPLE Text SAMPLE
 
 > [!IMPORTANT]
+> EXAMPLE Text SAMPLE
 
-> [!NOTE]
-> `let` and `const` are block scope and var is function scope in ES5. in `strict mode` ES6 all `function` are block scope
+> [!NOTE] > `let` and `const` are block scope and var is function scope in ES5. in `strict mode` ES6 all `function` are block scope
 
 => Global Scope
 

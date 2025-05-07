@@ -271,21 +271,14 @@ SCOPE & SCOPE CHAIN &mdash;
 
 - `this` is NOT static: It depends on how the function is called, and its value is only assigned when the function is actually called.
 
-  > [!TIP ]
   > Method 👉 this = \<Object that is calling the method.\>
 
-  > [!TIP]
   > Simple Function call 👉 this => undefined. (!in strict mode! Otherwise window/global object (in the browser))
 
-  <br>
-
-  > [!TIP]
   > Arrow Function 👉 this => \<this of surronding function(lexical this)\>
 
-  > [!TIP]
   > Event listener 👉 this => \<DOM element that the handler is attached to\>
 
-  > [!TIP]
   > new, call, apply, bind 👉 \< Later in the Course 🍷 \>
 
   > [!CAUTION]  

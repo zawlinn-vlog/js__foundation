@@ -176,9 +176,72 @@ Execution Context တိုင်းမှာ
 
 ### SCOPE CONCEPTS
 
+`Scoping` - ဆိုတာ JS Engine က Variable တွေကို ဘယ်လို စုစည်းပီး access လုပ်တာလဲ ဘယ်လို Organized လုပ်ပီး variable တွေ ဘယ်ချိန်ထိ ရှင်သန်လဲ ဆိုတာပဲ ဖြစ်ပါတယ်။
+
+`Lexical Scoping` : ဆိုတာ parent Function တစ်ခုထဲ အခြား child function တစ်ခုရှိပီး child function က parent function ထဲတွင် သတ်မှတ်ထားသော variable ကို access လုပ်နိုင်ခြင်းဖြစ်ပါတယ်။
+
+`Scope` : ဆိုတာ variable ကို ကြေငြာပေးနိုင်တဲ့ space or environment တစ်ခုပဲ ဖြစ်ပါတယ်။ Scope သုံးမျိုးရှိပါတယ်။
+
+1.  Global Scope,
+2.  Function Scope and
+3.  Block Scope (ES6) တို့ပဲ ဖြစ်ပါတယ်။
+
+`Scope of a variable` : ဆိုတာ variable တစ်ခုကို access လုပ်နိုင်တဲ့ region ကိုရည်ညွှန်းပါတယ်။
+
+> function ဆိုတာလည်း variable တစ်ခုဖြစ်ပါတယ်။
+
+| Global Scope                                                   | Function Scope                                               | Block Scope(ES6)                                          |
+| -------------------------------------------------------------- | ------------------------------------------------------------ | --------------------------------------------------------- |
+| Outside of any function or block                               | Variables are accessible only `inside function. NOT` outside | Variabls are accessible only `inside block`(block scoped) |
+| Variables declared in global scope are accessible `everywhere` | Also called local scope                                      | `However, this only applies to `let`and`const` variables! |
+|                                                                |                                                              | Functions are `also block scoped`(only in strict mode)    |
+
+[!CAUTION]
+let and const are block scope and var is function scope in ES5. in `strict mode` ES6 all function are block scope
+
+=> Global Scope
+
+```js
+const me = "Zaw Linn";
+const job = "Staff";
+const birthYear = 1997;
+```
+
+=> Function Scope
+
+```js
+function calcAge(birthYear) {
+  const now = 2025;
+  const age = now - birthYear;
+  return age;
+}
+
+console.log(calcAge(1997)); //
+console.log(now); // RefrenceError
+```
+
+=> Block Scope
+
+```js
+if (year >= 1981 && year <= 1996) {
+  const millenial = true;
+  const food = "Avocado toast";
+} //  If block for loop block, etc.
+
+console.log(millenial); // ReferenceError
+```
+
+SCOPE CHAIN &mdash;
+
+![Scope & Scope Chain](./assets/img/img-02.jpg)
+
+SCOPE & SCOPE CHAIN &mdash;
+
+![Scope & Scope Chain](./assets/img/img-01.jpg)
+
 ### Hoisting in JavaScript
 
-- `Hoisting` : Makes some types of variables accessible/usable in the code they are actually declared. 'Variable lifted to the top of their scope'
+`Hoisting` : Variable မကြေငြာခင် အဲဒီ variable or function ကို ခေါ်ယူအသုံးပြုခြင်းကို ခေါ်ဆိုတပါသည်။
 
 - `function`, let and const are block scope
 - `var` is hoisted and initial vlaue is undefined and it's function scope

@@ -1,4 +1,35 @@
-"use strict";
+// "use strict";
+
+const firstName = "Zaw Linn";
+
+function calcAge(birthYear) {
+  const age = 2025 - birthYear;
+
+  function printAge() {
+    const output = `${firstName}, you are ${age}, born in ${birthYear}`;
+
+    console.log(output);
+
+    if (birthYear >= 1981 && birthYear <= 2005) {
+      const firstName = "Saram";
+      var millenial = true;
+      const str = `Oh, and you're a millenial, ${firstName}`;
+      console.log(str);
+
+      function add(a, b) {
+        return a + b;
+      }
+    }
+
+    // console.log(str);
+    // console.log(millenial);
+    console.log(add(5, 6));
+  }
+
+  printAge();
+}
+
+calcAge(1997);
 
 // console.log(firstName);
 // console.log(age);

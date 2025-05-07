@@ -282,7 +282,7 @@ SCOPE & SCOPE CHAIN &mdash;
   > new, call, apply, bind 👉 \< Later in the Course 🍷 \>
 
   > [!CAUTION]  
-  > this does `NOT` point to the function itself, and also NOT the variable environment!
+  > This does `NOT` point to the function itself, and also NOT the variable environment!
 
 ### PRIMITIVES - Store in Call stack
 

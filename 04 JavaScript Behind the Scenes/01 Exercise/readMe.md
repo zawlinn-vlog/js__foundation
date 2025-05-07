@@ -204,7 +204,8 @@ Execution Context တိုင်းမှာ
 
 > [!IMPORTANT]
 
-> [!NOTE] > `let` and `const` are block scope and var is function scope in ES5. in `strict mode` ES6 all `function` are block scope
+> [!NOTE]
+> `let` and `const` are block scope and var is function scope in ES5. in `strict mode` ES6 all `function` are block scope
 
 => Global Scope
 

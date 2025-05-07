@@ -277,6 +277,8 @@ SCOPE & SCOPE CHAIN &mdash;
   > [!TIP]
   > Simple Function call 👉 this => undefined. (!in strict mode! Otherwise window/global object (in the browser))
 
+  <br>
+
   > [!TIP]
   > Arrow Function 👉 this => \<this of surronding function(lexical this)\>
 

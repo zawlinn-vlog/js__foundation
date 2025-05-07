@@ -209,8 +209,7 @@ Execution Context တိုင်းမှာ
 > [!IMPORTANT]
 > EXAMPLE Text SAMPLE -->
 
-> [!TIP]
-> `let` and `const` are block scope and var is function scope in ES5. in `strict mode` ES6 all `function` are block scope
+> [!TIP] > `let` and `const` are block scope and var is function scope in ES5. in `strict mode` ES6 all `function` are block scope
 
 => Global Scope
 
@@ -266,21 +265,29 @@ SCOPE & SCOPE CHAIN &mdash;
 1. Makes it easier to avoid and catch errors :
 2. Makes const variable actually work
 
-### How the `this` keyword works
+### How the `this` keyword
 
 - `this` keyword/variable : Special variable that is created for every execution context (every function). Takes the value of (points to) the "owner" of the function in which the `this` keyword is used.
 
 - `this` is NOT static: It depends on how the function is called, and its value is only assigned when the function is actually called.
 
-  > Method -> this = \<Object that is calling the method.\>
+  > [!TIP ]
+  > Method 👉 this = \<Object that is calling the method.\>
 
-  > Simple Function call -> this => undefined. (!in strict modde! Otherwise window/global object (in the browser))
+  > [!TIP]
+  > Simple Function call 👉 this => undefined. (!in strict mode! Otherwise window/global object (in the browser))
 
-  > Arrow Function -> this => <this of surronding function(lexical this)\>
+  > [!TIP]
+  > Arrow Function 👉 this => \<this of surronding function(lexical this)\>
 
-  > Event listener -> this => <DOM element that the handler is attached to\>
+  > [!TIP]
+  > Event listener 👉 this => \<DOM element that the handler is attached to\>
 
-  > NOTE : this does NOT point to the function itself, and also NOT the variable environment!
+  > [!TIP]
+  > new, call, apply, bind 👉 \< Later in the Course 🍷 \>
+
+  > [!CAUTION]  
+  > this does `NOT` point to the function itself, and also NOT the variable environment!
 
 ### PRIMITIVES - Store in Call stack
 

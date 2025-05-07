@@ -196,8 +196,15 @@ Execution Context တိုင်းမှာ
 | Variables declared in global scope are accessible `everywhere` | Also called local scope                                      | `However, this only applies to `let`and`const` variables! |
 |                                                                |                                                              | Functions are `also block scoped`(only in strict mode)    |
 
-> [!NOTE]
-> let and const are block scope and var is function scope in ES5. in `strict mode` ES6 all function are block scope
+> [!TIP]
+
+> [!WARNING]
+
+> [!CAUTION]
+
+> [!IMPORTANT]
+
+> [!NOTE] > `let` and `const` are block scope and var is function scope in ES5. in `strict mode` ES6 all `function` are block scope
 
 => Global Scope
 

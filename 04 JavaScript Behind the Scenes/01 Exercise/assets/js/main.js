@@ -47,3 +47,39 @@ console.log(obj2.getAge());
 const x = obj2.getAge;
 
 // x(); // Uncaught TypeError
+
+let a = 5;
+let b = a;
+a = 10;
+console.log(`Value of a : ${a}`);
+console.log(`Value of b : ${b}`);
+
+const obj3 = {
+  fullName: "Zawlinn",
+  family: ["U Sein Lin", "Daw Ohnmar"],
+};
+
+const obj4 = obj3;
+
+obj3.family.push("Wai Mar Lin"); // Value by Reference
+
+console.log(obj3);
+console.log(obj4);
+
+function init() {
+  return `I am ${this.fullName} and I am ${this.age}`;
+}
+
+const obj5 = {
+  fullName: "Saram Khan",
+  age: 28,
+};
+
+const obj6 = {
+  fullName: "Gulam Abbas",
+  age: 34,
+};
+
+console.log(init.call(obj5));
+console.log(init.apply(obj6));
+console.log(init.bind(obj6)());

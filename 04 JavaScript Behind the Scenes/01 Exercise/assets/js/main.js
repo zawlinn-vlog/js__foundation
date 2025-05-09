@@ -44,7 +44,7 @@ obj2.getAge = obj.getAge;
 console.log(obj2);
 console.log(obj2.getAge());
 
-const x = obj2.getAge;
+// const x = obj2.getAge;
 
 // x(); // Uncaught TypeError
 
@@ -83,3 +83,42 @@ const obj6 = {
 console.log(init.call(obj5));
 console.log(init.apply(obj6));
 console.log(init.bind(obj6)());
+
+const arr = ["one", "two", "three", "four", "five", "six"];
+
+// const [x, , y] = arr;
+
+const { fullName: fname, age: currentAge } = obj5;
+
+const arr2 = Object.entries(obj5);
+
+const arr3 = Object.entries(arr);
+
+const sarr = new Set();
+
+sarr.add("Mango");
+sarr.add("Lemon");
+sarr.add("Orange");
+
+console.log(sarr);
+
+const arr4 = Array.from(sarr);
+
+const marr = new Map();
+
+marr["first"] = "FirstName";
+marr[true] = "Married";
+
+console.log(marr);
+console.log(Object.entries(marr));
+
+console.table(arr3);
+
+console.log(arr4);
+
+console.table(arr2);
+
+console.log(fname, currentAge);
+
+// console.log(`Value of x: ${x}`);
+// console.log(`Value of y: ${y}`);

@@ -245,3 +245,98 @@ newarr.push("Fry Noodle");
 
 console.log(newMenu);
 console.log(newarr);
+
+// SHORT CIRCUIT && || ??
+
+// && true skip
+
+console.log(true && "Zawlinn");
+console.log(0 && "Saram");
+console.log("" && "Saram");
+console.log(null && "Saram");
+console.log(undefined && "Saram");
+
+// || False SKIP
+
+console.log(true || "Mango");
+console.log(0 || "Mango");
+
+// ??
+
+console.log(null ?? "Anymous");
+console.log(undefined ?? "Anymous");
+
+console.log(restaurant.owner); // undefined
+
+restaurant.owner ??= "Anynomous";
+
+console.log(restaurant);
+
+restaurant.getMenu = function () {
+  return newMenu;
+};
+
+console.log(restaurant?.getMenu?.());
+
+for (let i of newMenu) {
+  console.log(i);
+}
+
+for (let [ind, val] of newMenu.entries()) {
+  console.log(`${ind + 1}: ${val}`);
+}
+
+// set
+
+const setarr = new Set(["hello", "hi", "hey"]); // ,ust be array
+
+console.log(setarr);
+
+const setMenu = new Set(newMenu);
+
+console.log(setMenu.size);
+console.log(setMenu.has("Garlic"));
+console.log(setMenu.delete("Garlic"));
+setMenu.clear();
+setMenu.add("Palata");
+setMenu.add("E Kyar Kway");
+setMenu.add("Sar Mu Sar");
+console.log(setMenu);
+// console.log(Object.entries(newMenu));
+console.log(Array.from(setMenu));
+
+const integrant = "Vegetables";
+
+const menu = {
+  integrant,
+  owner: "Zaw Linn",
+  birthYear: 1997,
+  job: "Sale Staff",
+  bio() {
+    return `I am ${this.owner} and ${
+      2025 - this.birthYear
+    } years old and working as ${this.job}!`;
+  },
+};
+
+console.log(menu.bio());
+
+const question = new Map([
+  ["question", "What is the best programming language in the world?"],
+  [1, "C"],
+  [2, "Java"],
+  [3, "JavaScript"],
+  ["correct", 3],
+  [true, "Correct 🍕"],
+  [false, "Wrong ❌"],
+]);
+
+console.log(question.get("question"));
+for (let [key, val] of question) {
+  if (typeof key === "number") console.log(`Answer ${key} : ${val}`);
+}
+
+const answer = 3;
+
+if (question.get("correct") == answer) console.log(question.get(true));
+else console.log(question.get(false));

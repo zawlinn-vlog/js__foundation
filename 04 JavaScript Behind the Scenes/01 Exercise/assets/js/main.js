@@ -1,5 +1,6 @@
 "use strict";
 
+/*
 function funA() {
   return this;
 }
@@ -340,3 +341,120 @@ const answer = 3;
 
 if (question.get("correct") == answer) console.log(question.get(true));
 else console.log(question.get(false));
+
+const aa = new Set([1, 3, 4, 5, 6]);
+
+aa.add("Hello");
+
+console.log(aa);
+
+const [bb] = aa;
+
+console.log(...aa, bb);
+
+const arrAA = [...aa];
+
+console.log(arrAA);
+
+const aMap = new Map();
+
+aMap.set("name", "Zaw Linn");
+
+console.log(aMap);
+
+const airline = "TAP to portugal";
+
+const plane = "A114";
+
+console.log(airline.at(0)); // return character
+console.log(airline.charAt("2")); // return character
+
+console.log(airline.length);
+
+// Method
+
+console.log(airline.slice(4));
+console.log(airline.slice(0, 4));
+console.log(airline.slice(0, 3), airline.slice(0, 3).length);
+console.log(airline.slice(-8));
+
+//
+
+console.log(airline.toLowerCase());
+console.log(airline.toUpperCase());
+
+//
+
+console.log(airline.includes("portugal"));
+
+//
+
+console.log(airline.search("Tap"));
+console.log(airline.search("to"));
+
+const teststr = "Take me home country street. The street is narrow and rush";
+
+console.log(teststr.replace("street", "road"));
+console.log(teststr.replaceAll("street", "road"));
+
+function makeCapital(str) {
+  const s = str.toLowerCase().split(" ");
+  const arr = [];
+
+  for (let str of s) {
+    arr.push(str.replace(str[0], str[0].toUpperCase()));
+  }
+
+  return arr.join(" ").concat(".");
+}
+
+console.log(makeCapital(airline));
+
+console.log(airline.startsWith("T")); // case sensitive
+console.log(airline.startsWith("t")); // case sensitive
+
+console.log(airline.endsWith("gal"));
+
+console.log(airline.padStart(20, "*").padEnd(30, "*"));
+
+console.log(airline.repeat(10));
+
+*/
+
+// function add(a = 10, b = 25) {
+//   return a + b;
+// }
+// function add({ a = 10, b = 25 }) {
+//   return a + b;
+// // }
+// function add(arr) {
+//   let initVal = 0;
+//   for (let ind of arr) {
+//     initVal += ind;
+//   }
+
+//   return initVal;
+// }
+
+// console.log(add([1, 4, 5, 242, 2, 232, 4]));
+
+const numArr = [
+  100, 1500, 320, 480, 500, 100, 1700, 480, 200, 1500, 250, 225, 200, 250,
+];
+
+const array1 = [1, 2, 3, 4];
+
+// 0 + 1 + 2 + 3 + 4
+const initialValue = 0;
+const sumWithInitial = numArr.reduce(
+  (acc, cur) => {
+    console.log(acc, cur);
+    if (acc.value == cur) {
+      acc.count++;
+      return acc;
+    }
+  },
+  { count: 0, value: numArr[0] }
+);
+
+console.log(sumWithInitial);

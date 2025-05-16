@@ -438,6 +438,75 @@ console.log(airline.repeat(10));
 
 // console.log(add([1, 4, 5, 242, 2, 232, 4]));
 
+
+const numArr = [
+  100, 1500, 320, 480, 500, 100,100, 1700, 480, 200, 1500, 250, 225, 200, 250,
+];
+
+const array1 = [1, 2, 3, 4];
+
+
+const sumWithInitial = numArr.reduce(
+  (acc, cur) => {
+    acc[cur] = (acc[cur] || 0) + 1;
+    return acc;
+  },
+  {}
+);
+
+console.log(sumWithInitial);
+
+
+const counting = function (arr){
+
+  const obj = {};
+
+  for(let i of arr){
+    let start = 0;
+
+    for(let j of arr){
+      if(i == j) obj[i] = ++start;
+    }
+  }
+
+  return obj;
+}
+
+
+const countingObj = counting(numArr);
+
+console.log(Object.keys(countingObj));
+console.log(Object.values(countingObj));
+console.log(Object.entries(countingObj));
+
+// for(let j in countingObj){
+//   console.log(countingObj[j]);
+// }
+
+console.log(countingObj);
+
+Object.entries(countingObj).map(([item,val]) => {
+  console.log(`Times of ${item} : ${val} `);
+})
+
+
+const zawlinn = {
+  name: "Zaw Linn",
+  passport: "243242424224235324"
+}
+
+const plane = "B737";
+
+const checkIn = function(flight,passenger){
+  let flightno = flight.slice(1);
+  passenger.name = "Mr. ".concat(passenger.name);
+
+  if(passenger.passport == 243242424224235324){
+    console.log(`Your are checkIn `);
+  }
+
+}
+
 function Car(name, speed) {
   this.name = name;
   this.speed = speed;
@@ -511,3 +580,69 @@ aab();
 console.log(aab);
 
 console.log(someOtherObject);
+
+
+function toMakeCapitalize(str){
+  let [first, ...others] = str.split(' ');
+
+  return ([first.toUpperCase(), ...others].join(' '))
+}
+
+const transforming  = function(str, fn){
+  console.log(str);
+  console.log(fn(str));
+  console.log(fn.name);
+}
+
+transforming('JavaScript is the best!', toMakeCapitalize);
+
+const greet = function(greeting){
+
+  return function (name){
+    console.log(`${greeting} to ${name}`);
+  }
+}
+
+const g = greet('Hey');
+
+g('Jonas');
+
+greet('Hello')('Zawlinn');
+
+
+const agreeting = greet => name => console.log(`${greet} to ${name}`);
+
+const h = agreeting('Helo');
+
+h('Dolly')
+agreeting('Hi')('Saram');
+
+const boring = {
+  airline: 'Boring',
+  iataCode: 'BR',
+  books: [],
+  booking(flightNo, name){
+    console.log(`${name} is booked seat on ${this.airline} flight ${this.iataCode }${flightNo}`);
+    this.books.push({flight: `${this.iataCode}${flightNo}`, name})
+  }
+}
+
+boring.booking(239, 'Jame William');
+boring.booking(737, 'Ester Smith');
+
+console.log(boring);
+
+
+const eurowing = {
+  airline: 'Eurowing',
+  iataCode: 'EW',
+  books: []
+}
+
+const book = boring.booking;
+
+book.call(eurowing, 23, 'Zaw Linn Tun');
+book.call(eurowing, 49, 'Saram Tun');
+
+console.log(eurowing);
+

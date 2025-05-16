@@ -336,3 +336,8 @@ btnClose.addEventListener("click", greet);
 ```js
 counter.inc.bind(someOtherObject);
 ```
+Higher-Order Function 
+
+- Higher-order Function ဆိုတာ function တစ်ခုကို argument အဖြစ် သို့ return function ကို လက်ခံပေးသော function တစ်ခုဖြစ်ပါတယ်။
+
+− This is only possible because of first-class functions. 

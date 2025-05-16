@@ -438,23 +438,76 @@ console.log(airline.repeat(10));
 
 // console.log(add([1, 4, 5, 242, 2, 232, 4]));
 
-const numArr = [
-  100, 1500, 320, 480, 500, 100, 1700, 480, 200, 1500, 250, 225, 200, 250,
-];
+function Car(name, speed) {
+  this.name = name;
+  this.speed = speed;
+}
 
-const array1 = [1, 2, 3, 4];
+Car.prototype.getInfo = function () {
+  return `${this.name} can drive ${this.speed}`;
+};
 
-// 0 + 1 + 2 + 3 + 4
-const initialValue = 0;
-const sumWithInitial = numArr.reduce(
-  (acc, cur) => {
-    console.log(acc, cur);
-    if (acc.value == cur) {
-      acc.count++;
-      return acc;
-    }
+function Bus(name, speed, seat) {
+  Car.call(this, name, speed);
+  this.seat = seat;
+}
+
+Bus.prototype = Object.create(Car.prototype);
+
+const toyota = new Car("Toyota", 1800);
+
+const hino = new Bus("Hino", 2000, 15);
+
+console.log(toyota.getInfo());
+
+console.log(toyota);
+
+console.log(hino);
+
+console.log(hino.getInfo());
+
+const objproto = {
+  getSpeed() {
+    console.log(
+      `I am Driving fast speed car, ${this.name}, it speed is ${this.speed}`
+    );
   },
-  { count: 0, value: numArr[0] }
-);
+};
 
-console.log(sumWithInitial);
+const saram = Object.create(objproto);
+
+saram.name = "Toyota";
+saram.speed = 2200;
+
+console.log(saram);
+
+saram.getSpeed();
+
+const counter = {
+  value: 23,
+  inc: function () {
+    this.value++;
+  },
+};
+
+counter.inc();
+counter.inc();
+counter.inc();
+counter.inc();
+counter.inc();
+
+const someOtherObject = {
+  value: 100,
+};
+
+console.log(counter);
+
+const aab = counter.inc.bind(someOtherObject);
+
+aab();
+aab();
+aab();
+
+console.log(aab);
+
+console.log(someOtherObject);

@@ -300,3 +300,39 @@ SCOPE & SCOPE CHAIN &mdash;
 2. Arrays
 3. Functions
 4. Many more...
+
+### First-Class vs Higher-Order Functions
+
+- JavaScript သည် first-class citizens function အဖြစ် လုပ်ဆောင်ပါတယ်။
+
+- ဆိုလိုသည်မှာ function သည် simply values ဖြစ်ပါတယ်။
+
+- Function သည် Object type တစ်မျိုးပင် ဖြစ်ပါသည်။
+
+👉🏽 Function ကို Variable or Properties တွင် သိုလောင်ခြင်း
+
+```js
+const add = (a, b) => a + b;
+
+const counter = {
+  value: 23,
+  inc: function () {
+    this.value++;
+  },
+};
+```
+
+👉🏽 Pass functios as arguments to OTHER functions:
+
+```js
+const greet = () => console.log("Hey Jonas");
+btnClose.addEventListener("click", greet);
+```
+
+👉🏽 Return functions FROM functions
+
+👉🏽 Call methods on functions:
+
+```js
+counter.inc.bind(someOtherObject);
+```

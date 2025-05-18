@@ -1,5 +1,19 @@
 'use strict';
 
+const array = ['a', 'b', 'c', 'd', 'e'];
+
+console.log(array);
+// Slice
+console.log(array.slice(1));
+console.log(array.slice(3));
+console.log(array.slice(-1));
+console.log(array.slice(-3, -1));
+
+// splice
+// imutable array - change orginal array
+console.log(array.splice(2.4));
+console.log(array);
+
 // DATA
 
 const account1 = {

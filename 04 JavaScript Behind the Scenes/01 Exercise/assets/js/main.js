@@ -646,3 +646,68 @@ book.call(eurowing, 49, 'Saram Tun');
 
 console.log(eurowing);
 
+const euroswing = {
+  airline: 'Swing',
+  iataCode: 'SW',
+  books: []
+};
+
+
+const booking = book.bind(euroswing)
+console.log( booking(309, 'Gulam Abbas'));
+console.log(euroswing);
+
+
+
+// coluser function
+
+function count(){
+  let startindex = 0; 
+  return function(){
+    startindex++;
+    return startindex + ' Passenger' ;
+  }
+}
+
+
+const c = count();
+
+console.log(c());
+console.log(c());
+console.log(c());
+
+let hh;
+
+const gg = function(){
+  let x = 0;
+
+  hh = function(){
+    x++;
+    return `${x} Customer${x > 1 ? 's' : ''}`;
+  }
+}
+
+gg();
+
+console.log(hh());
+console.log(hh());
+console.log(hh());
+
+// Regular Self invoked Function
+(function() {console.log('Self Regular Function Invoked!')})();
+
+
+(_=> console.log('Self Arrow Function Invoked!'))();
+
+
+document.querySelector('.btn-white').addEventListener('click', book.call(euroswing, 55, 'customer 01'))
+
+const addsome = (a,b) => a+b;
+
+const addnew = addsome.bind(null, 100);
+
+console.log(addnew(500));
+
+
+
+

@@ -20,5 +20,3 @@ submit__l.addEventListener('click', function (e) {
   e.preventDefault();
   Banking.login();
 });
-
-Banking.login();

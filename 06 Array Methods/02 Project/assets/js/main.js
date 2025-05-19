@@ -100,6 +100,7 @@ export const loginUsername = document.querySelector('#loginUserName'),
 
 const mainWrapper = document.querySelector('.main'),
   currentPrice = document.querySelector('.current__price'),
+  navbar__brand = document.querySelector('.navbar__brand'),
   incomeTotal = document.querySelector('#total__income'),
   outcomeTotal = document.querySelector('#total__outcome'),
   interestTotal = document.querySelector('#total__interest'),
@@ -230,6 +231,42 @@ class InitBanking extends Accounts {
       propos.get(this).currentAccount.pin == loginPIN.value.trim()
     ) {
       console.log(propos.get(this).currentAccount.movements);
+      loginPIN.value = loginUsername.value = '';
+      navbar__brand.textContent = `Welcome Back, ${
+        propos.get(this).currentAccount.owner.split(' ')[0]
+      }`;
+
+      mainWrapper.classList.remove('d__none');
+
+      propos
+        .get(this)
+        .currentAccount.movements.reverse()
+        .map((mov, idx) => {
+          let html = `
+               <div class="user__items d__flex">
+                <div class="user__action">
+                  <span class="user__badge user__${
+                    mov > 0 ? 'deposite' : 'withdraw'
+                  }"> ${idx + 1} ${mov > 0 ? 'deposite' : 'withdraw'}</span>
+                  <span class="user__action-date">31/07/2024</span>
+                </div>
+                <p class="user__amounts">${mov}€</p>
+              </div>
+          `;
+
+          userDataContainer.insertAdjacentHTML('beforeend', html);
+        });
+
+      currentPrice.textContent =
+        propos
+          .get(this)
+          .currentAccount.movements.reduce((acc, cur) => acc + cur, 0) + '€';
+
+      incomeTotal.textContent =
+        propos
+          .get(this)
+          .currentAccount.movements.filter(mov => mov > 0)
+          .reduce((acc, cur) => acc + cur, 0) + '€';
     }
   }
 }

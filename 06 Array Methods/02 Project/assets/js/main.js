@@ -198,6 +198,7 @@ class Accounts {
     propos.set(this, {
       accounts,
       currentAccount: '',
+      sort: false,
       createUsr() {
         this.accounts.map(usr => {
           usr.username = usr.owner
@@ -218,6 +219,20 @@ class Accounts {
 }
 
 class InitBanking extends Accounts {
+  // button Control
+
+  btnCtrl() {
+    if (loginPIN.value.length == 4 && loginPIN.value) {
+      submit__l.classList.remove('btn__disabled');
+      submit__l.removeAttribute('disabled');
+    } else {
+      submit__l.classList.add('btn__disabled');
+      submit__l.setAttribute('disabled', true);
+    }
+  }
+
+  // LOGIN FUNCTION
+
   login() {
     propos.get(this).currentAccount = propos
       .get(this)
@@ -230,7 +245,6 @@ class InitBanking extends Accounts {
       propos.get(this).currentAccount &&
       propos.get(this).currentAccount.pin == loginPIN.value.trim()
     ) {
-      console.log(propos.get(this).currentAccount.movements);
       loginPIN.value = loginUsername.value = '';
       navbar__brand.textContent = `Welcome Back, ${
         propos.get(this).currentAccount.owner.split(' ')[0]
@@ -267,8 +281,15 @@ class InitBanking extends Accounts {
           .get(this)
           .currentAccount.movements.filter(mov => mov > 0)
           .reduce((acc, cur) => acc + cur, 0) + '€';
+      outcomeTotal.textContent =
+        propos
+          .get(this)
+          .currentAccount.movements.filter(mov => mov < 0)
+          .reduce((acc, cur) => acc + cur, 0) + '€';
     }
   }
+
+  //
 }
 
 const bank = new InitBanking(accounts);

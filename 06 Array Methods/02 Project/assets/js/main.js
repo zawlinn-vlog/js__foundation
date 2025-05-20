@@ -111,8 +111,6 @@ export const transferBtn = document.querySelector('#transferBtn'),
   transferAmount = document.querySelector('#transferAmount'),
   sortMov = document.querySelector('#sort');
 
-
-
 // DATA
 
 const account1 = {
@@ -220,10 +218,10 @@ class Accounts {
     return propos.get(this).accounts;
   }
 
-  displayList(mov){
+  displayList(mov) {
     userDataContainer.textContent = '';
-     mov.map((mov, idx) => {
-          let html = `
+    mov.map((mov, idx) => {
+      let html = `
                <div class="user__items d__flex">
                 <div class="user__action">
                   <span class="user__badge user__${
@@ -235,16 +233,13 @@ class Accounts {
               </div>
           `;
 
-          userDataContainer.insertAdjacentHTML('beforeend', html);
-        });
+      userDataContainer.insertAdjacentHTML('beforeend', html);
+    });
   }
-
-  
 }
 
 class InitBanking extends Accounts {
-
-  constructor(accounts){
+  constructor(accounts) {
     super(accounts);
   }
   // button Control
@@ -268,7 +263,6 @@ class InitBanking extends Accounts {
         usr => usr.username == loginUsername.value.trim().toLowerCase()
       );
 
-
     //
     if (
       propos.get(this).currentAccount &&
@@ -279,66 +273,99 @@ class InitBanking extends Accounts {
         propos.get(this).currentAccount.owner.split(' ')[0]
       }`;
 
-    mainWrapper.classList.remove('d__none');
+      mainWrapper.classList.remove('d__none');
 
-    propos.get(this).sort = false;
+      propos.get(this).sort = false;
 
       // console.log(propos.get(this).currentAccount.movements.sort((a,b) => a - b));
 
-
-    this.displayList(propos.get(this).currentAccount.movements.reverse())
-
-
-      currentPrice.textContent =
-        propos
-          .get(this)
-          .currentAccount.movements.reduce((acc, cur) => acc + cur, 0) + '€';
-
-      incomeTotal.textContent =
-        propos
-          .get(this)
-          .currentAccount.movements.filter(mov => mov > 0)
-          .reduce((acc, cur) => acc + cur, 0) + '€';
-
-
-      outcomeTotal.textContent =
-        propos
-          .get(this)
-          .currentAccount.movements.filter(mov => mov < 0)
-          .reduce((acc, cur) => acc + cur, 0) + '€';
-
-      interestTotal.textContent = (propos.get(this).currentAccount.movements.reduce((acc, cur) => acc+ cur, 0) * (propos.get(this).currentAccount.interestRate/100)).toFixed(2) + '€';
+      this.uiUpdate();
     }
+  }
+
+  // UI UPDATE
+  uiUpdate() {
+    this.displayList([...propos.get(this).currentAccount.movements].reverse());
+
+    console.log(propos.get(this).currentAccount.movements);
+
+    this.currentTotal();
+
+    incomeTotal.textContent =
+      propos
+        .get(this)
+        .currentAccount.movements.filter(mov => mov > 0)
+        .reduce((acc, cur) => acc + cur, 0) + '€';
+
+    outcomeTotal.textContent =
+      propos
+        .get(this)
+        .currentAccount.movements.filter(mov => mov < 0)
+        .reduce((acc, cur) => acc + cur, 0) + '€';
+
+    interestTotal.textContent =
+      (
+        propos
+          .get(this)
+          .currentAccount.movements.reduce((acc, cur) => acc + cur, 0) *
+        (propos.get(this).currentAccount.interestRate / 100)
+      ).toFixed(2) + '€';
+  }
+
+  //
+
+  currentTotal() {
+    currentPrice.textContent =
+      propos
+        .get(this)
+        .currentAccount.movements.reduce((acc, cur) => acc + cur, 0) + '€';
   }
 
   // SORTING FUNCTION
 
-  sortList(){
-    propos.get(this).sort = propos.get(this).sort ? false: true;
+  sortList() {
+    propos.get(this).sort = propos.get(this).sort ? false : true;
     console.log(propos.get(this));
 
-    const sortmov = [...propos.get(this).currentAccount.movements].sort((a,b) => a - b);
+    const sortmov = [...propos.get(this).currentAccount.movements].sort(
+      (a, b) => a - b
+    );
 
-    
-    propos.get(this).sort ? this.displayList(sortmov.reverse()) : this.displayList(propos.get(this).currentAccount.movements.reverse())
+    propos.get(this).sort
+      ? this.displayList(sortmov.reverse())
+      : this.displayList(propos.get(this).currentAccount.movements.reverse());
 
     console.log(propos.get(this).currentAccount.movements);
-
   }
 
+  //
 
-  // 
-
-  disabletBtn(){
-    transferAmount.value ? transferBtn.removeAttribute('disabled'): transferBtn.setAttribute('disabled', true);
+  disabletBtn() {
+    transferAmount.value
+      ? transferBtn.removeAttribute('disabled')
+      : transferBtn.setAttribute('disabled', true);
+    transferBtn.classList.remove('btn__disabled');
   }
-
 
   // TRANSFER ACCOUNT
 
-  transfer(){
+  transfer() {
+    const transferAcc = propos
+      .get(this)
+      .accounts.find(usr => usr.username == transferUsername.value.trim());
+    if (transferAcc && transferAcc != propos.get(this).currentAccount) {
+      transferAcc.movements.push(Number(transferAmount.value));
 
-  console.log(transferAmount.value);    
+      propos
+        .get(this)
+        .currentAccount.movements.push(Number(`-${transferAmount.value}`));
+
+      console.log(propos.get(this).currentAccount.movements);
+
+      this.uiUpdate();
+
+      transferAmount.value = transferUsername.value = '';
+    }
   }
 }
 

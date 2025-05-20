@@ -1,7 +1,7 @@
 'use strict';
 
 import Banking from './main.js';
-import { submit__l, loginPIN } from './main.js';
+import { submit__l, loginPIN, sortMov, transferBtn, transferAmount } from './main.js';
 
 // console.log(Banking);
 // console.log(Banking.getAccounts());
@@ -14,3 +14,13 @@ submit__l.addEventListener('click', function (e) {
   e.preventDefault();
   Banking.login();
 });
+
+sortMov.addEventListener('click', Banking.sortList.bind(Banking));
+
+transferAmount.addEventListener('keyup', Banking.disabletBtn)
+
+transferBtn.addEventListener('click', e => {
+  e.preventDefault();
+  Banking.transfer()
+});
+

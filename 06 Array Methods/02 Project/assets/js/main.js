@@ -199,6 +199,7 @@ class Accounts {
     propos.set(this, {
       accounts,
       currentAccount: '',
+      currentTotal: '',
       sort: false,
       createUsr() {
         this.accounts.map(usr => {
@@ -315,10 +316,10 @@ class InitBanking extends Accounts {
   //
 
   currentTotal() {
-    currentPrice.textContent =
-      propos
-        .get(this)
-        .currentAccount.movements.reduce((acc, cur) => acc + cur, 0) + '€';
+    propos.get(this).currentTotal = propos
+      .get(this)
+      .currentAccount.movements.reduce((acc, cur) => acc + cur, 0);
+    currentPrice.textContent = propos.get(this).currentTotal + '€';
   }
 
   // SORTING FUNCTION
@@ -353,7 +354,12 @@ class InitBanking extends Accounts {
     const transferAcc = propos
       .get(this)
       .accounts.find(usr => usr.username == transferUsername.value.trim());
-    if (transferAcc && transferAcc != propos.get(this).currentAccount) {
+
+    if (
+      transferAcc &&
+      transferAcc != propos.get(this).currentAccount &&
+      Number(transferAmount.value) < propos.get(this).currentTotal
+    ) {
       transferAcc.movements.push(Number(transferAmount.value));
 
       propos
@@ -367,6 +373,8 @@ class InitBanking extends Accounts {
       transferAmount.value = transferUsername.value = '';
     }
   }
+
+  // Delete ACCOUNT
 }
 
 const bank = new InitBanking(accounts);

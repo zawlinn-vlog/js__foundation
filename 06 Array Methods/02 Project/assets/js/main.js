@@ -101,7 +101,8 @@ const mainWrapper = document.querySelector('.main'),
   navbar__brand = document.querySelector('.navbar__brand'),
   incomeTotal = document.querySelector('#total__income'),
   outcomeTotal = document.querySelector('#total__outcome'),
-  interestTotal = document.querySelector('#total__interest');
+  interestTotal = document.querySelector('#total__interest'),
+  clAccountPin = document.querySelector('#closePin');
 
 const transferUsername = document.querySelector('#transferUserName');
 
@@ -109,7 +110,12 @@ export const transferBtn = document.querySelector('#transferBtn'),
   loginPIN = document.querySelector('#loginPin'),
   submit__l = document.querySelector('#login__submit'),
   transferAmount = document.querySelector('#transferAmount'),
-  sortMov = document.querySelector('#sort');
+  sortMov = document.querySelector('#sort'),
+  cluserName  = document.querySelector('#closeUserName'),
+  clAccountBtn = document.querySelector('#close__btn'),
+  loanAmount = document.querySelector('#loanAmount'),
+  loanBtn = document.querySelector('#l__submit');
+  
 
 // DATA
 
@@ -217,6 +223,18 @@ class Accounts {
 
   getAccounts() {
     return propos.get(this).accounts;
+  }
+
+
+  defaultInit(){
+    userDataContainer.textContent = '';
+    mainWrapper.classList.add('d__none');
+    incomeTotal.textContent = 0.00;
+    outcomeTotal.textContent = 0.00;
+    interestTotal.textContent = 0.00;
+    propos.get(this).sort = false;
+    navbar__brand.textContent = 'Login to get started';
+
   }
 
   displayList(mov) {
@@ -374,8 +392,50 @@ class InitBanking extends Accounts {
     }
   }
 
+
+  // LOAN ACCOUNT
+
+  loanAccount(){
+    const lAmount = Number(loanAmount.value);
+    // console.log(Math.max(...propos.get(this).currentAccount.movements
+    // ));
+
+    console.log([...propos.get(this).currentAccount.movements].min());
+    const maxVal = [...propos.get(this).currentAccount.movements].max();
+
+
+
+    if( lAmount < maxVal * .1){
+      propos.get(this).currentAccount.movements.push(lAmount);
+
+      this.uiUpdate();
+    }
+  }
+
   // Delete ACCOUNT
+
+  delAccount(){
+    const clAccount = propos.get(this).accounts.find(usr => usr.username == cluserName.value.trim())
+    if(clAccount && clAccount.username == propos.get(this).currentAccount.username && clAccount.pin == clAccountPin.value.trim()){
+
+      const stIdx = propos.get(this).accounts.findIndex(usr => usr.username == clAccount.username);
+
+      propos.get(this).accounts.splice(stIdx, 1);
+
+      
+      
+    }
+  }
 }
+
+Array.prototype.max = function() {
+  return Math.max.apply(null, this);
+};
+
+Array.prototype.min = function() {
+  return Math.min.apply(null, this);
+};
+
 
 const bank = new InitBanking(accounts);
 export default bank;

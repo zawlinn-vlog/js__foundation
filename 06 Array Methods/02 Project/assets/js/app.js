@@ -1,12 +1,15 @@
 'use strict';
 
-import Banking from './main.js';
-import {
+import Banking, { 
+  clAccountBtn, 
+  cluserName, 
+  loanAmount, 
+  loanBtn, 
   submit__l,
   loginPIN,
   sortMov,
   transferBtn,
-  transferAmount,
+  transferAmount, 
 } from './main.js';
 
 // console.log(Banking);
@@ -30,18 +33,44 @@ transferBtn.addEventListener('click', e => {
   Banking.transfer();
 });
 
-let timeLeft = 5 * 60; // 5 minutes in seconds
+cluserName.addEventListener('keyup', function(){
+  clAccountBtn.classList.remove('btn__disabled');
+  clAccountBtn.removeAttribute('disabled')
+})
 
-const timerInterval = setInterval(function () {
-  const minutes = Math.floor(timeLeft / 60);
-  const seconds = timeLeft % 60;
+clAccountBtn.addEventListener('click', e => {
+  e.preventDefault();
+  Banking.delAccount();
+  Banking.defaultInit();
+})
 
-  console.log(`${minutes}:${seconds < 10 ? '0' : ''}${seconds}`);
+loanAmount.addEventListener('keyup', function(){
+  loanBtn.removeAttribute('disabled');
+  loanBtn.classList.remove('btn__disabled')
+})
 
-  timeLeft--;
+loanBtn.addEventListener('click', e =>{
+  e.preventDefault();
+  Banking.loanAccount();
+})
 
-  if (timeLeft < 0) {
-    clearInterval(timerInterval);
-    console.log("Time's up!");
-  }
-}, 1000);
+
+
+
+
+
+// let timeLeft = 5 * 60; // 5 minutes in seconds
+
+// const timerInterval = setInterval(function () {
+//   const minutes = Math.floor(timeLeft / 60);
+//   const seconds = timeLeft % 60;
+
+//   console.log(`${minutes}:${seconds < 10 ? '0' : ''}${seconds}`);
+
+//   timeLeft--;
+
+//   if (timeLeft < 0) {
+//     clearInterval(timerInterval);
+//     console.log("Time's up!");
+//   }
+// }, 1000);

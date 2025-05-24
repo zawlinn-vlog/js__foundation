@@ -111,11 +111,11 @@ export const transferBtn = document.querySelector('#transferBtn'),
   submit__l = document.querySelector('#login__submit'),
   transferAmount = document.querySelector('#transferAmount'),
   sortMov = document.querySelector('#sort'),
-  cluserName  = document.querySelector('#closeUserName'),
+  cluserName = document.querySelector('#closeUserName'),
   clAccountBtn = document.querySelector('#close__btn'),
   loanAmount = document.querySelector('#loanAmount'),
-  loanBtn = document.querySelector('#l__submit');
-  
+  loanBtn = document.querySelector('#l__submit'),
+  loginSession = document.querySelector('.logout__session-duration');
 
 // DATA
 
@@ -225,16 +225,14 @@ class Accounts {
     return propos.get(this).accounts;
   }
 
-
-  defaultInit(){
+  defaultInit() {
     userDataContainer.textContent = '';
     mainWrapper.classList.add('d__none');
-    incomeTotal.textContent = 0.00;
-    outcomeTotal.textContent = 0.00;
-    interestTotal.textContent = 0.00;
+    incomeTotal.textContent = 0.0;
+    outcomeTotal.textContent = 0.0;
+    interestTotal.textContent = 0.0;
     propos.get(this).sort = false;
     navbar__brand.textContent = 'Login to get started';
-
   }
 
   displayList(mov) {
@@ -299,6 +297,8 @@ class InitBanking extends Accounts {
       // console.log(propos.get(this).currentAccount.movements.sort((a,b) => a - b));
 
       this.uiUpdate();
+
+      this.lsession();
     }
   }
 
@@ -392,10 +392,9 @@ class InitBanking extends Accounts {
     }
   }
 
-
   // LOAN ACCOUNT
 
-  loanAccount(){
+  loanAccount() {
     const lAmount = Number(loanAmount.value);
     // console.log(Math.max(...propos.get(this).currentAccount.movements
     // ));
@@ -403,9 +402,7 @@ class InitBanking extends Accounts {
     console.log([...propos.get(this).currentAccount.movements].min());
     const maxVal = [...propos.get(this).currentAccount.movements].max();
 
-
-
-    if( lAmount < maxVal * .1){
+    if (lAmount < maxVal * 0.1) {
       propos.get(this).currentAccount.movements.push(lAmount);
 
       this.uiUpdate();
@@ -414,28 +411,56 @@ class InitBanking extends Accounts {
 
   // Delete ACCOUNT
 
-  delAccount(){
-    const clAccount = propos.get(this).accounts.find(usr => usr.username == cluserName.value.trim())
-    if(clAccount && clAccount.username == propos.get(this).currentAccount.username && clAccount.pin == clAccountPin.value.trim()){
-
-      const stIdx = propos.get(this).accounts.findIndex(usr => usr.username == clAccount.username);
+  delAccount() {
+    const clAccount = propos
+      .get(this)
+      .accounts.find(usr => usr.username == cluserName.value.trim());
+    if (
+      clAccount &&
+      clAccount.username == propos.get(this).currentAccount.username &&
+      clAccount.pin == clAccountPin.value.trim()
+    ) {
+      const stIdx = propos
+        .get(this)
+        .accounts.findIndex(usr => usr.username == clAccount.username);
 
       propos.get(this).accounts.splice(stIdx, 1);
-
-      
-      
     }
+  }
+
+  // LOGIN SESSION
+
+  lsession() {
+    let timeSession = 20;
+
+    const timeInterval = setInterval(() => {
+      let min = Math.floor(timeSession / 60);
+      let sec = timeSession % 60;
+
+      timeSession--;
+
+      loginSession.textContent = `${min < 10 ? '0'.concat(min) : min} : ${
+        sec < 10 ? '0' + sec : sec
+      }`;
+
+      console.log(`${min} : ${sec < 10 ? '0' + sec : sec}`);
+
+      if (timeSession < 0) {
+        clearInterval(timeInterval);
+        console.log("Time's up!");
+        this.defaultInit();
+      }
+    }, 1000);
   }
 }
 
-Array.prototype.max = function() {
+Array.prototype.max = function () {
   return Math.max.apply(null, this);
 };
 
-Array.prototype.min = function() {
+Array.prototype.min = function () {
   return Math.min.apply(null, this);
 };
-
 
 const bank = new InitBanking(accounts);
 export default bank;

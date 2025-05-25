@@ -207,6 +207,7 @@ class Accounts {
       currentAccount: '',
       currentTotal: '',
       sort: false,
+      timer: '',
       createUsr() {
         this.accounts.map(usr => {
           usr.username = usr.owner
@@ -285,6 +286,9 @@ class InitBanking extends Accounts {
       propos.get(this).currentAccount &&
       propos.get(this).currentAccount.pin == loginPIN.value.trim()
     ) {
+
+      if(propos.get(this).timer) clearInterval(propos.get(this).timer);
+
       loginPIN.value = loginUsername.value = '';
       navbar__brand.textContent = `Welcome Back, ${
         propos.get(this).currentAccount.owner.split(' ')[0]
@@ -433,7 +437,7 @@ class InitBanking extends Accounts {
   lsession() {
     let timeSession = 20;
 
-    const timeInterval = setInterval(() => {
+    propos.get(this).timer = setInterval(() => {
       let min = Math.floor(timeSession / 60);
       let sec = timeSession % 60;
 
@@ -446,7 +450,7 @@ class InitBanking extends Accounts {
       console.log(`${min} : ${sec < 10 ? '0' + sec : sec}`);
 
       if (timeSession < 0) {
-        clearInterval(timeInterval);
+        clearInterval(propos.get(this).timer);
         console.log("Time's up!");
         this.defaultInit();
       }

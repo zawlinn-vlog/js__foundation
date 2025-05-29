@@ -1,0 +1,39 @@
+//
+
+@use "./function" as fun;
+
+@mixin justItem($jc: center, $ai: center) {
+  justify-content: $jc;
+  align-items: $ai;
+}
+
+//
+
+@mixin borderColor($invalid, $valid) {
+  border: 0.2rem solid transparent;
+  transition: all 0.3s;
+  &:focus {
+    border: 0.2rem solid fun.getColor($invalid);
+    background-color: #fff !important;
+  }
+
+  &:valid {
+    border: 0.2rem solid fun.getColor($valid);
+  }
+}
+
+@mixin badge($color1, $color2) {
+  background-image: linear-gradient(
+    to right bottom,
+    fun.getColor($color1),
+    fun.getColor($color2)
+  );
+  color: #fff;
+}
+
+@mixin textGradient($color1, $color2) {
+  @include badge($color1, $color2);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

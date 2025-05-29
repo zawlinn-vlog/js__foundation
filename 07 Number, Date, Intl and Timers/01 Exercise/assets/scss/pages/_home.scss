@@ -1,0 +1,23 @@
+//
+
+@use "../abstract/function" as fun;
+
+.wrapper {
+  max-width: 120rem;
+  min-height: 100vh;
+  margin-inline: auto;
+  padding: 2rem 0 8rem;
+}
+
+.main {
+  max-width: 85rem;
+  margin-inline: auto;
+  margin-top: 5rem;
+  transition: all 0.3s;
+
+  display: grid;
+  grid-template-columns: 4fr 3fr;
+  grid-template-rows: auto repeat(3, minmax(5rem, 15rem)) auto;
+
+  gap: 1.6rem;
+}

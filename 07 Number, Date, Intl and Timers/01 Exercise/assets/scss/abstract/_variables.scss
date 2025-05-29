@@ -1,0 +1,42 @@
+//
+
+// deposit - #39b385 #9be15d
+
+// withdraw - #e52a5a #ff585f
+
+// transfer - bg - #ffb003 #ffcb03
+
+$primary: #39b385;
+$primary__light: #9be15d;
+
+$secondary: #e52a5a;
+$secondary__light: #ff585f;
+
+$accent: #ffb003;
+$accent__light: #ffcb03;
+
+$light: #efefef;
+$dark: #333e;
+
+$colors: (
+  'primary': $primary,
+  'primary__light': $primary__light,
+  'secondary': $secondary,
+  'secondary__light': $secondary__light,
+  'accent': $accent,
+  'accent__light': $accent__light,
+  'light': $light,
+  'dark': $dark,
+);
+
+:root {
+  @each $name, $color in $colors {
+    --#{$name}-color: #{$color};
+  }
+}
+
+@each $name, $color in $colors {
+  .border__#{$name} {
+    border: 0.2rem solid #{$color} !important;
+  }
+}

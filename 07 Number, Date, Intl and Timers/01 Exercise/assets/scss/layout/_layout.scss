@@ -1,0 +1,23 @@
+//
+
+.current__info {
+  grid-area: 1 / 1 / 2 / -1;
+}
+
+//
+
+.user__data {
+  grid-area: 2/ 1 / 5 / 2;
+}
+
+//
+
+.user__summary {
+  grid-area: 5 / 1 / -1 / 2;
+}
+
+//
+
+.logout__session {
+  grid-area: 5 / 2 / -1 /-1;
+}

@@ -1,0 +1,11 @@
+//
+
+.logout__session {
+  display: flex;
+  align-items: center;
+
+  &-txt {
+    margin-inline-start: auto;
+    font-size: 1.2rem;
+  }
+}

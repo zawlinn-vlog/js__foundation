@@ -1,0 +1,60 @@
+//
+
+@use "../abstract/function" as fun;
+@use "../abstract/mixin" as mx;
+
+.user {
+  &__data {
+    background: #fff;
+    // padding: 3rem;
+
+    &::-webkit-scrollbar {
+      width: 0;
+    }
+  }
+
+  &__action {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    // font-size: 0.9rem;
+  }
+
+  &__badge {
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    letter-spacing: 0.02rem;
+
+    // font-size: 1rem;
+  }
+
+  &__deposite {
+    @include mx.badge(primary__light, primary);
+  }
+
+  &__withdraw {
+    @include mx.badge(secondary__light, secondary);
+  }
+
+  &__amounts {
+    font-size: 1.5rem;
+    color: #333e;
+  }
+
+  //
+
+  &__items {
+    padding: 2rem;
+    cursor: pointer;
+
+    transition: all 0.3s;
+
+    &:hover {
+      background-color: #efefef85;
+    }
+
+    &:not(:last-child) {
+      border-bottom: 0.1rem solid rgba(0, 0, 0, 0.1);
+    }
+  }
+}

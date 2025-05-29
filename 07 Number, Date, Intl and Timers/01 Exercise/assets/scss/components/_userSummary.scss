@@ -1,0 +1,10 @@
+//
+
+.user {
+  &__summary {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-transform: uppercase;
+  }
+}

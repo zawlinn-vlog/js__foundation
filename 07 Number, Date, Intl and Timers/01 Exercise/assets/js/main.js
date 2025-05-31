@@ -175,6 +175,8 @@ const account3 = {
     '2020-07-11T23:36:17.929Z',
     '2020-07-12T10:51:36.790Z',
   ],
+  currency: 'GBP',
+  locale: 'en-GB',
 };
 
 const account4 = {
@@ -192,6 +194,8 @@ const account4 = {
     '2020-07-11T23:36:17.929Z',
     '2020-07-12T10:51:36.790Z',
   ],
+  currency: 'THB',
+  locale: 'th-TH',
 };
 
 const curriencies = new Map([

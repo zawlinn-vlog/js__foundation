@@ -153,7 +153,7 @@ today.setDate(10);
 console.log(today);
 console.log(today.toISOString());
 
-const dateFormat = new Intl.DateTimeFormat('en-GB', {
+const dateFormat = new Intl.DateTimeFormat('th-TH', {
   // year: 'numeric',
   // month: 'long', // 2-digit, narrow
   // day: 'numeric',
@@ -171,10 +171,10 @@ console.log(dateFormat);
 // console.log(today.getTimezoneOffset());
 // console.log(navigator);
 
-const currency = new Intl.NumberFormat('en-US', {
+const currency = new Intl.NumberFormat('th-TH', {
   style: 'currency', // digit, currency, unit, percent
-  currency: 'USD',
-  currencyDisplay: 'name', // narrowSymbol, name, code, symbol(default)
+  currency: 'THB',
+  currencyDisplay: 'narrowSymbol', // narrowSymbol, name, code, symbol(default)
 }).format(300);
 
 console.log(currency);

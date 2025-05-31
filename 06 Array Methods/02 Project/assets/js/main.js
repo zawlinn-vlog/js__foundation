@@ -286,8 +286,7 @@ class InitBanking extends Accounts {
       propos.get(this).currentAccount &&
       propos.get(this).currentAccount.pin == loginPIN.value.trim()
     ) {
-
-      if(propos.get(this).timer) clearInterval(propos.get(this).timer);
+      if (propos.get(this).timer) clearInterval(propos.get(this).timer);
 
       loginPIN.value = loginUsername.value = '';
       navbar__brand.textContent = `Welcome Back, ${
@@ -435,7 +434,7 @@ class InitBanking extends Accounts {
   // LOGIN SESSION
 
   lsession() {
-    let timeSession = 20;
+    let timeSession = 300;
 
     propos.get(this).timer = setInterval(() => {
       let min = Math.floor(timeSession / 60);

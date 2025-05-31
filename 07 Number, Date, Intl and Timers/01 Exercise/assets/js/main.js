@@ -135,6 +135,8 @@ const account1 = {
     '2020-07-11T23:36:17.929Z',
     '2020-07-12T10:51:36.790Z',
   ],
+  currency: 'EUR',
+  locale: 'pt-PT', // de-DE
 };
 
 // createEl(account1.movements);
@@ -154,6 +156,8 @@ const account2 = {
     '2020-07-11T23:36:17.929Z',
     '2020-07-12T10:51:36.790Z',
   ],
+  currency: 'USD',
+  locale: 'en-US',
 };
 
 const account3 = {
@@ -286,8 +290,7 @@ class InitBanking extends Accounts {
       propos.get(this).currentAccount &&
       propos.get(this).currentAccount.pin == loginPIN.value.trim()
     ) {
-
-      if(propos.get(this).timer) clearInterval(propos.get(this).timer);
+      if (propos.get(this).timer) clearInterval(propos.get(this).timer);
 
       loginPIN.value = loginUsername.value = '';
       navbar__brand.textContent = `Welcome Back, ${

@@ -154,14 +154,16 @@ console.log(today);
 console.log(today.toISOString());
 
 const dateFormat = new Intl.DateTimeFormat('th-TH', {
-  // year: 'numeric',
-  // month: 'long', // 2-digit, narrow
+  // weekday: 'long', // 'short', 'narrow'
+  // year: 'numeric', // '2-digit', 'narrow'
+  // month: 'long', // 'short', '2-digit', 'narrow'
   // day: 'numeric',
   // weekday: 'long',
   // hour: 'numeric',
   // minute: 'numeric',
   // hour12: true,
-  dateStyle: 'full', // long full medium short
+  // era: 'long', // 'short', 'narrow'
+  dateStyle: 'full', // 'long', 'full', 'medium', 'short'
   timeStyle: 'short',
   timeZone: 'Australia/Sydney',
   hour12: true,

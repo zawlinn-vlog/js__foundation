@@ -92,8 +92,7 @@ Shorthand Character Classes
 // GET DOM ELEMENTs
 
 const loginUsername = document.querySelector('#loginUserName'),
-  loginUserLabel = document.querySelector('#loginUserLabel'),
-  loginPinLabel = document.querySelector('#loginPinLabel'),
+  ltimer = document.querySelector('.login'),
   userDataContainer = document.querySelector('.user__data');
 
 const mainWrapper = document.querySelector('.main'),
@@ -175,8 +174,8 @@ const account3 = {
     '2020-07-11T23:36:17.929Z',
     '2020-07-12T10:51:36.790Z',
   ],
-  currency: 'GBP',
-  locale: 'en-GB',
+  currency: 'JYP',
+  locale: 'jp-JP',
 };
 
 const account4 = {
@@ -225,7 +224,17 @@ class Accounts {
             .toLowerCase();
         });
       },
-    });
+      clock(cl){
+          return new Intl.DateTimeFormat(this?.currentAccount?.locale, {
+            day: '2-digit',
+            month: 'long',
+            year: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            hour12: true
+          }).format(cl)},
+      })
 
     propos.get(this).createUsr();
   }
@@ -253,9 +262,13 @@ class Accounts {
                   <span class="user__badge user__${
                     mov > 0 ? 'deposite' : 'withdraw'
                   }"> ${idx + 1} ${mov > 0 ? 'deposite' : 'withdraw'}</span>
-                  <span class="user__action-date">31/07/2024</span>
+                  <span class="user__action-date">${new Intl.DateTimeFormat(propos.get(this).currentAccount.locale, {
+                    day: '2-digit',
+                    month: 'long',
+                    year: '2-digit'
+                  }).format(new Date(propos.get(this).currentAccount.movementsDates[idx]))}</span>
                 </div>
-                <p class="user__amounts">${mov}€</p>
+                <p class="user__amounts">${this.intNum(mov)}</p>
               </div>
           `;
 
@@ -280,15 +293,42 @@ class InitBanking extends Accounts {
     }
   }
 
+  // 
+
+  clock(){
+     setInterval(
+        _=> {
+      const now = new Date()
+        ltimer.textContent = 'At of ' + propos.get(this).clock(now)
+      }, 1000
+    )
+
+  }
+
+
+  // num fun
+
+  intNum(amount){
+    return new Intl.NumberFormat(propos.get(this).currentAccount.locale, {
+        style: 'currency',
+        currency: propos.get(this).currentAccount.currency
+      }).format(amount);
+  }
+
   // LOGIN FUNCTION
 
   login() {
+
+    ltimer.textContent = '';
+
+
     propos.get(this).currentAccount = propos
       .get(this)
       .accounts.find(
         usr => usr.username == loginUsername.value.trim().toLowerCase()
       );
 
+      this.clock()
     //
     if (
       propos.get(this).currentAccount &&
@@ -313,6 +353,8 @@ class InitBanking extends Accounts {
     }
   }
 
+  
+
   // UI UPDATE
   uiUpdate() {
     this.displayList([...propos.get(this).currentAccount.movements].reverse());
@@ -321,25 +363,22 @@ class InitBanking extends Accounts {
 
     this.currentTotal();
 
-    incomeTotal.textContent =
-      propos
+    incomeTotal.textContent = this.intNum(propos
         .get(this)
         .currentAccount.movements.filter(mov => mov > 0)
-        .reduce((acc, cur) => acc + cur, 0) + '€';
+        .reduce((acc, cur) => acc + cur, 0))
+      ;
 
-    outcomeTotal.textContent =
-      propos
+    outcomeTotal.textContent = this.intNum(propos
         .get(this)
         .currentAccount.movements.filter(mov => mov < 0)
-        .reduce((acc, cur) => acc + cur, 0) + '€';
+        .reduce((acc, cur) => acc + cur, 0));
 
-    interestTotal.textContent =
-      (
-        propos
+    interestTotal.textContent = this.intNum(propos
           .get(this)
           .currentAccount.movements.reduce((acc, cur) => acc + cur, 0) *
         (propos.get(this).currentAccount.interestRate / 100)
-      ).toFixed(2) + '€';
+      );
   }
 
   //
@@ -348,7 +387,7 @@ class InitBanking extends Accounts {
     propos.get(this).currentTotal = propos
       .get(this)
       .currentAccount.movements.reduce((acc, cur) => acc + cur, 0);
-    currentPrice.textContent = propos.get(this).currentTotal + '€';
+    currentPrice.textContent =  this.intNum(propos.get(this).currentTotal);
   }
 
   // SORTING FUNCTION

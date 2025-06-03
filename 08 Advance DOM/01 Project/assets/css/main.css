@@ -36,6 +36,13 @@ a {
   text-decoration: none;
 }
 
+.content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: minmax(15rem, auto);
+  place-items: start center;
+}
+
 .btn, .navbar-link {
   color: var(--dark-color);
   font-size: 1.7rem;

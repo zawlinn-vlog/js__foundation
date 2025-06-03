@@ -1,0 +1,8 @@
+//
+
+@use "../abstract/variables" as var;
+
+.session {
+  max-width: var.$max-width;
+  margin-inline: auto;
+}

@@ -1,0 +1,42 @@
+// variables
+
+$primary: #5ec576;
+$secondary: #ffcb03;
+$tertiary: #ff585f;
+$primary-darker: #4bbb7d;
+$secondary-darker: #ffbb00;
+$tertiary-darker: #fd424b;
+$primary-opacity: #5ec5763a;
+$secondary-opacity: #ffcd0331;
+$tertiary-opacity: #ff58602d;
+$gradient-primary: linear-gradient(to top left, #39b385, #9be15d);
+$gradient-secondary: linear-gradient(to top left, #ffb003, #ffcb03);
+
+$dark: #444;
+
+// width
+
+$max-width: 120em;
+
+// color
+
+$colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+  "tertiary": $tertiary,
+  "dark": $dark,
+  "primary-darker": $primary-darker,
+  "secondary-darker": $secondary-darker,
+  "tertiary-darker": $tertiary-darker,
+  "primary-opacity": $primary-opacity,
+  "secondary-opacity": $secondary-opacity,
+  "tertiary-opacity": $tertiary-opacity,
+  "gradient-primary": $gradient-primary,
+  "gradient-secondary": $gradient-secondary,
+);
+
+:root {
+  @each $name, $color in $colors {
+    --#{$name}-color: #{$color};
+  }
+}

@@ -1,0 +1,11 @@
+//
+
+@use "../abstract/functions" as fun;
+
+%dark-color {
+  color: fun.getColor(dark);
+  //   font-weight: 500;
+  font-size: 1.7rem;
+  letter-spacing: 0.02rem;
+  text-transform: capitalize;
+}

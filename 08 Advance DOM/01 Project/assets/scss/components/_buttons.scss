@@ -1,0 +1,20 @@
+// Buttons
+
+@use "../abstract/functions" as fun;
+@use "../abstract/placeholder";
+
+.btn {
+  @extend %dark-color;
+
+  &-green {
+    background: fun.getColor(primary);
+    padding: 1rem 3rem;
+    border-radius: 3rem;
+
+    transition: background 0.3s linear;
+
+    &:hover {
+      background: fun.getColor(primary-darker);
+    }
+  }
+}

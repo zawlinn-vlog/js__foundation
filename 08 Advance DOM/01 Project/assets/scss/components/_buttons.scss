@@ -5,6 +5,20 @@
 
 .btn {
   @extend %dark-color;
+  display: inline-block;
+
+  &-txt {
+    color: fun.getColor(primary);
+    text-decoration: underline;
+    text-underline-offset: 0.8rem;
+    text-decoration-color: fun.getColor(primary);
+    transition: all 0.3s;
+
+    &:hover {
+      background: fun.getColor(primary);
+      color: #efefef;
+    }
+  }
 
   &-green {
     background: fun.getColor(primary);

@@ -1,0 +1,44 @@
+//
+
+.features{
+    max-width: 140rem;
+    margin: 0 auto;
+    padding: 2rem;
+
+
+  
+
+
+    &-items{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(15, 1rem);
+        gap: 2rem;
+
+        & > *{
+            padding: 3rem;
+        }
+
+        &:nth-of-type(odd) .features-pic, 
+        &:nth-of-type(even) .features-content{
+         
+            grid-area: 1/ 1 / -1 /2;
+    
+        }
+        &:nth-of-type(odd) .features-content, 
+        &:nth-of-type(even) .features-pic{
+         
+            grid-area: 1 / 2 / -1 / -1;
+    
+        }
+        
+    }
+    
+
+
+    &-img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}

@@ -3,7 +3,8 @@
 @use "../abstract/variables" as var;
 
 .session {
-  max-width: var.$max-width;
+
   margin-inline: auto;
-  //   min-height: 100vh;
+  height: 100vh;
+  border-bottom: 1px solid #dedede;
 }

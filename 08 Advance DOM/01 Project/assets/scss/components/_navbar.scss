@@ -3,11 +3,13 @@
 @use "../abstract/placeholder";
 
 .navbar {
+  max-width: 180rem;
+  margin-inline: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
 
-  padding-inline: 5rem;
+  padding-inline: 3rem;
   padding-top: 2rem;
 
   &-brand {

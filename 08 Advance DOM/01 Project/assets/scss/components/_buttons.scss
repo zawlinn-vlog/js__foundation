@@ -13,6 +13,8 @@
     text-underline-offset: 0.8rem;
     text-decoration-color: fun.getColor(primary);
     transition: all 0.3s;
+    padding: .2rem .1rem;
+
 
     &:hover {
       background: fun.getColor(primary);

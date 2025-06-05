@@ -9,3 +9,19 @@
   letter-spacing: 0.02rem;
   text-transform: capitalize;
 }
+
+%subtitle {
+  color: fun.getColor(primary-darker);
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 1.3rem;
+  letter-spacing: 0.02;
+}
+
+%title {
+  font-size: 4.4rem;
+  line-height: 1.15;
+  color: fun.getColor(dark);
+  font-weight: 600;
+}

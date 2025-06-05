@@ -1,6 +1,7 @@
 //
 
 @use "../abstract/functions" as fun;
+@use "../abstract/placeholder";
 
 .content {
   &-title {
@@ -15,7 +16,7 @@
     font-size: 2.4rem;
     color: #333;
     font-weight: 500;
-    letter-spacing: .02rem;
+    letter-spacing: 0.02rem;
     margin: 3rem 0 2.5rem;
   }
 }
@@ -39,5 +40,32 @@
     background-image: fun.getColor(gradient-primary);
     transform: skewX(-20deg) scale(1.05);
     opacity: 0.7;
+  }
+}
+
+.features {
+  &-subtitle {
+    @extend %subtitle;
+  }
+
+  &-title {
+    @extend %title;
+  }
+
+  &-content {
+    padding: 1rem 5rem;
+  }
+
+  &-header {
+    font-size: 2.4rem;
+    font-weight: 600;
+    color: fun.getColor(dark);
+    margin: 2rem 0 1rem;
+  }
+
+  &-txt {
+    font-size: 1.6rem;
+    color: #888;
+    line-height: 1.8;
   }
 }

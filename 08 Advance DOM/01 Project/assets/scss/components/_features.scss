@@ -1,44 +1,50 @@
 //
 
-.features{
-    max-width: 140rem;
+@use "../abstract/functions" as fun;
+
+.features {
+  background: #efefef;
+  &-session {
+    max-width: 100rem;
     margin: 0 auto;
-    padding: 2rem;
+    padding: 10rem 2rem;
+  }
 
+  &-container {
+    display: grid;
+    gap: 8rem;
+  }
+  &-items {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(10, 1rem);
+    gap: 2rem;
 
-  
-
-
-    &-items{
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(15, 1rem);
-        gap: 2rem;
-
-        & > *{
-            padding: 3rem;
-        }
-
-        &:nth-of-type(odd) .features-pic, 
-        &:nth-of-type(even) .features-content{
-         
-            grid-area: 1/ 1 / -1 /2;
-    
-        }
-        &:nth-of-type(odd) .features-content, 
-        &:nth-of-type(even) .features-pic{
-         
-            grid-area: 1 / 2 / -1 / -1;
-    
-        }
-        
+    &:nth-of-type(odd) .features-pic,
+    &:nth-of-type(even) .features-content {
+      grid-area: 1/ 1 / -1 /2;
     }
-    
-
-
-    &-img{
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
+    &:nth-of-type(odd) .features-content,
+    &:nth-of-type(even) .features-pic {
+      grid-area: 1 / 2 / -1 / -1;
     }
+  }
+
+  //   &-pic {
+  //     padding: 3rem;
+  //   }
+
+  &-img {
+    width: 100%;
+    // height: 100%;
+    object-fit: cover;
+  }
+
+  &-circle {
+    width: 6rem;
+    height: 6rem;
+    display: block;
+    border-radius: 50%;
+    background: fun.getColor(primary-opacity);
+  }
 }

@@ -2,6 +2,12 @@
 
 @use "../abstract/functions" as fun;
 
+%session{
+    max-width: 100rem;
+    margin: 0 auto;
+    padding: 10rem 2rem;
+}
+
 %dark-color {
   color: fun.getColor(dark);
   //   font-weight: 500;
@@ -22,6 +28,6 @@
 %title {
   font-size: 4.4rem;
   line-height: 1.15;
-  color: fun.getColor(dark);
+  color: #555;
   font-weight: 600;
 }

@@ -1,0 +1,19 @@
+//
+
+@use "../abstract/placeholder";
+
+
+.operate{
+    
+    &-session{
+        @extend %session;
+        max-width: 90rem;
+    }
+    &-subtitle{
+        @extend %subtitle;
+    }
+
+    &-title{
+        @extend %title;
+    }
+}

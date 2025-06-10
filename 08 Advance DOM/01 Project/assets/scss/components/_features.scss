@@ -1,24 +1,27 @@
 //
 
 @use "../abstract/functions" as fun;
+@use "../abstract/placeholder";
 
 .features {
   background: #efefef;
   &-session {
-    max-width: 100rem;
-    margin: 0 auto;
-    padding: 10rem 2rem;
+
+    @extend %session;
+    
   }
 
   &-container {
     display: grid;
-    gap: 8rem;
+    gap: 6rem;
+
+    padding-top: 10rem ;
   }
   &-items {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(10, 1rem);
-    gap: 2rem;
+    grid-template-rows: repeat(8, minmax(1rem, auto));
+    gap: 3rem;
 
     &:nth-of-type(odd) .features-pic,
     &:nth-of-type(even) .features-content {

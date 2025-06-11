@@ -69,3 +69,47 @@
     line-height: 1.85;
   }
 }
+
+.operate {
+  &-items {
+    &__header {
+      font-size: 2.2rem;
+      color: #666;
+      font-weight: 600;
+    }
+
+    &__txt {
+      font-size: 1.8rem;
+      line-height: 1.9;
+      color: #979797;
+    }
+  }
+}
+
+.carousel {
+  &-header {
+    font-size: 2.4rem;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 1.5rem;
+  }
+
+  &-txt {
+    font-size: 1.8rem;
+    color: #888;
+    line-height: 1.8;
+  }
+
+  &-author {
+    &__name {
+      font-size: 1.8rem;
+      font-weight: 500;
+      color: #555;
+    }
+
+    &__location {
+      font-size: 1.5rem;
+      color: #888;
+    }
+  }
+}

@@ -1,6 +1,7 @@
 //
 
 @use "../abstract/functions" as fun;
+@use "./mixin" as mx;
 
 %session{
     max-width: 100rem;
@@ -30,4 +31,16 @@
   line-height: 1.15;
   color: #555;
   font-weight: 600;
+}
+
+%btn{
+    padding: 1rem 3rem;
+    border-radius: 3rem;
+    transition: background 0.3s linear;
+
+}
+
+%max-width{
+  @include mx.mwidth(90);
+  margin-inline: auto;
 }

@@ -1,0 +1,3 @@
+@mixin mwidth($num){
+    max-width: #{$num}rem;
+}

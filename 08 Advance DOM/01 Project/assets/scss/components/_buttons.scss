@@ -24,13 +24,24 @@
 
   &-green {
     background: fun.getColor(primary);
-    padding: 1rem 3rem;
-    border-radius: 3rem;
-
-    transition: background 0.3s linear;
+    @extend %btn;
 
     &:hover {
       background: fun.getColor(primary-darker);
     }
+  }
+
+  &-yellow{
+    background-color: fun.getColor(secondary);
+    @extend %btn;
+  }
+
+  &-red{
+    background: fun.getColor(tertiary);
+    @extend %btn;
+  }
+
+  &-active{
+    transform: translateY(-.8rem);
   }
 }

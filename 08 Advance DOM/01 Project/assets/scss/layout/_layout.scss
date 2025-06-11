@@ -1,0 +1,90 @@
+//
+
+@use "../abstract/mixin" as mx;
+@use "../abstract/functions" as fun;
+
+.btn-group {
+  display: grid;
+  grid-template-columns: repeat(3, max-content);
+  gap: 3rem;
+  justify-self: center;
+
+  position: absolute;
+  top: -2rem;
+}
+
+.operate {
+  &-container {
+    display: grid;
+  }
+
+  &-items {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    grid-template-rows: auto auto;
+    gap: 2rem 4rem;
+
+    display: none;
+
+    &__active {
+      display: grid;
+    }
+
+    &__header {
+      grid-area: 1 / 2/ 2/ -1;
+      padding-top: 1rem;
+    }
+
+    &__txt {
+      grid-area: 2/ 2/ -1 /-1;
+    }
+  }
+
+  .circle {
+    grid-area: 1/ 1/ -1/ 2;
+  }
+}
+
+.carousel {
+  &-container {
+    @include mx.mwidth(100);
+    margin-top: 13rem;
+    margin-inline: auto;
+
+    overflow: hidden;
+  }
+
+  &-wrapper {
+    width: 300%;
+
+    display: grid;
+    grid-auto-flow: column;
+  }
+
+  &-testimonial {
+    width: 65%;
+  }
+
+  &-items {
+    // max-width: inherit;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    position: relative;
+
+    &::before {
+      content: "\201C";
+      font-size: 20rem;
+      color: fun.getColor(primary);
+    }
+  }
+
+  &-author {
+    margin-top: 5rem;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 2rem;
+  }
+}

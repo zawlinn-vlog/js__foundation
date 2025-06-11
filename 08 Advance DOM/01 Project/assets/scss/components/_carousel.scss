@@ -1,0 +1,40 @@
+//
+
+@use "../abstract/placeholder";
+
+.carousel {
+  background: #f1f1f1;
+
+  padding: 20rem 0;
+  &-subtitle {
+    @extend %max-width;
+    @extend %subtitle;
+  }
+
+  &-title {
+    @extend %max-width;
+    @extend %title;
+  }
+
+  &-author {
+    &__pic {
+      border-radius: 50%;
+      height: 10rem;
+      width: 10rem;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    &__img {
+      transition: all 0.3s;
+      object-fit: cover;
+      //   object-position: 5% 20%;
+      height: inherit;
+      width: inherit;
+
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+  }
+}

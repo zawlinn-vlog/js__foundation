@@ -3,57 +3,51 @@
 @use "../abstract/placeholder";
 @use "../abstract/functions" as fun;
 
+.operate {
+  &-session {
+    // @extend %session;
+    padding: 15rem 0 10rem;
+  }
+  &-subtitle {
+    @extend %subtitle;
+    @extend %max-width;
+  }
 
-.operate{
-    
-    &-session{
-        // @extend %session;
-        padding: 15rem 0 10rem;
+  &-title {
+    @extend %title;
+    @extend %max-width;
+  }
+
+  span {
+    margin-left: 0.5rem;
+  }
+
+  &-container {
+    max-width: 110rem;
+    margin-inline: auto;
+    margin-top: 10rem;
+    padding: 9rem;
+    background-color: #f6f6f6;
+    border-radius: 1rem;
+
+    position: relative;
+  }
+
+  .circle {
+    width: 8rem;
+    height: 8rem;
+    border-radius: 50%;
+
+    &-yellow {
+      background: fun.getColor(secondary-opacity);
     }
-    &-subtitle{
-        @extend %subtitle;
-        @extend %max-width;
+
+    &-green {
+      background: fun.getColor(primary-opacity);
     }
 
-    &-title{
-        @extend %title;
-        @extend %max-width;
+    &-red {
+      background: fun.getColor(tertiary-opacity);
     }
-
-    span{
-        margin-left: .5rem;
-    }
-
-    &-container{
-        max-width: 110rem;
-        margin-inline: auto;
-        margin-top: 10rem;
-        padding:9rem;
-        background-color: #f6f6f6;
-        border-radius: 1rem;
-
-        position: relative;
-    }
-
-
-    .circle{
-        width: 8rem;
-        height: 8rem;
-        border-radius: 50%;
-
-
-        &-yellow{
-            background: fun.getColor(secondary-opacity);
-        }
-
-
-        &-green{
-            background: fun.getColor(primary-opacity);
-        }
-
-
-        &-red{
-            background: fun.getColor(tertiary-opacity);
-        }
-    }
+  }
 }

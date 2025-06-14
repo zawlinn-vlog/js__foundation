@@ -1,0 +1,73 @@
+//
+
+@use "../abstract/functions" as fun;
+@use "../abstract/placeholder";
+
+.footer {
+  background-color: #333;
+  color: #efefef;
+  padding: 15rem 0;
+
+  &-session {
+    max-width: 80rem;
+    margin-inline: auto;
+    color: #dcdcdc;
+
+    display: grid;
+    justify-content: center;
+  }
+  &-title {
+    font-size: 4rem;
+    line-height: 1.2;
+    font-weight: 500;
+  }
+
+  hr {
+    border: 0.08rem solid #555;
+  }
+
+  .btn {
+    margin: 8rem auto;
+    padding: 2rem 4rem;
+    font-size: 1.8rem;
+  }
+
+  &-navbar {
+    justify-self: center;
+
+    display: flex;
+    gap: 3rem;
+
+    padding: 8rem 0 5rem;
+
+    &__link {
+      color: #ababab;
+      font-size: 1.8rem;
+      text-transform: capitalize;
+
+      transition: all 0.4s;
+
+      &:hover {
+        color: #dcdcdc;
+      }
+    }
+  }
+
+  &-pic {
+    justify-self: center;
+    margin-bottom: 5rem;
+  }
+  &-logo {
+    height: 6rem;
+    object-fit: cover;
+  }
+
+  &-txt {
+    font-size: 1.3rem;
+    color: #bcbcbc;
+
+    & > a {
+      color: #efefef;
+    }
+  }
+}

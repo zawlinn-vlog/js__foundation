@@ -401,6 +401,7 @@ input {
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 1000;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -410,7 +411,7 @@ input {
   height: inherit;
   backdrop-filter: blur(0.2rem) brightness(70%);
   position: absolute;
-  z-index: 1000;
+  z-index: 1001;
 }
 .modal-container {
   max-width: 40rem;

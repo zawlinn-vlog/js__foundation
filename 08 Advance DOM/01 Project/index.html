@@ -320,5 +320,53 @@
         </p>
       </div>
     </footer>
+
+    <!-- modal BOX -->
+    <div class="modal">
+      <div class="modal-shadow"></div>
+      <div class="modal-container">
+        <h1 class="modal-title">
+          Open your bank account in just
+          <span class="text-gradient__primary">5 minutes</span>
+        </h1>
+
+        <form class="modal-form">
+          <!-- First Name -->
+          <div class="form-control">
+            <label for="fname" class="form-label">first Name</label>
+            <input
+              type="text"
+              name="fname"
+              id="fname"
+              required
+              autocomplete="off"
+            />
+          </div>
+          <!-- Last name -->
+          <div class="form-control">
+            <label for="lname" class="form-label">last Name</label>
+            <input
+              type="text"
+              name="lname"
+              id="lname"
+              required
+              autocomplete="off"
+            />
+          </div>
+
+          <!-- Email -->
+          <div class="form-control">
+            <label for="Email" class="form-label">Email</label>
+            <input type="email" name="email" id="email" required />
+          </div>
+
+          <div class="d-grid">
+            <button type="submit" class="modal-btn">Next Step &rarr;</button>
+          </div>
+        </form>
+
+        <a href="#" class="modal-close">&times;</a>
+      </div>
+    </div>
   </body>
 </html>

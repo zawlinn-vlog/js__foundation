@@ -461,15 +461,15 @@ input {
 }
 
 .cookie {
-  max-width: 90rem;
-  padding: 0.8rem 0;
+  background-color: #444;
+  padding: 0.8rem 20%;
   margin-inline: auto;
   display: flex;
   justify-content: space-between;
 }
 .cookie > p {
   font-size: 1.6rem;
-  color: #555;
+  color: #efefef;
   text-transform: capitalize;
 }
 

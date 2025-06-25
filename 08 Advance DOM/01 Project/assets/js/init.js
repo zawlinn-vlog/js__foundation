@@ -9,11 +9,13 @@ export const cookie = document.createElement("div");
 cookie.classList.add("cookie");
 
 cookie.innerHTML = `
-  <p> This site store cookie of users </p>
+  <p> We use cookied for improved functionality and analytics. </p>
   <button class="btn-cookie"> close </button>
 `;
 
 const header = document.querySelector(".header");
+
+// document.documentElement.style.setProperty("--primary-color", "orange");
 
 header.prepend(cookie);
 
@@ -23,6 +25,7 @@ class Init {
   navFade(links) {
     for (let link of links) {
       link.classList.add("dark-50");
+      console.log(link.closest(".navbar").children);
     }
   }
 

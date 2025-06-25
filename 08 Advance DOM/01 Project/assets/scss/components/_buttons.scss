@@ -7,14 +7,21 @@
   @extend %dark-color;
   display: inline-block;
 
+  &-cookie {
+    background: fun.getColor(primary);
+    border-radius: 2rem;
+    border: none;
+    padding: 0.8rem 3rem;
+    text-transform: capitalize;
+  }
+
   &-txt {
     color: fun.getColor(primary);
     text-decoration: underline;
     text-underline-offset: 0.8rem;
     text-decoration-color: fun.getColor(primary);
     transition: all 0.3s;
-    padding: .2rem .1rem;
-
+    padding: 0.2rem 0.1rem;
 
     &:hover {
       background: fun.getColor(primary);
@@ -31,17 +38,17 @@
     }
   }
 
-  &-yellow{
+  &-yellow {
     background-color: fun.getColor(secondary);
     @extend %btn;
   }
 
-  &-red{
+  &-red {
     background: fun.getColor(tertiary);
     @extend %btn;
   }
 
-  &-active{
-    transform: translateY(-.8rem);
+  &-active {
+    transform: translateY(-0.8rem);
   }
 }

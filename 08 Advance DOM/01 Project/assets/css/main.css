@@ -64,7 +64,7 @@ a {
 }
 
 .btn, .navbar-link {
-  color: var(--dark-color);
+  color: #333;
   font-size: 1.7rem;
   letter-spacing: 0.02rem;
   text-transform: capitalize;
@@ -119,8 +119,19 @@ a {
   align-items: center;
   gap: 4rem;
 }
+.navbar-link {
+  transition: all 0.3s;
+}
+
 .btn {
   display: inline-block;
+}
+.btn-cookie {
+  background: var(--primary-color);
+  border-radius: 2rem;
+  border: none;
+  padding: 0.8rem 3rem;
+  text-transform: capitalize;
 }
 .btn-txt {
   color: var(--primary-color);
@@ -443,6 +454,23 @@ input {
 
 .d-none {
   display: none;
+}
+
+.dark-50 {
+  color: #999;
+}
+
+.cookie {
+  max-width: 90rem;
+  padding: 0.8rem 0;
+  margin-inline: auto;
+  display: flex;
+  justify-content: space-between;
+}
+.cookie > p {
+  font-size: 1.6rem;
+  color: #555;
+  text-transform: capitalize;
 }
 
 .btn-group {

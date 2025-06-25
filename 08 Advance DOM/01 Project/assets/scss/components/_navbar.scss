@@ -31,5 +31,6 @@
 
   &-link {
     @extend %dark-color;
+    transition: all 0.3s;
   }
 }

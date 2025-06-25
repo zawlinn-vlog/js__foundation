@@ -3,14 +3,14 @@
 @use "../abstract/functions" as fun;
 @use "./mixin" as mx;
 
-%session{
-    max-width: 100rem;
-    margin: 0 auto;
-    padding: 10rem 2rem;
+%session {
+  max-width: 100rem;
+  margin: 0 auto;
+  padding: 10rem 2rem;
 }
 
 %dark-color {
-  color: fun.getColor(dark);
+  color: #333;
   //   font-weight: 500;
   font-size: 1.7rem;
   letter-spacing: 0.02rem;
@@ -33,14 +33,13 @@
   font-weight: 600;
 }
 
-%btn{
-    padding: 1rem 3rem;
-    border-radius: 3rem;
-    transition: background 0.3s linear;
-
+%btn {
+  padding: 1rem 3rem;
+  border-radius: 3rem;
+  transition: background 0.3s linear;
 }
 
-%max-width{
+%max-width {
   @include mx.mwidth(90);
   margin-inline: auto;
 }

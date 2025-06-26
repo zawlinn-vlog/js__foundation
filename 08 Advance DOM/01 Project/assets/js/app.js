@@ -53,6 +53,34 @@ for (let nlink of nlinks) {
     init.navHover(e.target);
   });
 
+  nlink.addEventListener("click", function (e) {
+    e.preventDefault();
+    const section = this.getAttribute("href");
+    console.log(section);
+
+    // const react = document.querySelector(section).getBoundingClientRect();
+
+    // console.log(react);
+
+    // console.log(window.pageXOffset, window.pageYOffset);
+
+    // console.log(
+    //   "client Width - ",
+    //   document.documentElement.clientWidth,
+    //   "/",
+    //   "client Height - ",
+    //   document.documentElement.clientHeight
+    // );
+
+    // window.scrollTo({
+    //   left: react.leftv + window.pageXOffset,
+    //   top: react.top,
+    //   behavior: "smooth",
+    // });
+
+    document.querySelector(section).scrollIntoView({ behavior: "smooth" });
+  });
+
   nlink.addEventListener("mouseout", function (e) {
     init.navNormal(nlinks);
   });
